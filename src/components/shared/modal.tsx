@@ -11,6 +11,7 @@ const SIZE_MAP = {
   sm: 'max-w-[420px]',
   md: 'max-w-[560px]',
   lg: 'max-w-[720px]',
+  xl: 'max-w-[860px]',
 } as const;
 
 type ModalSize = keyof typeof SIZE_MAP;
