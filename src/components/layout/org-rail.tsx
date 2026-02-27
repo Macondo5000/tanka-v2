@@ -225,7 +225,7 @@ export function OrgRail() {
       <Modal
         open={aiModalOpen}
         onClose={() => setAiModalOpen(false)}
-        size="sm"
+        size="md"
         title="AI Settings"
         subtitle="Manage AI-powered features"
       >

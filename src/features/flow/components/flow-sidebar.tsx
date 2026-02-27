@@ -1,5 +1,5 @@
 import { Home, BookOpen, Plus, Search, CalendarCheck, FolderOpen, PanelLeftClose } from 'lucide-react';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams, useLocation } from 'react-router';
 import { useFlowStore } from '@/store/flow-store';
 import { SIDEBAR_WIDTH } from '@/lib/constants';
 import { useUIStore } from '@/store/ui-store';
@@ -7,8 +7,10 @@ import { useUIStore } from '@/store/ui-store';
 export function FlowSidebar() {
   const navigate = useNavigate();
   const { flowId } = useParams();
+  const location = useLocation();
   const flows = useFlowStore((s) => s.flows);
   const toggleSidebar = useUIStore((s) => s.toggleSidebar);
+  const isSOPActive = location.pathname === '/flow/sop-library';
 
   return (
     <div className="h-full bg-[#fafafa] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
@@ -50,12 +52,15 @@ export function FlowSidebar() {
           </button>
 
           <button
-            className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-600 hover:bg-[#f0f0f0] transition-all"
+            onClick={() => navigate('/flow/sop-library')}
+            className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all ${
+              isSOPActive ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
+            }`}
           >
             <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
               <BookOpen className="w-3.5 h-3.5 text-gray-500" />
             </div>
-            <span className="text-[13px] font-semibold">SOP Library</span>
+            <span className={`text-[13px] font-semibold ${isSOPActive ? 'text-black' : ''}`}>SOP Library</span>
           </button>
 
           <button

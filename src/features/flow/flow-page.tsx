@@ -1,4 +1,4 @@
-import { Outlet, useParams, useNavigate } from 'react-router';
+import { Outlet, useParams, useNavigate, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { PanelLeftOpen, Plus, BookOpen, CalendarCheck, FolderOpen } from 'lucide-react';
 import { FlowSidebar } from './components/flow-sidebar';
@@ -9,7 +9,9 @@ import { SIDEBAR_WIDTH, SPRING } from '@/lib/constants';
 export function FlowPage() {
   const { flowId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { sidebarCollapsed, toggleSidebar } = useUIStore();
+  const hasChildRoute = !!flowId || (location.pathname !== '/flow' && location.pathname !== '/');
 
   return (
     <div className="h-full flex gap-3">
@@ -36,7 +38,7 @@ export function FlowPage() {
             <button onClick={() => navigate('/flow/new')} title="New Flow" className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center hover:bg-[#d5d5d5] transition-colors">
               <Plus className="w-3.5 h-3.5 text-gray-500" />
             </button>
-            <button title="SOP Library" className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center hover:bg-[#d5d5d5] transition-colors">
+            <button onClick={() => navigate('/flow/sop-library')} title="SOP Library" className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center hover:bg-[#d5d5d5] transition-colors">
               <BookOpen className="w-3.5 h-3.5 text-gray-500" />
             </button>
             <button title="Follow-up" className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center hover:bg-[#d5d5d5] transition-colors">
@@ -50,7 +52,7 @@ export function FlowPage() {
       )}
 
       <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-white">
-        {flowId ? <Outlet /> : <FlowHome />}
+        {hasChildRoute ? <Outlet /> : <FlowHome />}
       </div>
     </div>
   );

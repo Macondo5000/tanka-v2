@@ -9,7 +9,7 @@ import { APP_CATEGORIES } from '@/mock/apps';
 import { SIDEBAR_WIDTH, SPRING } from '@/lib/constants';
 
 export function LinkPage() {
-  const { apps, linkFilter, selectedCategory, selectedAppId, setSelectedCategory, setSelectedApp, toggleConnection } = useLinkStore();
+  const { apps, linkFilter, setLinkFilter, selectedCategory, selectedAppId, setSelectedCategory, setSelectedApp, toggleConnection } = useLinkStore();
   const { sidebarCollapsed, toggleSidebar } = useUIStore();
 
   const baseFilteredApps = linkFilter === 'linked'
@@ -24,6 +24,9 @@ export function LinkPage() {
   const availableCategories = APP_CATEGORIES.filter((cat) =>
     baseFilteredApps.some((a) => a.category === cat)
   );
+
+  const linkedCount = apps.filter((a) => a.isConnected).length;
+  const unlinkedCount = apps.filter((a) => !a.isConnected).length;
 
   const selectedApp = apps.find((a) => a.id === selectedAppId) ?? null;
 
@@ -80,17 +83,39 @@ export function LinkPage() {
           />
         ) : (
           <div className="h-full overflow-y-auto no-scrollbar">
-            <div className="max-w-[800px] mx-auto px-8 py-8">
+            <div className="max-w-[800px] mx-auto px-8 pt-6">
               {/* Header */}
-              <div className="mb-6">
-                <h2 className="text-[18px] font-bold tracking-tight text-black">
-                  {linkFilter === 'linked' ? 'Linked Apps' : 'Unlinked Apps'}
-                </h2>
-                <p className="text-[13px] text-gray-400 font-medium mt-0.5">
-                  {filteredApps.length} {linkFilter === 'linked' ? 'connected' : 'available'}
-                </p>
-              </div>
+              <h2 className="text-[18px] font-bold tracking-tight text-black">Apps</h2>
+              <p className="text-[13px] text-gray-400 font-medium mt-0.5">Connect third-party tools to your workspace.</p>
 
+              {/* Tabs */}
+              <div className="flex gap-0 mt-5 border-b border-gray-100">
+                <button
+                  onClick={() => { setLinkFilter('linked'); setSelectedCategory(null); }}
+                  className={`flex items-center gap-2 px-4 pb-3 text-[14px] font-semibold transition-colors relative ${
+                    linkFilter === 'linked' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
+                  }`}
+                >
+                  <Link2 className="w-4 h-4" />
+                  Linked
+                  <span className={`text-[12px] font-medium ${linkFilter === 'linked' ? 'text-gray-500' : 'text-gray-300'}`}>{linkedCount}</span>
+                  {linkFilter === 'linked' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black rounded-full" />}
+                </button>
+                <button
+                  onClick={() => { setLinkFilter('unlinked'); setSelectedCategory(null); }}
+                  className={`flex items-center gap-2 px-4 pb-3 text-[14px] font-semibold transition-colors relative ${
+                    linkFilter === 'unlinked' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
+                  }`}
+                >
+                  <Unlink className="w-4 h-4" />
+                  Unlinked
+                  <span className={`text-[12px] font-medium ${linkFilter === 'unlinked' ? 'text-gray-500' : 'text-gray-300'}`}>{unlinkedCount}</span>
+                  {linkFilter === 'unlinked' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black rounded-full" />}
+                </button>
+              </div>
+            </div>
+
+            <div className="max-w-[800px] mx-auto px-8 py-6">
               {/* Category tags */}
               <div className="flex flex-wrap gap-2 mb-6">
                 <button
