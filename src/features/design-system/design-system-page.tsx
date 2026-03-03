@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'motion/react';
 import { ArrowLeft, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { StatusBadge } from '@/components/shared/status-badge';

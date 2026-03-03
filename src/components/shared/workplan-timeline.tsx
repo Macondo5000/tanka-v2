@@ -1,4 +1,4 @@
-import { Check, Zap, Circle } from 'lucide-react';
+import { Check, Circle } from 'lucide-react';
 import type { WorkplanStep, StepAction } from '@/types/flow';
 import { ActionCardCompact } from './action-card-compact';
 
