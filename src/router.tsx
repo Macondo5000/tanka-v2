@@ -5,6 +5,8 @@ import { FlowPage } from '@/features/flow/flow-page';
 import { FlowBoardPage } from '@/features/flow/flow-board-page';
 import { FlowDetailPage } from '@/features/flow/flow-detail-page';
 import { SOPLibraryPage } from '@/features/flow/sop-library-page';
+import { FollowUpPage } from '@/features/flow/follow-up-page';
+import { AssetsPage } from '@/features/flow/assets-page';
 import { MembersPage } from '@/features/chat/components/members-page';
 import { LinkPage } from '@/features/link/link-page';
 import { DesignSystemPage } from '@/features/design-system/design-system-page';
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
           {
             path: 'sop-library',
             element: <SOPLibraryPage />,
+          },
+          {
+            path: 'follow-up',
+            element: <FollowUpPage />,
+          },
+          {
+            path: 'assets',
+            element: <AssetsPage />,
           },
           {
             path: ':flowId',

@@ -24,13 +24,13 @@ export function FloatingInput({ placeholder = 'Type a message...', onSend, disab
   };
 
   return (
-    <div className="pb-6 pt-1 shrink-0">
+    <div className="shrink-0 pb-4 pt-1">
       <div className="max-w-[800px] mx-auto px-8">
         <div
           className={`relative rounded-2xl border bg-white transition-all ${
             focused
-              ? 'border-gray-300 shadow-xl ring-4 ring-black/[0.03]'
-              : 'border-gray-200 shadow-md'
+              ? 'border-gray-400 ring-4 ring-black/[0.03]'
+              : 'border-[#d0d0d0]'
           }`}
         >
           <textarea
@@ -56,33 +56,33 @@ export function FloatingInput({ placeholder = 'Type a message...', onSend, disab
               {/* Voice */}
               <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="7.75" y="1.75" width="8.5" height="12.5" rx="4.25" stroke="#8592A6" strokeWidth="1.5"/>
-                  <path d="M4 11L4.01005 11.0704C4.57808 15.0466 7.98343 18 12 18C16.0166 18 19.4219 15.0466 19.9899 11.0704L20 11" stroke="#8592A6" strokeWidth="1.5"/>
-                  <path d="M12 18V23" stroke="#8592A6" strokeWidth="1.5"/>
+                  <rect x="7.75" y="1.75" width="8.5" height="12.5" rx="4.25" stroke="#4B5563" strokeWidth="1.5"/>
+                  <path d="M4 11L4.01005 11.0704C4.57808 15.0466 7.98343 18 12 18C16.0166 18 19.4219 15.0466 19.9899 11.0704L20 11" stroke="#4B5563" strokeWidth="1.5"/>
+                  <path d="M12 18V23" stroke="#4B5563" strokeWidth="1.5"/>
                 </svg>
               </button>
               {/* Poll */}
               <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 17.5V11" stroke="#8592A6" strokeWidth="1.5"/>
-                  <path d="M12 17.5V6.5" stroke="#8592A6" strokeWidth="1.5"/>
-                  <path d="M19 17.5V3" stroke="#8592A6" strokeWidth="1.5"/>
-                  <path d="M3 21H21" stroke="#8592A6" strokeWidth="1.5"/>
+                  <path d="M5 17.5V11" stroke="#4B5563" strokeWidth="1.5"/>
+                  <path d="M12 17.5V6.5" stroke="#4B5563" strokeWidth="1.5"/>
+                  <path d="M19 17.5V3" stroke="#4B5563" strokeWidth="1.5"/>
+                  <path d="M3 21H21" stroke="#4B5563" strokeWidth="1.5"/>
                 </svg>
               </button>
               {/* Screenshot */}
               <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5.53033 2.46967C5.23744 2.17678 4.76256 2.17678 4.46967 2.46967C4.17678 2.76256 4.17678 3.23744 4.46967 3.53033L5 3L5.53033 2.46967ZM5 3L4.46967 3.53033L15.4697 14.5303L16 14L16.5303 13.4697L5.53033 2.46967L5 3Z" fill="#8592A6"/>
-                  <path d="M19 3L8.5 13.5" stroke="#8592A6" strokeWidth="1.5" strokeLinecap="round"/>
-                  <circle cx="18" cy="16.5" r="3.25" stroke="#8592A6" strokeWidth="1.5"/>
-                  <circle cx="6" cy="16.5" r="3.25" stroke="#8592A6" strokeWidth="1.5"/>
+                  <path d="M5.53033 2.46967C5.23744 2.17678 4.76256 2.17678 4.46967 2.46967C4.17678 2.76256 4.17678 3.23744 4.46967 3.53033L5 3L5.53033 2.46967ZM5 3L4.46967 3.53033L15.4697 14.5303L16 14L16.5303 13.4697L5.53033 2.46967L5 3Z" fill="#4B5563"/>
+                  <path d="M19 3L8.5 13.5" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round"/>
+                  <circle cx="18" cy="16.5" r="3.25" stroke="#4B5563" strokeWidth="1.5"/>
+                  <circle cx="6" cy="16.5" r="3.25" stroke="#4B5563" strokeWidth="1.5"/>
                 </svg>
               </button>
               {/* File */}
               <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4H10.2L12.7714 6.93939H20C20.5523 6.93939 21 7.38711 21 7.93939V19C21 19.5523 20.5523 20 20 20H4C3.44772 20 3 19.5523 3 19V5C3 4.44772 3.44772 4 4 4Z" stroke="#8592A6" strokeWidth="1.5"/>
+                  <path d="M4 4H10.2L12.7714 6.93939H20C20.5523 6.93939 21 7.38711 21 7.93939V19C21 19.5523 20.5523 20 20 20H4C3.44772 20 3 19.5523 3 19V5C3 4.44772 3.44772 4 4 4Z" stroke="#4B5563" strokeWidth="1.5"/>
                 </svg>
               </button>
             </div>
@@ -91,7 +91,7 @@ export function FloatingInput({ placeholder = 'Type a message...', onSend, disab
               disabled={!value.trim() || disabled}
               className={`flex items-center justify-center transition-all active:scale-95 ${
                 value.trim()
-                  ? 'text-[#615EF0] hover:text-[#615EF0]/80'
+                  ? 'text-[#4B5563] hover:text-[#374151]'
                   : 'text-gray-300'
               }`}
             >

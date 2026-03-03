@@ -153,6 +153,22 @@ export function FlowDetailPage() {
       {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto py-6 no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 space-y-5">
+          {isNew && messages.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ease: EASE_SMOOTH, duration: 0.5 }}
+              className="flex flex-col items-center justify-center pt-32"
+            >
+              <img src="/tanka-logo.svg" alt="Tanka" className="w-10 h-10 mb-5" />
+              <h1 className="text-[28px] font-bold tracking-tight text-black">
+                {new Date().getHours() < 12 ? 'Good morning' : new Date().getHours() < 18 ? 'Good afternoon' : 'Good evening'}, Koko
+              </h1>
+              <p className="text-[14px] text-gray-400 font-normal mt-2">
+                What key matters are on your mind right now?
+              </p>
+            </motion.div>
+          )}
           {messages.map((msg, idx) => (
             <motion.div
               key={msg.id}

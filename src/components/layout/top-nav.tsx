@@ -40,11 +40,11 @@ export function TopNav() {
 
   return (
     <header className="h-11 px-4 bg-[#EFF0EB] flex items-center sticky top-0 z-20 shrink-0">
-      {/* Left: Org tag */}
-      <div className="flex items-center">
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/[0.05] select-none">
-          <Building2 className="w-3.5 h-3.5 text-gray-500" strokeWidth={2} />
-          <span className="text-[13px] font-bold text-black tracking-tight">{activeOrg.name}</span>
+      {/* Left: Org tag — fixed width so center tabs don't shift */}
+      <div className="w-[160px] flex items-center">
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/[0.05] select-none max-w-full">
+          <Building2 className="w-3.5 h-3.5 text-gray-500 shrink-0" strokeWidth={2} />
+          <span className="text-[13px] font-bold text-black tracking-tight truncate">{activeOrg.name}</span>
         </div>
       </div>
 
@@ -78,8 +78,8 @@ export function TopNav() {
         </div>
       </nav>
 
-      {/* Right: User avatar with dropdown arrow */}
-      <div ref={userMenuRef} className="relative">
+      {/* Right: User avatar — fixed width to match left, keeps center stable */}
+      <div ref={userMenuRef} className="w-[160px] flex justify-end relative">
         <button
           onClick={() => setUserMenuOpen(!userMenuOpen)}
           className="flex items-center gap-1.5 px-1.5 py-1 rounded-lg hover:bg-gray-100 transition-colors"

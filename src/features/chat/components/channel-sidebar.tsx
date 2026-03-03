@@ -47,17 +47,17 @@ export function ChannelSidebar() {
             </div>
           </div>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-300" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
             <input
               type="text"
               placeholder="Search..."
-              className="w-full pl-9 pr-3 py-2 bg-white border border-gray-200 rounded-lg text-[13px] font-medium placeholder:text-gray-300 outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200/60 transition-all"
+              className="w-full pl-9 pr-3 py-1.5 bg-[#ebebeb] rounded-lg text-[13px] font-medium placeholder:text-gray-400 outline-none focus:bg-white focus:ring-2 focus:ring-gray-200/60 transition-all"
             />
           </div>
         </div>
 
         {/* Tool entries */}
-        <div className="px-2 pt-1 pb-1 shrink-0 space-y-0.5">
+        <div className="px-2 py-2 shrink-0 space-y-0.5">
           {CHAT_TOOLS.map((tool) => {
             const Icon = tool.icon;
             return (

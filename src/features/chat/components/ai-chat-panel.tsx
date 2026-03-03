@@ -74,7 +74,7 @@ export function AiChatPanel() {
         >
           <div className="flex flex-col h-full" style={{ width: AI_PANEL_WIDTH }}>
             {/* Header */}
-            <div className="px-4 h-14 flex items-center justify-between shrink-0 border-b border-gray-200">
+            <div className="px-4 h-[60px] flex items-center justify-between shrink-0 border-b border-gray-200">
               <div className="flex items-center gap-2.5">
                 <img src="/ai-assistant.png" alt="AI" className="w-6 h-6 rounded-full object-cover" />
                 <h3 className="text-[18px] font-bold tracking-tight">AI Assistant</h3>
@@ -102,10 +102,10 @@ export function AiChatPanel() {
             </div>
 
             {/* Input */}
-            <div className="shrink-0 px-3 pb-6 pt-1">
+            <div className="shrink-0 px-3 pb-4 pt-1">
               <div
                 className={`relative rounded-2xl p-px bg-gradient-to-r from-violet-400 via-blue-400 to-emerald-400 transition-all ${
-                  inputFocused ? 'shadow-xl ring-4 ring-violet-500/[0.06]' : 'shadow-md'
+                  inputFocused ? 'ring-4 ring-violet-500/[0.06]' : ''
                 }`}
               >
               <div className="relative rounded-[15px] bg-white">
@@ -130,18 +130,18 @@ export function AiChatPanel() {
                     {/* Add File */}
                     <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19" stroke="#8592A6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M12 5V19" stroke="#8592A6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M5 12H19" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 5V19" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
                     {/* Deep Research */}
                     <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.9999 20C7.58166 20 3.99997 16.4183 3.99997 12C3.99997 7.58172 7.58166 4 11.9999 4C14.7912 4 17.2486 5.42958 18.6799 7.59652" stroke="#8592A6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M11.9998 20C11.9998 20 8.66646 17.3333 8.66646 12C8.66646 6.66667 11.9998 4 11.9998 4C11.9998 4 14.1975 5.7193 14.7769 8.03697" stroke="#8592A6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M4.45524 12.0005H10.8442" stroke="#8592A6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M16.7466 18.2082C18.7699 18.2082 20.4102 16.5679 20.4102 14.5445C20.4102 12.5211 18.7699 10.8809 16.7466 10.8809C14.7232 10.8809 13.083 12.5211 13.083 14.5445C13.083 16.5679 14.7232 18.2082 16.7466 18.2082Z" stroke="#8592A6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M19.2397 17.5977L20.9189 19.2768" stroke="#8592A6" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M11.9999 20C7.58166 20 3.99997 16.4183 3.99997 12C3.99997 7.58172 7.58166 4 11.9999 4C14.7912 4 17.2486 5.42958 18.6799 7.59652" stroke="#4B5563" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M11.9998 20C11.9998 20 8.66646 17.3333 8.66646 12C8.66646 6.66667 11.9998 4 11.9998 4C11.9998 4 14.1975 5.7193 14.7769 8.03697" stroke="#4B5563" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M4.45524 12.0005H10.8442" stroke="#4B5563" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M16.7466 18.2082C18.7699 18.2082 20.4102 16.5679 20.4102 14.5445C20.4102 12.5211 18.7699 10.8809 16.7466 10.8809C14.7232 10.8809 13.083 12.5211 13.083 14.5445C13.083 16.5679 14.7232 18.2082 16.7466 18.2082Z" stroke="#4B5563" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M19.2397 17.5977L20.9189 19.2768" stroke="#4B5563" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
                   </div>
@@ -150,7 +150,7 @@ export function AiChatPanel() {
                     disabled={!inputValue.trim()}
                     className={`flex items-center justify-center transition-all active:scale-95 ${
                       inputValue.trim()
-                        ? 'text-[#615EF0] hover:text-[#615EF0]/80'
+                        ? 'text-[#4B5563] hover:text-[#374151]'
                         : 'text-gray-300'
                     }`}
                   >

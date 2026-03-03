@@ -37,7 +37,7 @@ export function FlowHome() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-white">
+    <div className="h-full flex flex-col bg-[#FBFBF9]">
       <div className="flex-1 overflow-y-auto no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 py-8 space-y-10">
           {/* Greeting */}
@@ -46,10 +46,9 @@ export function FlowHome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ ease: EASE_SMOOTH, duration: 0.5 }}
           >
-            <h1 className="text-[22px] font-bold tracking-tight text-black">
+            <h1 className="text-[28px] font-bold tracking-tight text-black">
               {new Date().getHours() < 12 ? 'Good morning, Koko' : new Date().getHours() < 18 ? 'Good afternoon, Koko' : 'Good evening, Koko'}
             </h1>
-            <p className="text-[14px] text-gray-400 font-medium mt-1" />
           </motion.div>
 
           {/* For You */}
@@ -62,13 +61,13 @@ export function FlowHome() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, ease: EASE_SMOOTH }}
-                  className="relative rounded-2xl overflow-hidden bg-white border border-gray-200 flex flex-col px-5 py-4 cursor-pointer hover:border-emerald-400 hover:shadow-[0_0_12px_rgba(16,185,129,0.2)] active:scale-[0.98] transition-all"
+                  className="relative rounded-2xl overflow-hidden border border-[#E9EAE7] flex flex-col px-5 py-4 cursor-pointer hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.05)] active:scale-[0.98] transition-all group"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <Sparkles className="w-3 h-3 text-gray-400" />
                       <span className="text-[9px] font-bold uppercase tracking-widest text-gray-400">
-                        Convert to Flow
+                        AI Suggestion
                       </span>
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-400" />
@@ -95,7 +94,7 @@ export function FlowHome() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, ease: EASE_SMOOTH }}
                   onClick={() => navigate(`/flow/${flow.id}`)}
-                  className="p-4 rounded-2xl bg-[#f5f5f5] hover:bg-[#f0f0f0] active:scale-[0.99] transition-all cursor-pointer"
+                  className="p-4 rounded-2xl border border-[#E9EAE7] hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.05)] active:scale-[0.99] transition-all cursor-pointer"
                 >
                   <div className="flex items-center justify-between">
                     <h4 className="text-[14px] font-semibold text-black tracking-tight truncate pr-2">{flow.title}</h4>

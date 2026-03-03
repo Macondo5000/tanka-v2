@@ -19,7 +19,7 @@ export function AppShell() {
       {/* Version update banner — full width top */}
       {showBanner && (
         <div className="shrink-0 px-2 pt-2">
-          <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-[#dcfce7] border border-[#86efac]">
+          <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-[#D7F5FE] border border-[#7DD3FC]">
             <p className="text-[13px] text-black">
               <span className="font-semibold">Tanka v2.4 is available</span>
               <span className="font-normal ml-1.5">— Includes AI Side Whisper, Smart Vote, and performance improvements.</span>

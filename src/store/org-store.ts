@@ -11,6 +11,7 @@ export interface Org {
 
 export const ORGS: Org[] = [
   { id: 'miromind', name: 'MiroMind', initial: 'M', bg: 'bg-white border border-gray-200', text: 'text-black', unreadCount: 0 },
+  { id: 'tanka', name: 'Tanka', initial: 'T', bg: 'bg-black', text: 'text-white', unreadCount: 0 },
   { id: 'newsbang', name: 'Newsbang', initial: 'N', bg: 'bg-violet-500', text: 'text-white', unreadCount: 5 },
   { id: 'arcflow', name: 'ArcFlow', initial: 'A', bg: 'bg-blue-500', text: 'text-white', unreadCount: 12 },
   { id: 'sundial', name: 'Sundial Studio', initial: 'S', bg: 'bg-amber-500', text: 'text-white', unreadCount: 0 },

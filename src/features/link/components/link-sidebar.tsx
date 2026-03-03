@@ -23,11 +23,11 @@ export function LinkSidebar() {
           </div>
         </div>
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-300" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
           <input
             type="text"
             placeholder="Search..."
-            className="w-full pl-9 pr-3 py-2 bg-white border border-gray-200 rounded-lg text-[13px] font-medium placeholder:text-gray-300 outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200/60 transition-all"
+            className="w-full pl-9 pr-3 py-1.5 bg-[#ebebeb] rounded-lg text-[13px] font-medium placeholder:text-gray-400 outline-none focus:bg-white focus:ring-2 focus:ring-gray-200/60 transition-all"
           />
         </div>
       </div>
@@ -36,8 +36,8 @@ export function LinkSidebar() {
       <div className="px-2 py-2 space-y-0.5">
         <button
           onClick={() => setLinkFilter('linked')}
-          className={`w-full flex items-center gap-2.5 px-2.5 py-2.5 rounded-lg text-left transition-all ${
-            linkFilter === 'linked' ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
+          className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
+            linkFilter === 'linked' ? 'bg-white border-gray-200 shadow-sm text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
           }`}
         >
           <Link2 className="w-4 h-4 text-gray-600 shrink-0" />
@@ -47,8 +47,8 @@ export function LinkSidebar() {
 
         <button
           onClick={() => setLinkFilter('unlinked')}
-          className={`w-full flex items-center gap-2.5 px-2.5 py-2.5 rounded-lg text-left transition-all ${
-            linkFilter === 'unlinked' ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
+          className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
+            linkFilter === 'unlinked' ? 'bg-white border-gray-200 shadow-sm text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
           }`}
         >
           <Unlink className="w-4 h-4 text-gray-600 shrink-0" />

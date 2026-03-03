@@ -17,7 +17,7 @@ export function ChannelHeader({ channel }: ChannelHeaderProps) {
     : null;
 
   return (
-    <div className="h-14 px-5 flex items-center justify-between shrink-0">
+    <div className="h-[60px] px-5 flex items-center justify-between shrink-0 border-b border-gray-200">
       <div className="flex items-center gap-3">
         {channel.type === 'channel' ? (
           <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
@@ -38,19 +38,17 @@ export function ChannelHeader({ channel }: ChannelHeaderProps) {
             </span>
           </div>
         )}
-        <div>
+        <div className="flex items-center gap-2.5">
           <h3 className="text-[18px] font-bold tracking-tight">{channel.name}</h3>
           {channel.type === 'dm' ? (
-            <div className="flex items-center gap-1.5">
-              {dmPeer?.isOnline ? (
-                <>
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
-                  <span className="text-[13px] text-emerald-600 font-medium">Online</span>
-                </>
-              ) : (
-                <span className="text-[13px] text-gray-400 font-medium">Offline</span>
-              )}
-            </div>
+            dmPeer?.isOnline ? (
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                <span className="text-[13px] text-emerald-600 font-medium">Online</span>
+              </span>
+            ) : (
+              <span className="text-[13px] text-gray-400 font-medium">Offline</span>
+            )
           ) : (
             <span className="text-[13px] text-gray-400 font-medium">{channel.members.length} members</span>
           )}

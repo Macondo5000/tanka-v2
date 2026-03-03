@@ -41,17 +41,17 @@ export function FlowPage() {
             <button onClick={() => navigate('/flow/sop-library')} title="SOP Library" className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-gray-100 transition-colors">
               <BookOpen className="w-3.5 h-3.5 text-gray-600" />
             </button>
-            <button title="Follow-up" className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-gray-100 transition-colors">
+            <button onClick={() => navigate('/flow/follow-up')} title="Follow-up" className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-gray-100 transition-colors">
               <CalendarCheck className="w-3.5 h-3.5 text-gray-600" />
             </button>
-            <button title="Assets" className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-gray-100 transition-colors">
+            <button onClick={() => navigate('/flow/assets')} title="Assets" className="w-6 h-6 rounded-md flex items-center justify-center hover:bg-gray-100 transition-colors">
               <FolderOpen className="w-3.5 h-3.5 text-gray-600" />
             </button>
           </div>
         </div>
       )}
 
-      <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+      <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-[#FBFBF9] shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
         {hasChildRoute ? <Outlet /> : <FlowHome />}
       </div>
     </div>
