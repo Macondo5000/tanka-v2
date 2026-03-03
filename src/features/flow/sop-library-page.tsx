@@ -155,7 +155,7 @@ export function SOPLibraryPage() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-white">
+    <div className="h-full flex flex-col bg-[#fafafa]">
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 pt-6">
@@ -205,7 +205,7 @@ export function SOPLibraryPage() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05, ease: EASE_SMOOTH }}
                       onClick={() => handleSOPClick(sop)}
-                      className="text-left p-5 rounded-2xl bg-white border border-gray-200 hover:border-gray-300 hover:bg-[#fafafa] active:scale-[0.99] transition-all group"
+                      className="text-left p-5 rounded-2xl bg-white border border-gray-200 hover:border-gray-300 hover:shadow-sm active:scale-[0.99] transition-all group"
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div className="w-9 h-9 rounded-xl bg-[#f0f0f0] flex items-center justify-center shrink-0 group-hover:bg-[#e4e4e4] transition-colors">

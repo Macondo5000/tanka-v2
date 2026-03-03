@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Link2 } from 'lucide-react';
 import type { LinkedApp } from '@/types/link';
 import { EASE_SMOOTH } from '@/lib/constants';
 
@@ -34,8 +35,8 @@ export function AppCard({ app, index, onClick }: AppCardProps) {
           View
         </span>
       ) : (
-        <span className="px-3 py-1 rounded-md text-[11px] font-semibold text-white bg-black shrink-0">
-          Link
+        <span className="w-7 h-7 rounded-md border border-gray-200 bg-white flex items-center justify-center shrink-0">
+          <Link2 className="w-3.5 h-3.5 text-gray-400" />
         </span>
       )}
     </motion.div>

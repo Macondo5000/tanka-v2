@@ -11,7 +11,7 @@ export function LinkSidebar() {
   const unlinkedCount = apps.filter((a) => !a.isConnected).length;
 
   return (
-    <div className="h-full bg-[#fafafa] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
+    <div className="h-full bg-[#FBFBF9] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
       {/* Header */}
       <div className="px-4 pt-4 pb-2 shrink-0">
         <div className="flex items-center justify-between mb-3">
@@ -40,9 +40,7 @@ export function LinkSidebar() {
             linkFilter === 'linked' ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
           }`}
         >
-          <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
-            <Link2 className="w-3.5 h-3.5 text-gray-500" />
-          </div>
+          <Link2 className="w-4 h-4 text-gray-600 shrink-0" />
           <span className={`text-[13px] font-semibold flex-1 ${linkFilter === 'linked' ? 'text-black' : ''}`}>Linked</span>
           <span className="text-[11px] font-medium text-gray-400">{linkedCount}</span>
         </button>
@@ -53,9 +51,7 @@ export function LinkSidebar() {
             linkFilter === 'unlinked' ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
           }`}
         >
-          <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
-            <Unlink className="w-3.5 h-3.5 text-gray-500" />
-          </div>
+          <Unlink className="w-4 h-4 text-gray-600 shrink-0" />
           <span className={`text-[13px] font-semibold flex-1 ${linkFilter === 'unlinked' ? 'text-black' : ''}`}>Unlinked</span>
           <span className="text-[11px] font-medium text-gray-400">{unlinkedCount}</span>
         </button>

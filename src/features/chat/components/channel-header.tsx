@@ -1,6 +1,7 @@
 import { Sparkles, EllipsisVertical, Phone } from 'lucide-react';
 import type { Channel } from '@/types/chat';
 import { useChatStore } from '@/store/chat-store';
+import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 
 interface ChannelHeaderProps {
   channel: Channel;
@@ -31,9 +32,9 @@ export function ChannelHeader({ channel }: ChannelHeaderProps) {
         ) : channel.avatar ? (
           <img src={channel.avatar} alt={channel.name} className="w-10 h-10 rounded-full object-cover ring-1 ring-black/5" />
         ) : (
-          <div className="w-10 h-10 rounded-full bg-[#e4e4e4] flex items-center justify-center ring-1 ring-black/5">
-            <span className="text-[12px] font-bold text-[#888888]">
-              {channel.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
+          <div className="w-10 h-10 rounded-full flex items-center justify-center ring-1 ring-black/5" style={{ backgroundColor: getAvatarColor(channel.name) }}>
+            <span className="text-[14px] font-bold text-black">
+              {getAvatarLetter(channel.name)}
             </span>
           </div>
         )}

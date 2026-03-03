@@ -10,6 +10,7 @@ import { AiChatPanel } from './components/ai-chat-panel';
 import { useChatStore } from '@/store/chat-store';
 import { useUIStore } from '@/store/ui-store';
 import { SIDEBAR_WIDTH, SPRING } from '@/lib/constants';
+import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 
 export function ChatPage() {
   const { channelId } = useParams();
@@ -27,7 +28,7 @@ export function ChatPage() {
   const activeChannel = channels.find((c) => c.id === activeChannelId);
 
   return (
-    <div className="h-full flex gap-3">
+    <div className="h-full flex gap-2">
       <AnimatePresence initial={false}>
         {!sidebarCollapsed && (
           <motion.div
@@ -35,7 +36,7 @@ export function ChatPage() {
             animate={{ width: SIDEBAR_WIDTH, opacity: 1 }}
             exit={{ width: 0, opacity: 0 }}
             transition={SPRING}
-            className="h-full shrink-0 overflow-hidden rounded-[10px]"
+            className="h-full shrink-0 overflow-hidden rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
           >
             <ChannelSidebar />
           </motion.div>
@@ -43,7 +44,7 @@ export function ChatPage() {
       </AnimatePresence>
 
       {sidebarCollapsed && (
-        <div className="h-full shrink-0 flex flex-col items-center pt-3 px-1.5 gap-2 bg-white rounded-[10px] overflow-hidden">
+        <div className="h-full shrink-0 flex flex-col items-center pt-3 px-1.5 gap-2 bg-white rounded-[10px] overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <button onClick={toggleSidebar} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-black shrink-0">
             <PanelLeftOpen className="w-4 h-4" />
           </button>
@@ -62,9 +63,9 @@ export function ChatPage() {
                 ) : ch.avatar ? (
                   <img src={ch.avatar} alt={ch.name} className="w-full h-full object-cover ring-1 ring-black/5" />
                 ) : (
-                  <div className="w-full h-full bg-[#e4e4e4] flex items-center justify-center">
-                    <span className="text-[11px] font-bold text-[#888888]">
-                      {ch.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
+                  <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: getAvatarColor(ch.name) }}>
+                    <span className="text-[11px] font-bold text-black">
+                      {getAvatarLetter(ch.name)}
                     </span>
                   </div>
                 )}
@@ -75,7 +76,7 @@ export function ChatPage() {
       )}
 
       {activeChannel ? (
-        <div className="flex-1 flex overflow-hidden rounded-[10px] bg-white">
+        <div className="flex-1 flex overflow-hidden rounded-[10px] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           {/* Main content column */}
           <div className="flex-1 flex flex-col overflow-hidden">
             <ChannelHeader channel={activeChannel} />
@@ -86,7 +87,7 @@ export function ChatPage() {
           <AiChatPanel />
         </div>
       ) : (
-        <div className="flex-1 flex items-center justify-center rounded-[10px] bg-white">
+        <div className="flex-1 flex items-center justify-center rounded-[10px] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <div className="text-center">
             <MessageSquare className="w-12 h-12 text-gray-200 mx-auto mb-3" />
             <p className="text-[14px] text-gray-300 font-medium">Select a channel to start</p>

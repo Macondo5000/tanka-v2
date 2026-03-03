@@ -9,6 +9,7 @@ import { Modal } from '@/components/shared/modal';
 import { ORG_MEMBERS, DEPARTMENTS, type OrgMember } from '@/mock/members';
 import { useChatStore } from '@/store/chat-store';
 import { EASE_SMOOTH } from '@/lib/constants';
+import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 
 /* ═══════════════════════════════════════════════════════
    Member Profile Modal — read-only, md (560px)
@@ -178,9 +179,9 @@ function ForwardModal({ member, onClose }: { member: OrgMember; onClose: () => v
                   ) : ch.avatar ? (
                     <img src={ch.avatar} alt={ch.name} className="w-9 h-9 rounded-full object-cover ring-1 ring-black/5 shrink-0" />
                   ) : (
-                    <div className="w-9 h-9 rounded-full bg-[#e4e4e4] flex items-center justify-center shrink-0">
-                      <span className="text-[12px] font-bold text-[#888888]">
-                        {ch.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: getAvatarColor(ch.name) }}>
+                      <span className="text-[13px] font-bold text-black">
+                        {getAvatarLetter(ch.name)}
                       </span>
                     </div>
                   )}

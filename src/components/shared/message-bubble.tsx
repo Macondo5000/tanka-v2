@@ -1,5 +1,6 @@
 import { Lightbulb } from 'lucide-react';
 import type { User } from '@/types/common';
+import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 
 interface MessageBubbleProps {
   role: 'user' | 'assistant' | 'peer';
@@ -14,7 +15,7 @@ export function MessageBubble({ role, content, isProactive, timestamp, sender }:
     return (
       <div className="flex flex-col items-end gap-1">
         {timestamp && <span className="text-[10px] text-gray-400 px-1">{timestamp}</span>}
-        <div className="max-w-[75%] w-fit px-4 py-2.5 rounded-2xl text-[14px] leading-relaxed font-semibold bg-[#ebebeb] text-black rounded-tr-none">
+        <div className="max-w-[75%] w-fit px-4 py-2.5 rounded-2xl text-[14px] leading-relaxed font-semibold bg-[#D7F5FE] text-black rounded-tr-none">
           {content}
         </div>
       </div>
@@ -28,9 +29,9 @@ export function MessageBubble({ role, content, isProactive, timestamp, sender }:
           sender.avatar ? (
             <img src={sender.avatar} alt={sender.name} className="w-8 h-8 rounded-full object-cover ring-1 ring-black/5 shrink-0 mt-0.5" />
           ) : (
-            <div className="w-8 h-8 rounded-full bg-[#e4e4e4] flex items-center justify-center ring-1 ring-black/5 shrink-0 mt-0.5">
-              <span className="text-[11px] font-bold text-[#888888]">
-                {sender.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
+            <div className="w-8 h-8 rounded-full flex items-center justify-center ring-1 ring-black/5 shrink-0 mt-0.5" style={{ backgroundColor: getAvatarColor(sender.name) }}>
+              <span className="text-[12px] font-bold text-black">
+                {getAvatarLetter(sender.name)}
               </span>
             </div>
           )
@@ -40,7 +41,7 @@ export function MessageBubble({ role, content, isProactive, timestamp, sender }:
             {sender && <span className="text-[13px] text-gray-500 font-semibold">{sender.name}</span>}
             {timestamp && <span className="text-[11px] text-gray-400">{timestamp}</span>}
           </div>
-          <div className="max-w-[75%] w-fit px-4 py-2.5 rounded-2xl rounded-tl-none bg-white border border-gray-200 text-[14px] leading-relaxed font-medium text-[#3C3C3C]">
+          <div className="max-w-[75%] w-fit px-4 py-2.5 rounded-2xl rounded-tl-none bg-[#F8F8F7] text-[14px] leading-relaxed font-medium text-[#3C3C3C]">
             {content}
           </div>
         </div>

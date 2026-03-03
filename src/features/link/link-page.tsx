@@ -31,7 +31,7 @@ export function LinkPage() {
   const selectedApp = apps.find((a) => a.id === selectedAppId) ?? null;
 
   return (
-    <div className="h-full flex gap-3">
+    <div className="h-full flex gap-2">
       <AnimatePresence initial={false}>
         {!sidebarCollapsed && (
           <motion.div
@@ -39,7 +39,7 @@ export function LinkPage() {
             animate={{ width: SIDEBAR_WIDTH, opacity: 1 }}
             exit={{ width: 0, opacity: 0 }}
             transition={SPRING}
-            className="h-full shrink-0 overflow-hidden rounded-[10px]"
+            className="h-full shrink-0 overflow-hidden rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
           >
             <LinkSidebar />
           </motion.div>
@@ -47,7 +47,7 @@ export function LinkPage() {
       </AnimatePresence>
 
       {sidebarCollapsed && (
-        <div className="h-full shrink-0 flex flex-col items-center pt-3 px-1.5 gap-2 bg-white rounded-[10px] overflow-hidden">
+        <div className="h-full shrink-0 flex flex-col items-center pt-3 px-1.5 gap-2 bg-white rounded-[10px] overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <button onClick={toggleSidebar} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-black shrink-0">
             <PanelLeftOpen className="w-4 h-4" />
           </button>
@@ -55,26 +55,26 @@ export function LinkPage() {
             <button
               onClick={() => useLinkStore.getState().setLinkFilter('linked')}
               className={`w-6 h-6 rounded-md flex items-center justify-center transition-colors ${
-                linkFilter === 'linked' ? 'bg-[#ebebeb]' : 'bg-[#e4e4e4] hover:bg-[#d5d5d5]'
+                linkFilter === 'linked' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-100'
               }`}
               title="Linked"
             >
-              <Link2 className="w-3.5 h-3.5 text-gray-500" />
+              <Link2 className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => useLinkStore.getState().setLinkFilter('unlinked')}
               className={`w-6 h-6 rounded-md flex items-center justify-center transition-colors ${
-                linkFilter === 'unlinked' ? 'bg-[#ebebeb]' : 'bg-[#e4e4e4] hover:bg-[#d5d5d5]'
+                linkFilter === 'unlinked' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-100'
               }`}
               title="Unlinked"
             >
-              <Unlink className="w-3.5 h-3.5 text-gray-500" />
+              <Unlink className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
       )}
 
-      <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-white">
+      <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
         {selectedApp ? (
           <LinkDetail
             app={selectedApp}

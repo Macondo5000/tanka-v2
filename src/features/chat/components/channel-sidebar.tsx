@@ -3,6 +3,7 @@ import { useChatStore } from '@/store/chat-store';
 import { useNavigate } from 'react-router';
 import { SIDEBAR_WIDTH } from '@/lib/constants';
 import { useUIStore } from '@/store/ui-store';
+import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 
 const CHAT_TOOLS = [
   { key: 'memo', label: 'Memo', icon: StickyNote },
@@ -31,7 +32,7 @@ export function ChannelSidebar() {
   };
 
   return (
-      <div className="h-full bg-[#fafafa] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
+      <div className="h-full bg-[#FBFBF9] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
         {/* Header */}
         <div className="px-4 pt-4 pb-2 shrink-0">
           <div className="flex items-center justify-between mb-3">
@@ -65,9 +66,7 @@ export function ChannelSidebar() {
                 onClick={() => handleToolClick(tool.key)}
                 className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-600 hover:bg-[#f0f0f0] transition-all"
               >
-                <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
-                  <Icon className="w-3.5 h-3.5 text-gray-500" />
-                </div>
+                <Icon className="w-4 h-4 text-gray-600 shrink-0" />
                 <span className="text-[13px] font-semibold">{tool.label}</span>
               </button>
             );
@@ -82,8 +81,8 @@ export function ChannelSidebar() {
               <button
                 key={ch.id}
                 onClick={() => handleSelect(ch.id)}
-                className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all ${
-                  activeChannelId === ch.id ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
+                className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
+                  activeChannelId === ch.id ? 'bg-white border-gray-200 shadow-sm text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
                 }`}
               >
                 {/* Icon: channel → hash, dm → avatar */}
@@ -102,9 +101,9 @@ export function ChannelSidebar() {
                     {ch.avatar ? (
                       <img src={ch.avatar} alt={ch.name} className="w-10 h-10 rounded-full object-cover ring-1 ring-black/5" />
                     ) : (
-                      <div className="w-10 h-10 rounded-full bg-[#e4e4e4] flex items-center justify-center">
-                        <span className="text-[13px] font-bold text-[#888888]">
-                          {ch.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: getAvatarColor(ch.name) }}>
+                        <span className="text-[14px] font-bold text-black">
+                          {getAvatarLetter(ch.name)}
                         </span>
                       </div>
                     )}
@@ -131,8 +130,8 @@ export function ChannelSidebar() {
                     {ch.unreadCount > 0 && (
                       <span className={`w-5 h-5 text-[10px] font-bold rounded-full flex items-center justify-center shrink-0 ml-1.5 ${
                         ch.isMuted
-                          ? 'bg-gray-300 text-white'
-                          : 'bg-emerald-500 text-white'
+                          ? 'bg-gray-200 text-black'
+                          : 'bg-[#dcfce7] text-black'
                       }`}>
                         {ch.unreadCount}
                       </span>

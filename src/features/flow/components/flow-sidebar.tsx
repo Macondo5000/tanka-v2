@@ -13,7 +13,7 @@ export function FlowSidebar() {
   const isSOPActive = location.pathname === '/flow/sop-library';
 
   return (
-    <div className="h-full bg-[#fafafa] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
+    <div className="h-full bg-[#FBFBF9] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
       {/* Header */}
       <div className="px-4 pt-4 pb-2 shrink-0">
         <div className="flex items-center justify-between mb-3">
@@ -45,9 +45,7 @@ export function FlowSidebar() {
             onClick={() => navigate('/flow/new')}
             className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-600 hover:bg-[#f0f0f0] transition-all"
           >
-            <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
-              <Plus className="w-3.5 h-3.5 text-gray-500" />
-            </div>
+            <Plus className="w-4 h-4 text-gray-600 shrink-0" />
             <span className="text-[13px] font-semibold">New Flow</span>
           </button>
 
@@ -57,27 +55,21 @@ export function FlowSidebar() {
               isSOPActive ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
             }`}
           >
-            <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
-              <BookOpen className="w-3.5 h-3.5 text-gray-500" />
-            </div>
+            <BookOpen className="w-4 h-4 text-gray-600 shrink-0" />
             <span className={`text-[13px] font-semibold ${isSOPActive ? 'text-black' : ''}`}>SOP Library</span>
           </button>
 
           <button
             className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-600 hover:bg-[#f0f0f0] transition-all"
           >
-            <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
-              <CalendarCheck className="w-3.5 h-3.5 text-gray-500" />
-            </div>
+            <CalendarCheck className="w-4 h-4 text-gray-600 shrink-0" />
             <span className="text-[13px] font-semibold">Follow-up</span>
           </button>
 
           <button
             className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-600 hover:bg-[#f0f0f0] transition-all"
           >
-            <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
-              <FolderOpen className="w-3.5 h-3.5 text-gray-500" />
-            </div>
+            <FolderOpen className="w-4 h-4 text-gray-600 shrink-0" />
             <span className="text-[13px] font-semibold">Assets</span>
           </button>
         </div>

@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import { Workflow, MessageCircle, Link, ChevronDown, ArrowRight, Zap, CreditCard, LogOut } from 'lucide-react';
+import { Workflow, MessageCircle, Link, ChevronDown, ArrowRight, Zap, CreditCard, LogOut, Building2 } from 'lucide-react';
 import { useChatStore } from '@/store/chat-store';
+import { ORGS, useOrgStore } from '@/store/org-store';
 
 const NAV_ITEMS = [
   { key: 'flow', label: 'Flow', path: '/flow', icon: Workflow },
@@ -14,6 +15,8 @@ export function TopNav() {
   const navigate = useNavigate();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
+  const activeOrgId = useOrgStore((s) => s.activeOrgId);
+  const activeOrg = ORGS.find((o) => o.id === activeOrgId) ?? ORGS[0];
 
   const activeKey = location.pathname.startsWith('/chat')
     ? 'chat'
@@ -36,38 +39,43 @@ export function TopNav() {
   }, []);
 
   return (
-    <header className="h-11 px-4 bg-[#f4f4f4] flex items-center sticky top-0 z-20 shrink-0">
-      {/* Left: Org name */}
+    <header className="h-11 px-4 bg-[#EFF0EB] flex items-center sticky top-0 z-20 shrink-0">
+      {/* Left: Org tag */}
       <div className="flex items-center">
-        <span className="text-[15px] font-bold text-black tracking-tight select-none">MiroMind</span>
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/[0.05] select-none">
+          <Building2 className="w-3.5 h-3.5 text-gray-500" strokeWidth={2} />
+          <span className="text-[13px] font-bold text-black tracking-tight">{activeOrg.name}</span>
+        </div>
       </div>
 
       {/* Center: Module tabs */}
-      <nav className="flex-1 flex items-center justify-center gap-1">
-        {NAV_ITEMS.map((item) => {
-          const isActive = activeKey === item.key;
-          const Icon = item.icon;
-          const badge = item.key === 'chat' && !isActive ? chatUnread : 0;
-          return (
-            <button
-              key={item.key}
-              onClick={() => navigate(item.path)}
-              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-lg text-[14px] font-semibold tracking-tight transition-all ${
-                isActive
-                  ? 'bg-white text-black shadow-sm'
-                  : 'text-gray-400 hover:text-gray-600 hover:bg-[#e4e4e4]'
-              }`}
-            >
-              <Icon className="w-4 h-4" strokeWidth={2.2} />
-              {item.label}
-              {badge > 0 && (
-                <span className="min-w-[18px] h-[18px] px-1 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center leading-none">
-                  {badge > 99 ? '99+' : badge}
-                </span>
-              )}
-            </button>
-          );
-        })}
+      <nav className="flex-1 flex items-center justify-center">
+        <div className="flex items-center bg-black/[0.04] rounded-[10px] p-[3px]">
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeKey === item.key;
+            const Icon = item.icon;
+            const badge = item.key === 'chat' ? chatUnread : 0;
+            return (
+              <button
+                key={item.key}
+                onClick={() => navigate(item.path)}
+                className={`relative flex items-center justify-center gap-1.5 w-[84px] py-[5px] rounded-[7px] text-[13px] font-semibold tracking-tight transition-all ${
+                  isActive
+                    ? 'bg-white text-black shadow-sm'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" strokeWidth={2.2} />
+                {item.label}
+                {badge > 0 && (
+                  <span className="absolute -top-1.5 right-0.5 min-w-[16px] h-[16px] px-1 bg-[#dcfce7] text-black text-[9px] font-bold rounded-full flex items-center justify-center leading-none">
+                    {badge > 99 ? '99+' : badge}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
       </nav>
 
       {/* Right: User avatar with dropdown arrow */}

@@ -1,14 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Plus, Settings, Building2, UserPlus, Shield, Languages, Bell, Palette, Image, Brain, Sparkles, LifeBuoy, Camera, Link2, Users, Check } from 'lucide-react';
 import { Modal } from '@/components/shared/modal';
-
-const ORGS = [
-  { id: 'miromind', name: 'MiroMind', initial: 'M', bg: 'bg-white border border-gray-200', text: 'text-black', unreadCount: 0 },
-  { id: 'newsbang', name: 'Newsbang', initial: 'N', bg: 'bg-violet-500', text: 'text-white', unreadCount: 5 },
-  { id: 'arcflow', name: 'ArcFlow', initial: 'A', bg: 'bg-blue-500', text: 'text-white', unreadCount: 12 },
-  { id: 'sundial', name: 'Sundial Studio', initial: 'S', bg: 'bg-amber-500', text: 'text-white', unreadCount: 0 },
-  { id: 'kairoslab', name: 'Kairos Lab', initial: 'K', bg: 'bg-emerald-600', text: 'text-white', unreadCount: 3 },
-];
+import { ORGS, useOrgStore } from '@/store/org-store';
 
 const SETTINGS_ITEMS = [
   { key: 'privacy', icon: Shield, label: 'Privacy & Security' },
@@ -57,7 +50,7 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean
 }
 
 export function OrgRail() {
-  const [activeOrgId, setActiveOrgId] = useState(ORGS[0].id);
+  const { activeOrgId, setActiveOrgId } = useOrgStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [aiModalOpen, setAiModalOpen] = useState(false);
@@ -100,33 +93,48 @@ export function OrgRail() {
 
   return (
     <>
-      <div className="w-[52px] h-full flex flex-col items-center pt-3 pb-4 shrink-0 gap-2">
+      <div className="w-[42px] h-full flex flex-col items-center pt-[17px] pb-4 shrink-0 gap-1.5">
+        {/* Tanka logomark */}
+        <div className="w-[26px] h-[26px] flex items-center justify-center shrink-0 mb-3">
+          <svg width="18" height="16" viewBox="0 0 258 229" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M72.5 228.126V187.545H0L72.5 228.126Z" fill="#111"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M0 130.784L257.778 130.733L257.766 187.546H0V130.784Z" fill="#111"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M0 65.8042H257.778V122.617H0V65.8042Z" fill="#111"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M0 0.874023H185.278V57.6868H0V0.874023Z" fill="#111"/>
+          </svg>
+        </div>
+
         {/* Org icons */}
         {ORGS.map((org) => {
           const isActive = activeOrgId === org.id;
           return (
-            <div key={org.id} className="relative flex items-center">
+            <div key={org.id} className="relative flex items-center group/org">
               {/* Active indicator bar */}
               <div
-                className={`absolute -left-[4px] w-[3px] rounded-r-full bg-black transition-all ${
-                  isActive ? 'h-5' : 'h-0'
+                className={`absolute -left-[4px] w-[2.5px] rounded-r-full bg-black transition-all ${
+                  isActive ? 'h-4' : 'h-0'
                 }`}
               />
               <button
                 onClick={() => setActiveOrgId(org.id)}
-                title={org.name}
-                className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${org.bg} ${
+                className={`w-[26px] h-[26px] rounded-md flex items-center justify-center transition-all ${org.bg} ${
                   isActive
                     ? 'ring-2 ring-black/20 shadow-sm'
                     : 'opacity-60 hover:opacity-90'
                 }`}
               >
-                <span className={`text-[13px] font-bold ${org.text}`}>{org.initial}</span>
+                <span className={`text-[10px] font-bold ${org.text}`}>{org.initial}</span>
               </button>
+
+              {/* Tooltip */}
+              <div className="absolute left-[calc(100%+10px)] top-1/2 -translate-y-1/2 px-2.5 py-1.5 bg-black text-white text-[12px] font-medium rounded-lg whitespace-nowrap opacity-0 pointer-events-none group-hover/org:opacity-100 transition-opacity z-50">
+                {org.name}
+                <div className="absolute right-full top-1/2 -translate-y-1/2 border-[4px] border-transparent border-r-black" />
+              </div>
 
               {/* Unread badge */}
               {org.unreadCount > 0 && !isActive && (
-                <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 bg-emerald-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute -top-1 -right-1.5 min-w-[14px] h-3.5 px-0.5 bg-[#dcfce7] text-black text-[8px] font-bold rounded-full flex items-center justify-center">
                   {org.unreadCount > 99 ? '99+' : org.unreadCount}
                 </span>
               )}
@@ -135,20 +143,20 @@ export function OrgRail() {
         })}
 
         {/* Divider */}
-        <div className="w-5 h-px bg-gray-200 my-0.5" />
+        <div className="w-4 h-px bg-gray-200 my-0.5" />
 
         {/* Add org with menu */}
         <div ref={menuRef} className="relative flex items-center">
           <button
             title="Add organization"
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`w-9 h-9 rounded-xl border-2 border-dashed flex items-center justify-center transition-colors ${
+            className={`w-[26px] h-[26px] rounded-md border-[1.5px] border-dashed flex items-center justify-center transition-colors ${
               menuOpen
-                ? 'border-gray-400 text-gray-500 bg-[#f0f0f0]'
-                : 'border-gray-300 text-gray-300 hover:border-gray-400 hover:text-gray-400'
+                ? 'border-gray-500 text-gray-600 bg-[#e8e8e8]'
+                : 'border-gray-400 text-gray-500 hover:border-gray-500 hover:text-gray-600'
             }`}
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-3 h-3" />
           </button>
 
           {menuOpen && (
@@ -192,13 +200,13 @@ export function OrgRail() {
           <button
             title="Settings"
             onClick={() => setSettingsOpen(!settingsOpen)}
-            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors ${
+            className={`w-[26px] h-[26px] rounded-md flex items-center justify-center transition-colors ${
               settingsOpen
-                ? 'bg-[#e4e4e4] text-gray-600'
-                : 'text-gray-400 hover:bg-[#e4e4e4] hover:text-gray-600'
+                ? 'bg-[#e4e4e4] text-gray-700'
+                : 'text-gray-600 hover:bg-[#e4e4e4] hover:text-gray-700'
             }`}
           >
-            <Settings className="w-[18px] h-[18px]" />
+            <Settings className="w-3.5 h-3.5" />
           </button>
 
           {settingsOpen && (
