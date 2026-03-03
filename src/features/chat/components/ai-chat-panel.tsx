@@ -70,11 +70,11 @@ export function AiChatPanel() {
           animate={{ width: AI_PANEL_WIDTH, opacity: 1 }}
           exit={{ width: 0, opacity: 0 }}
           transition={SPRING}
-          className="h-full border-l border-gray-200 bg-white overflow-hidden shrink-0 flex flex-col"
+          className="h-full rounded-[10px] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)] overflow-hidden shrink-0 flex flex-col"
         >
           <div className="flex flex-col h-full" style={{ width: AI_PANEL_WIDTH }}>
             {/* Header */}
-            <div className="px-4 h-[60px] flex items-center justify-between shrink-0 border-b border-gray-200">
+            <div className="px-4 h-[60px] flex items-center justify-between shrink-0 border-b border-gray-100">
               <div className="flex items-center gap-2.5">
                 <img src="/ai-assistant.png" alt="AI" className="w-6 h-6 rounded-full object-cover" />
                 <h3 className="text-[18px] font-bold tracking-tight">AI Assistant</h3>

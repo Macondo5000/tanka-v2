@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router';
 import { Modal } from '@/components/shared/modal';
 import { ORG_MEMBERS, DEPARTMENTS, type OrgMember } from '@/mock/members';
 import { useChatStore } from '@/store/chat-store';
-import { EASE_SMOOTH } from '@/lib/constants';
+import { EASE_SMOOTH, SIDEBAR_WIDTH } from '@/lib/constants';
 import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 
 /* ═══════════════════════════════════════════════════════
@@ -400,9 +400,9 @@ export function MembersPage() {
     : ORG_MEMBERS.filter((m) => m.department === activeDept);
 
   return (
-    <div className="h-full flex gap-3">
+    <div className="h-full flex gap-2">
       {/* ── Left column: departments ── */}
-      <div className="w-[220px] shrink-0 bg-[#fafafa] rounded-[10px] flex flex-col">
+      <div className="shrink-0 bg-[#FBFBF9] rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex flex-col" style={{ width: SIDEBAR_WIDTH }}>
         <div className="px-4 pt-4 pb-2 shrink-0">
           <div className="flex items-center gap-2 mb-3">
             <button
@@ -447,7 +447,7 @@ export function MembersPage() {
       </div>
 
       {/* ── Middle column: member list ── */}
-      <div className="flex-1 min-w-0 bg-white rounded-[10px] flex flex-col">
+      <div className="flex-1 min-w-0 bg-white rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex flex-col">
         <div className="px-5 pt-4 pb-3 shrink-0 border-b border-gray-100">
           <div className="relative mb-3">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-300" />
@@ -520,7 +520,7 @@ export function MembersPage() {
       </div>
 
       {/* ── Right column: member card ── */}
-      <div className="w-[440px] shrink-0 bg-white rounded-[10px] overflow-hidden">
+      <div className="w-[440px] shrink-0 bg-white rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] overflow-hidden">
         {selectedMember ? (
           <MemberCard key={selectedMember.id} member={selectedMember} />
         ) : (

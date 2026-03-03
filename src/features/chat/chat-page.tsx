@@ -82,9 +82,8 @@ export function ChatPage() {
             <ChannelHeader channel={activeChannel} />
             <MessageThread channelId={activeChannel.id} />
           </div>
-          {/* Right panels — same level as main content, full height */}
+          {/* Detail panel — inside content card */}
           <DetailPanel channel={activeChannel} />
-          <AiChatPanel />
         </div>
       ) : (
         <div className="flex-1 flex items-center justify-center rounded-[10px] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
@@ -94,6 +93,9 @@ export function ChatPage() {
           </div>
         </div>
       )}
+
+      {/* AI Assistant — independent column */}
+      <AiChatPanel />
     </div>
   );
 }

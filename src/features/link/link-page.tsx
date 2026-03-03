@@ -9,7 +9,7 @@ import { APP_CATEGORIES } from '@/mock/apps';
 import { SIDEBAR_WIDTH, SPRING } from '@/lib/constants';
 
 export function LinkPage() {
-  const { apps, linkFilter, setLinkFilter, selectedCategory, selectedAppId, setSelectedCategory, setSelectedApp, toggleConnection } = useLinkStore();
+  const { apps, linkFilter, selectedCategory, selectedAppId, setSelectedCategory, setSelectedApp, toggleConnection } = useLinkStore();
   const { sidebarCollapsed, toggleSidebar } = useUIStore();
 
   const baseFilteredApps = linkFilter === 'linked'
@@ -85,34 +85,14 @@ export function LinkPage() {
           <div className="h-full overflow-y-auto no-scrollbar">
             <div className="max-w-[800px] mx-auto px-8 pt-6">
               {/* Header */}
-              <h2 className="text-[18px] font-bold tracking-tight text-black">Apps</h2>
-              <p className="text-[13px] text-gray-400 font-medium mt-0.5">Connect third-party tools to your workspace.</p>
-
-              {/* Tabs */}
-              <div className="flex gap-0 mt-5 border-b border-gray-100">
-                <button
-                  onClick={() => { setLinkFilter('linked'); setSelectedCategory(null); }}
-                  className={`flex items-center gap-2 px-4 pb-3 text-[14px] font-semibold transition-colors relative ${
-                    linkFilter === 'linked' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
-                  }`}
-                >
-                  <Link2 className="w-4 h-4" />
-                  Linked
-                  <span className={`text-[12px] font-medium ${linkFilter === 'linked' ? 'text-gray-500' : 'text-gray-300'}`}>{linkedCount}</span>
-                  {linkFilter === 'linked' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black rounded-full" />}
-                </button>
-                <button
-                  onClick={() => { setLinkFilter('unlinked'); setSelectedCategory(null); }}
-                  className={`flex items-center gap-2 px-4 pb-3 text-[14px] font-semibold transition-colors relative ${
-                    linkFilter === 'unlinked' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
-                  }`}
-                >
-                  <Unlink className="w-4 h-4" />
-                  Unlinked
-                  <span className={`text-[12px] font-medium ${linkFilter === 'unlinked' ? 'text-gray-500' : 'text-gray-300'}`}>{unlinkedCount}</span>
-                  {linkFilter === 'unlinked' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black rounded-full" />}
-                </button>
-              </div>
+              <h2 className="text-[18px] font-bold tracking-tight text-black">
+                {linkFilter === 'linked' ? 'Linked' : 'Unlinked'} Apps
+              </h2>
+              <p className="text-[13px] text-gray-400 font-medium mt-0.5">
+                {linkFilter === 'linked'
+                  ? `${linkedCount} app${linkedCount !== 1 ? 's' : ''} connected to your workspace.`
+                  : `${unlinkedCount} app${unlinkedCount !== 1 ? 's' : ''} available to connect.`}
+              </p>
             </div>
 
             <div className="max-w-[800px] mx-auto px-8 py-6">
