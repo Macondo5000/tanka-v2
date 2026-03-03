@@ -61,7 +61,7 @@ export function TopNav() {
                 onClick={() => navigate(item.path)}
                 className={`relative flex items-center justify-center gap-1.5 w-[84px] py-[5px] rounded-[7px] text-[13px] font-semibold tracking-tight transition-all ${
                   isActive
-                    ? 'bg-white text-black shadow-sm'
+                    ? 'bg-white text-black shadow-[0_1px_2px_rgba(0,0,0,0.05)]'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
               >

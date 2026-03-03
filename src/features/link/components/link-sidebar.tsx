@@ -37,7 +37,7 @@ export function LinkSidebar() {
         <button
           onClick={() => setLinkFilter('linked')}
           className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-            linkFilter === 'linked' ? 'bg-white border-gray-200 shadow-sm text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
+            linkFilter === 'linked' ? 'bg-white border-[#E9EAE7] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
           }`}
         >
           <Link2 className="w-4 h-4 text-gray-600 shrink-0" />
@@ -48,7 +48,7 @@ export function LinkSidebar() {
         <button
           onClick={() => setLinkFilter('unlinked')}
           className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-            linkFilter === 'unlinked' ? 'bg-white border-gray-200 shadow-sm text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
+            linkFilter === 'unlinked' ? 'bg-white border-[#E9EAE7] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
           }`}
         >
           <Unlink className="w-4 h-4 text-gray-600 shrink-0" />

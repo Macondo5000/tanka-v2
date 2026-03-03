@@ -82,7 +82,7 @@ export function ChannelSidebar() {
                 key={ch.id}
                 onClick={() => handleSelect(ch.id)}
                 className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-                  activeChannelId === ch.id ? 'bg-white border-gray-200 shadow-sm text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
+                  activeChannelId === ch.id ? 'bg-white border-[#E9EAE7] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
                 }`}
               >
                 {/* Icon: channel → hash, dm → avatar */}

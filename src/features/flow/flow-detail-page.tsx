@@ -160,7 +160,7 @@ export function FlowDetailPage() {
               transition={{ ease: EASE_SMOOTH, duration: 0.5 }}
               className="flex flex-col items-center justify-center pt-32"
             >
-              <img src="/tanka-logo.svg" alt="Tanka" className="w-10 h-10 mb-5" />
+              <img src="/tanka-logo.svg" alt="Tanka" className="w-14 h-14 mb-5" />
               <h1 className="text-[28px] font-bold tracking-tight text-black">
                 {new Date().getHours() < 12 ? 'Good morning' : new Date().getHours() < 18 ? 'Good afternoon' : 'Good evening'}, Koko
               </h1>

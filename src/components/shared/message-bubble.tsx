@@ -13,7 +13,7 @@ interface MessageBubbleProps {
 export function MessageBubble({ role, content, isProactive, timestamp, sender }: MessageBubbleProps) {
   if (role === 'user') {
     return (
-      <div className="flex flex-col items-end gap-1">
+      <div className="w-full flex flex-col items-end gap-1">
         {timestamp && <span className="text-[10px] text-gray-400 px-1">{timestamp}</span>}
         <div className="max-w-[75%] w-fit px-4 py-2.5 rounded-2xl text-[14px] leading-relaxed font-semibold bg-[#D7F5FE] text-black rounded-tr-none">
           {content}
