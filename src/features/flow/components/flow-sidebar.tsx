@@ -1,4 +1,4 @@
-import { BookOpen, Plus, Search, CalendarCheck, FolderOpen } from 'lucide-react';
+import { BookOpen, Plus, CalendarCheck, FolderOpen } from 'lucide-react';
 import { useNavigate, useParams, useLocation } from 'react-router';
 import { useFlowStore } from '@/store/flow-store';
 import { SIDEBAR_WIDTH } from '@/lib/constants';
@@ -21,18 +21,6 @@ export function FlowSidebar() {
         <SidebarTabs />
       </div>
 
-      {/* Search */}
-      <div className="px-3 pt-1 pb-2 shrink-0">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-300" />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[14px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
-          />
-        </div>
-      </div>
-
       {/* Nav + List */}
       <div className="flex-1 overflow-y-auto px-2 py-2 space-y-4 no-scrollbar">
         {/* Home & SOP Library */}
@@ -43,7 +31,7 @@ export function FlowSidebar() {
               isNewFlowActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
-            <Plus className="w-4 h-4 text-gray-500 shrink-0" />
+            <Plus className="w-4 h-4 shrink-0" />
             <span className={`text-[14px] font-medium ${isNewFlowActive ? 'text-black' : ''}`}>New Flow</span>
           </button>
 
@@ -53,7 +41,7 @@ export function FlowSidebar() {
               isSOPActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
-            <BookOpen className="w-4 h-4 text-gray-500 shrink-0" />
+            <BookOpen className="w-4 h-4 shrink-0" />
             <span className={`text-[14px] font-medium ${isSOPActive ? 'text-black' : ''}`}>SOP Library</span>
           </button>
 
@@ -63,7 +51,7 @@ export function FlowSidebar() {
               isFollowUpActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
-            <CalendarCheck className="w-4 h-4 text-gray-500 shrink-0" />
+            <CalendarCheck className="w-4 h-4 shrink-0" />
             <span className={`text-[14px] font-medium ${isFollowUpActive ? 'text-black' : ''}`}>Follow-up</span>
           </button>
 
@@ -73,7 +61,7 @@ export function FlowSidebar() {
               isAssetsActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
-            <FolderOpen className="w-4 h-4 text-gray-500 shrink-0" />
+            <FolderOpen className="w-4 h-4 shrink-0" />
             <span className={`text-[14px] font-medium ${isAssetsActive ? 'text-black' : ''}`}>Assets</span>
           </button>
         </div>

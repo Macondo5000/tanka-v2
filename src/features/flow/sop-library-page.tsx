@@ -160,30 +160,28 @@ export function SOPLibraryPage() {
       <div className="flex-1 overflow-y-auto no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 pt-6">
           {/* Header */}
-          <h2 className="text-[18px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>SOP Library</h2>
-          <p className="text-[14px] text-gray-400 font-medium mt-0.5">Pre-built workflows to automate recurring processes.</p>
+          <h2 className="text-[22px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>SOP Library</h2>
+          <p className="text-[14px] text-gray-400 font-normal mt-0.5">Pre-built workflows to automate recurring processes.</p>
 
-          {/* Tabs */}
-          <div className="flex gap-0 mt-5 border-b border-gray-100">
+          {/* Tabs — tag style */}
+          <div className="flex flex-wrap gap-2 mt-5">
             <button
               onClick={() => setActiveTab('enterprise')}
-              className={`flex items-center gap-2 px-4 pb-3 text-[15px] font-medium transition-colors relative ${
-                activeTab === 'enterprise' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[14px] font-normal transition-colors ${
+                activeTab === 'enterprise' ? 'bg-black text-white' : 'bg-[#E8F0FA] text-gray-700 hover:bg-[#D2E1F2]'
               }`}
             >
-              <Building2 className="w-4 h-4" />
+              <Building2 className="w-3.5 h-3.5" />
               Enterprise
-              {activeTab === 'enterprise' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black rounded-full" />}
             </button>
             <button
               onClick={() => setActiveTab('personal')}
-              className={`flex items-center gap-2 px-4 pb-3 text-[15px] font-medium transition-colors relative ${
-                activeTab === 'personal' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[14px] font-normal transition-colors ${
+                activeTab === 'personal' ? 'bg-black text-white' : 'bg-[#E8F0FA] text-gray-700 hover:bg-[#D2E1F2]'
               }`}
             >
-              <User className="w-4 h-4" />
+              <User className="w-3.5 h-3.5" />
               Personal
-              {activeTab === 'personal' && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black rounded-full" />}
             </button>
           </div>
         </div>

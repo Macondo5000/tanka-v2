@@ -65,7 +65,7 @@ export function AppShell() {
 
         {/* Expand button when org rail is collapsed */}
         {orgRailCollapsed && (
-          <div className="h-full shrink-0 flex items-start pt-[17px] pl-1.5">
+          <div className="h-full shrink-0 flex items-start pt-[29px] pl-1.5">
             <button
               onClick={toggleOrgRail}
               title="Show sidebar"

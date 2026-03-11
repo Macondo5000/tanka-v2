@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Search } from 'lucide-react';
 import { LinkSidebar } from './components/link-sidebar';
 import { LinkDetail } from './components/link-detail';
 import { AppCard } from './components/app-card';
@@ -7,14 +9,19 @@ import { SIDEBAR_WIDTH } from '@/lib/constants';
 
 export function LinkPage() {
   const { apps, linkFilter, selectedCategory, selectedAppId, setSelectedCategory, setSelectedApp, toggleConnection } = useLinkStore();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const baseFilteredApps = linkFilter === 'linked'
     ? apps.filter((a) => a.isConnected)
     : apps.filter((a) => !a.isConnected);
 
-  const filteredApps = selectedCategory
-    ? baseFilteredApps.filter((a) => a.category === selectedCategory)
+  const searchedApps = searchQuery
+    ? baseFilteredApps.filter((a) => a.name.toLowerCase().includes(searchQuery.toLowerCase()))
     : baseFilteredApps;
+
+  const filteredApps = selectedCategory
+    ? searchedApps.filter((a) => a.category === selectedCategory)
+    : searchedApps;
 
   // Categories that have apps in current linked/unlinked view
   const availableCategories = APP_CATEGORIES.filter((cat) =>
@@ -51,6 +58,17 @@ export function LinkPage() {
                   ? `${linkedCount} app${linkedCount !== 1 ? 's' : ''} connected to your workspace.`
                   : `${unlinkedCount} app${unlinkedCount !== 1 ? 's' : ''} available to connect.`}
               </p>
+              {/* Search */}
+              <div className="relative mt-4">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search apps..."
+                  className="w-full pl-10 pr-3 py-2.5 bg-[#F2F7FF] border border-transparent rounded-xl text-[14px] font-normal text-black placeholder:text-gray-400 outline-none focus:bg-white focus:border-gray-200 focus:ring-2 focus:ring-gray-100 transition-all"
+                />
+              </div>
             </div>
 
             <div className="max-w-[800px] mx-auto px-8 py-6">

@@ -95,12 +95,12 @@ export function OrgRail() {
 
   return (
     <>
-      <div className="w-[42px] h-full flex flex-col items-center pt-[17px] pb-4 shrink-0 gap-1.5">
+      <div className="w-[42px] h-full flex flex-col items-center pt-[29px] pb-4 shrink-0 gap-1.5">
         {/* Tanka logomark — hover to reveal collapse icon */}
         <button
           onClick={toggleOrgRail}
           title="Hide sidebar"
-          className="group/logo w-[26px] h-[26px] flex items-center justify-center shrink-0 mb-3 rounded-md hover:bg-black/[0.06] transition-colors"
+          className="group/logo w-[26px] h-[26px] flex items-center justify-center shrink-0 mb-4 rounded-md hover:bg-black/[0.06] transition-colors"
         >
           <svg className="group-hover/logo:hidden" width="18" height="16" viewBox="0 0 258 229" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd" d="M72.5 228.126V187.545H0L72.5 228.126Z" fill="#111"/>
