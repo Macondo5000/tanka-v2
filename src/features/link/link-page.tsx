@@ -1,16 +1,12 @@
-import { motion, AnimatePresence } from 'motion/react';
-import { PanelLeftOpen, Link2, Unlink } from 'lucide-react';
 import { LinkSidebar } from './components/link-sidebar';
 import { LinkDetail } from './components/link-detail';
 import { AppCard } from './components/app-card';
 import { useLinkStore } from '@/store/link-store';
-import { useUIStore } from '@/store/ui-store';
 import { APP_CATEGORIES } from '@/mock/apps';
-import { SIDEBAR_WIDTH, SPRING } from '@/lib/constants';
+import { SIDEBAR_WIDTH } from '@/lib/constants';
 
 export function LinkPage() {
   const { apps, linkFilter, selectedCategory, selectedAppId, setSelectedCategory, setSelectedApp, toggleConnection } = useLinkStore();
-  const { sidebarCollapsed, toggleSidebar } = useUIStore();
 
   const baseFilteredApps = linkFilter === 'linked'
     ? apps.filter((a) => a.isConnected)
@@ -32,47 +28,9 @@ export function LinkPage() {
 
   return (
     <div className="h-full flex gap-2">
-      <AnimatePresence initial={false}>
-        {!sidebarCollapsed && (
-          <motion.div
-            initial={false}
-            animate={{ width: SIDEBAR_WIDTH, opacity: 1 }}
-            exit={{ width: 0, opacity: 0 }}
-            transition={SPRING}
-            className="h-full shrink-0 overflow-hidden rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-          >
-            <LinkSidebar />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {sidebarCollapsed && (
-        <div className="h-full shrink-0 flex flex-col items-center pt-3 px-1.5 gap-2 bg-white rounded-[10px] overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
-          <button onClick={toggleSidebar} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-black shrink-0">
-            <PanelLeftOpen className="w-4 h-4" />
-          </button>
-          <div className="flex flex-col items-center gap-1.5 py-1">
-            <button
-              onClick={() => useLinkStore.getState().setLinkFilter('linked')}
-              className={`w-6 h-6 rounded-md flex items-center justify-center transition-colors ${
-                linkFilter === 'linked' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-100'
-              }`}
-              title="Linked"
-            >
-              <Link2 className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={() => useLinkStore.getState().setLinkFilter('unlinked')}
-              className={`w-6 h-6 rounded-md flex items-center justify-center transition-colors ${
-                linkFilter === 'unlinked' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-100'
-              }`}
-              title="Unlinked"
-            >
-              <Unlink className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      )}
+      <div className="h-full shrink-0 overflow-hidden rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)]" style={{ width: SIDEBAR_WIDTH }}>
+        <LinkSidebar />
+      </div>
 
       <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
         {selectedApp ? (

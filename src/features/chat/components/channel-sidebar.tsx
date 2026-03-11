@@ -1,9 +1,9 @@
-import { Search, Plus, Sparkles, PanelLeftClose, StickyNote, Users, BarChart3, Swords } from 'lucide-react';
+import { Search, Plus, Sparkles, StickyNote, Users, BarChart3, Swords } from 'lucide-react';
 import { useChatStore } from '@/store/chat-store';
 import { useNavigate } from 'react-router';
 import { SIDEBAR_WIDTH } from '@/lib/constants';
-import { useUIStore } from '@/store/ui-store';
 import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
+import { SidebarTabs } from '@/components/shared/sidebar-tabs';
 
 const CHAT_TOOLS = [
   { key: 'memo', label: 'Memo', icon: StickyNote },
@@ -20,8 +20,6 @@ export function ChannelSidebar() {
     (a, b) => (b.sortTimestamp ?? 0) - (a.sortTimestamp ?? 0)
   );
 
-  const toggleSidebar = useUIStore((s) => s.toggleSidebar);
-
   const handleSelect = (id: string) => {
     useChatStore.getState().setActiveChannel(id);
     navigate(`/chat/${id}`);
@@ -33,25 +31,19 @@ export function ChannelSidebar() {
 
   return (
       <div className="h-full bg-[#FBFBF9] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
-        {/* Header */}
-        <div className="px-4 pt-4 pb-2 shrink-0">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-[18px] font-bold tracking-tight">Chat</h2>
-            <div className="flex items-center gap-0.5">
-              <button className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#ebebeb] transition-colors text-black">
-                <Plus className="w-4 h-4" />
-              </button>
-              <button onClick={toggleSidebar} className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#ebebeb] transition-colors text-black">
-                <PanelLeftClose className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
+        {/* Module tabs */}
+        <div className="px-3 pt-3 pb-1 shrink-0">
+          <SidebarTabs />
+        </div>
+
+        {/* Search */}
+        <div className="px-3 pt-1 pb-2 shrink-0">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-300" />
             <input
               type="text"
               placeholder="Search..."
-              className="w-full pl-9 pr-3 py-1.5 bg-[#ebebeb] rounded-lg text-[13px] font-medium placeholder:text-gray-400 outline-none focus:bg-white focus:ring-2 focus:ring-gray-200/60 transition-all"
+              className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[13px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
             />
           </div>
         </div>
@@ -64,9 +56,9 @@ export function ChannelSidebar() {
               <button
                 key={tool.key}
                 onClick={() => handleToolClick(tool.key)}
-                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-600 hover:bg-[#f0f0f0] transition-all"
+                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-800 hover:bg-[#f0f0f0] transition-all"
               >
-                <Icon className="w-4 h-4 text-gray-600 shrink-0" />
+                <Icon className="w-4 h-4 text-gray-500 shrink-0" />
                 <span className="text-[13px] font-semibold">{tool.label}</span>
               </button>
             );
@@ -75,14 +67,19 @@ export function ChannelSidebar() {
 
         {/* Channel list — mixed sort by time */}
         <div className="flex-1 overflow-y-auto px-2 py-2 no-scrollbar">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 px-2.5 mb-1 block">Channels</span>
+          <div className="flex items-center justify-between px-2.5 mb-1">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Channels</span>
+            <button className="w-5 h-5 flex items-center justify-center rounded-md hover:bg-[#ebebeb] transition-colors text-gray-400 hover:text-black">
+              <Plus className="w-3.5 h-3.5" />
+            </button>
+          </div>
           <div className="space-y-1.5">
             {sortedChannels.map((ch) => (
               <button
                 key={ch.id}
                 onClick={() => handleSelect(ch.id)}
                 className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-                  activeChannelId === ch.id ? 'bg-white border-[#E9EAE7] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-600 hover:bg-[#f0f0f0]'
+                  activeChannelId === ch.id ? 'bg-white border-[#E9EAE7] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#f0f0f0]'
                 }`}
               >
                 {/* Icon: channel → hash, dm → avatar */}

@@ -1,12 +1,16 @@
 import { Outlet, useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { TopNav } from './top-nav';
 import { OrgRail } from './org-rail';
 import { useAppStore } from '@/store/app-store';
+import { useUIStore } from '@/store/ui-store';
+import { SPRING } from '@/lib/constants';
 
 export function AppShell() {
   const location = useLocation();
   const setActiveModule = useAppStore((s) => s.setActiveModule);
+  const orgRailCollapsed = useUIStore((s) => s.orgRailCollapsed);
   const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
@@ -43,8 +47,20 @@ export function AppShell() {
       )}
 
       <div className="flex-1 flex min-h-0">
-        {/* Left: Org Rail */}
-        <OrgRail />
+        {/* Left: Org Rail — collapsible */}
+        <AnimatePresence initial={false}>
+          {!orgRailCollapsed && (
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 42, opacity: 1 }}
+              exit={{ width: 0, opacity: 0 }}
+              transition={SPRING}
+              className="h-full shrink-0 overflow-hidden"
+            >
+              <OrgRail />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Right: TopNav + Content */}
         <div className="flex-1 flex flex-col min-w-0 py-2">

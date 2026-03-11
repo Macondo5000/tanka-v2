@@ -1,32 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router';
-import { Workflow, MessageCircle, Link, ChevronDown, ArrowRight, Zap, CreditCard, LogOut, Building2 } from 'lucide-react';
-import { useChatStore } from '@/store/chat-store';
+import { useNavigate } from 'react-router';
+import { ChevronDown, ArrowRight, Zap, CreditCard, LogOut, Building2, ChevronsRight } from 'lucide-react';
 import { ORGS, useOrgStore } from '@/store/org-store';
-
-const NAV_ITEMS = [
-  { key: 'flow', label: 'Flow', path: '/flow', icon: Workflow },
-  { key: 'chat', label: 'Chat', path: '/chat', icon: MessageCircle },
-  { key: 'link', label: 'Link', path: '/link', icon: Link },
-];
+import { useUIStore } from '@/store/ui-store';
 
 export function TopNav() {
-  const location = useLocation();
   const navigate = useNavigate();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const activeOrgId = useOrgStore((s) => s.activeOrgId);
   const activeOrg = ORGS.find((o) => o.id === activeOrgId) ?? ORGS[0];
-
-  const activeKey = location.pathname.startsWith('/chat')
-    ? 'chat'
-    : location.pathname.startsWith('/link')
-    ? 'link'
-    : 'flow';
-
-  const chatUnread = useChatStore((s) =>
-    s.channels.reduce((sum, ch) => sum + (ch.unreadCount || 0), 0)
-  );
+  const { orgRailCollapsed, toggleOrgRail } = useUIStore();
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -39,47 +23,26 @@ export function TopNav() {
   }, []);
 
   return (
-    <header className="h-11 px-4 bg-[#EFF0EB] flex items-center sticky top-0 z-20 shrink-0">
-      {/* Left: Org tag — fixed width so center tabs don't shift */}
-      <div className="w-[160px] flex items-center">
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/[0.05] select-none max-w-full">
+    <header className="h-11 px-4 bg-[#EFF0EB] flex items-center justify-between sticky top-0 z-20 shrink-0">
+      {/* Left: Toggle (only when collapsed) + Org tag */}
+      <div className="flex items-center gap-1.5">
+        {orgRailCollapsed && (
+          <button
+            title="Show sidebar"
+            onClick={toggleOrgRail}
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-black/[0.05] transition-colors shrink-0"
+          >
+            <ChevronsRight className="w-3.5 h-3.5" />
+          </button>
+        )}
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/[0.05] select-none max-w-full min-w-0">
           <Building2 className="w-3.5 h-3.5 text-gray-500 shrink-0" strokeWidth={2} />
           <span className="text-[13px] font-bold text-black tracking-tight truncate">{activeOrg.name}</span>
         </div>
       </div>
 
-      {/* Center: Module tabs */}
-      <nav className="flex-1 flex items-center justify-center">
-        <div className="flex items-center bg-black/[0.04] rounded-[10px] p-[3px]">
-          {NAV_ITEMS.map((item) => {
-            const isActive = activeKey === item.key;
-            const Icon = item.icon;
-            const badge = item.key === 'chat' ? chatUnread : 0;
-            return (
-              <button
-                key={item.key}
-                onClick={() => navigate(item.path)}
-                className={`relative flex items-center justify-center gap-1.5 w-[84px] py-[5px] rounded-[7px] text-[13px] font-semibold tracking-tight transition-all ${
-                  isActive
-                    ? 'bg-white text-black shadow-[0_1px_2px_rgba(0,0,0,0.05)]'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5" strokeWidth={2.2} />
-                {item.label}
-                {badge > 0 && (
-                  <span className="absolute -top-1.5 right-0.5 min-w-[16px] h-[16px] px-1 bg-[#dcfce7] text-black text-[9px] font-bold rounded-full flex items-center justify-center leading-none">
-                    {badge > 99 ? '99+' : badge}
-                  </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-
-      {/* Right: User avatar — fixed width to match left, keeps center stable */}
-      <div ref={userMenuRef} className="w-[160px] flex justify-end relative">
+      {/* Right: User avatar */}
+      <div ref={userMenuRef} className="flex justify-end relative">
         <button
           onClick={() => setUserMenuOpen(!userMenuOpen)}
           className="flex items-center gap-1.5 px-1.5 py-1 rounded-lg hover:bg-gray-100 transition-colors"

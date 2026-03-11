@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { Plus, Settings, Building2, UserPlus, Shield, Languages, Bell, Palette, Image, Brain, Sparkles, LifeBuoy, Camera, Link2, Users, Check } from 'lucide-react';
+import { Plus, Settings, Building2, UserPlus, Shield, Languages, Bell, Palette, Image, Brain, Sparkles, LifeBuoy, Camera, Link2, Users, Check, ChevronsLeft } from 'lucide-react';
 import { Modal } from '@/components/shared/modal';
 import { ORGS, useOrgStore } from '@/store/org-store';
+import { useUIStore } from '@/store/ui-store';
 
 const SETTINGS_ITEMS = [
   { key: 'privacy', icon: Shield, label: 'Privacy & Security' },
@@ -51,6 +52,7 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean
 
 export function OrgRail() {
   const { activeOrgId, setActiveOrgId } = useOrgStore();
+  const toggleOrgRail = useUIStore((s) => s.toggleOrgRail);
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [aiModalOpen, setAiModalOpen] = useState(false);
@@ -94,15 +96,20 @@ export function OrgRail() {
   return (
     <>
       <div className="w-[42px] h-full flex flex-col items-center pt-[17px] pb-4 shrink-0 gap-1.5">
-        {/* Tanka logomark */}
-        <div className="w-[26px] h-[26px] flex items-center justify-center shrink-0 mb-3">
-          <svg width="18" height="16" viewBox="0 0 258 229" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Tanka logomark — hover to reveal collapse icon */}
+        <button
+          onClick={toggleOrgRail}
+          title="Hide sidebar"
+          className="group/logo w-[26px] h-[26px] flex items-center justify-center shrink-0 mb-3 rounded-md hover:bg-black/[0.06] transition-colors"
+        >
+          <svg className="group-hover/logo:hidden" width="18" height="16" viewBox="0 0 258 229" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd" d="M72.5 228.126V187.545H0L72.5 228.126Z" fill="#111"/>
             <path fillRule="evenodd" clipRule="evenodd" d="M0 130.784L257.778 130.733L257.766 187.546H0V130.784Z" fill="#111"/>
             <path fillRule="evenodd" clipRule="evenodd" d="M0 65.8042H257.778V122.617H0V65.8042Z" fill="#111"/>
             <path fillRule="evenodd" clipRule="evenodd" d="M0 0.874023H185.278V57.6868H0V0.874023Z" fill="#111"/>
           </svg>
-        </div>
+          <ChevronsLeft className="w-3.5 h-3.5 text-gray-500 hidden group-hover/logo:block" />
+        </button>
 
         {/* Org icons */}
         {ORGS.map((org) => {
@@ -227,6 +234,7 @@ export function OrgRail() {
             </div>
           )}
         </div>
+
       </div>
 
       {/* AI Settings modal */}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import { motion } from 'motion/react';
-import { ListChecks, FolderOpen } from 'lucide-react';
+import { ListChecks, FolderOpen, Globe, CalendarDays, FileText, Rocket } from 'lucide-react';
 import { useFlowStore } from '@/store/flow-store';
 import { useChatStore } from '@/store/chat-store';
 import { StatusBadge } from '@/components/shared/status-badge';
@@ -13,6 +13,13 @@ import { EASE_SMOOTH, staggerDelay } from '@/lib/constants';
 import type { ChatMessage } from '@/types/chat';
 
 const EMPTY_MESSAGES: ChatMessage[] = [];
+
+const FLOW_SUGGESTIONS = [
+  { text: 'Create a landing page', icon: Globe },
+  { text: "Plan next week's tasks", icon: CalendarDays },
+  { text: 'Weekly summary', icon: FileText },
+  { text: 'Kick off a new project', icon: Rocket },
+];
 
 export function FlowDetailPage() {
   const { flowId } = useParams();
@@ -96,6 +103,56 @@ export function FlowDetailPage() {
     );
   }
 
+  // New flow — empty state with centered greeting + input + suggestions
+  if (isNew && messages.length === 0) {
+    return (
+      <div className="h-full flex flex-col bg-white">
+        <div className="flex-1 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ease: EASE_SMOOTH, duration: 0.5 }}
+            className="w-full max-w-[800px] px-8"
+          >
+            {/* Greeting */}
+            <div className="text-center mb-6">
+              <h1 className="text-[28px] font-bold tracking-tight text-black">
+                {new Date().getHours() < 12 ? 'Good morning' : new Date().getHours() < 18 ? 'Good afternoon' : 'Good evening'}, Koko
+              </h1>
+              <p className="text-[14px] text-gray-400 font-normal mt-2">
+                What's on our agenda today?
+              </p>
+            </div>
+
+            {/* Input */}
+            <FloatingInput
+              onSend={handleSend}
+              placeholder="Describe what you want to accomplish..."
+              inline
+            />
+
+            {/* Suggestion cards */}
+            <div className="grid grid-cols-4 gap-2.5 mt-4">
+              {FLOW_SUGGESTIONS.map(({ text, icon: Icon }, i) => (
+                <motion.button
+                  key={i}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 + i * 0.06, ease: EASE_SMOOTH }}
+                  onClick={() => handleSend(text)}
+                  className="px-4 py-3 rounded-xl bg-[#FBFBF9] border border-black/[0.06] text-left hover:bg-[#f0f0f0] active:scale-[0.98] transition-all"
+                >
+                  <Icon className="w-4 h-4 text-gray-400 mb-2" />
+                  <span className="text-[13px] text-gray-500 font-medium leading-snug block">{text}</span>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="h-full flex flex-col bg-white">
       {/* Header — only show for existing flows */}
@@ -153,22 +210,6 @@ export function FlowDetailPage() {
       {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto py-6 no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 space-y-5">
-          {isNew && messages.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ease: EASE_SMOOTH, duration: 0.5 }}
-              className="flex flex-col items-center justify-center pt-32"
-            >
-              <img src="/tanka-logo.svg" alt="Tanka" className="w-14 h-14 mb-5" />
-              <h1 className="text-[28px] font-bold tracking-tight text-black">
-                {new Date().getHours() < 12 ? 'Good morning' : new Date().getHours() < 18 ? 'Good afternoon' : 'Good evening'}, Koko
-              </h1>
-              <p className="text-[14px] text-gray-400 font-normal mt-2">
-                What key matters are on your mind right now?
-              </p>
-            </motion.div>
-          )}
           {messages.map((msg, idx) => (
             <motion.div
               key={msg.id}
@@ -185,7 +226,7 @@ export function FlowDetailPage() {
       {/* Input */}
       <FloatingInput
         onSend={handleSend}
-        placeholder={isNew ? 'Start a new flow... describe what you want to accomplish' : `Message about ${currentFlow?.title}...`}
+        placeholder={isNew ? 'Describe what you want to accomplish...' : `Message about ${currentFlow?.title}...`}
       />
 
       {/* Timeline modal */}

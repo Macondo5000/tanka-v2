@@ -4,9 +4,10 @@ interface FloatingInputProps {
   placeholder?: string;
   onSend?: (message: string) => void;
   disabled?: boolean;
+  inline?: boolean;
 }
 
-export function FloatingInput({ placeholder = 'Type a message...', onSend, disabled }: FloatingInputProps) {
+export function FloatingInput({ placeholder = 'Type a message...', onSend, disabled, inline }: FloatingInputProps) {
   const [value, setValue] = useState('');
   const [focused, setFocused] = useState(false);
 
@@ -24,8 +25,8 @@ export function FloatingInput({ placeholder = 'Type a message...', onSend, disab
   };
 
   return (
-    <div className="shrink-0 pb-4 pt-1">
-      <div className="max-w-[800px] mx-auto px-8">
+    <div className={inline ? '' : 'shrink-0 pb-4 pt-1'}>
+      <div className={inline ? '' : 'max-w-[800px] mx-auto px-8'}>
         <div
           className={`relative rounded-2xl border bg-white transition-all ${
             focused

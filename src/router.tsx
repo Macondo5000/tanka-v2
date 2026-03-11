@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 import { AppShell } from '@/components/layout/app-shell';
 import { ChatPage } from '@/features/chat/chat-page';
 import { FlowPage } from '@/features/flow/flow-page';
@@ -19,12 +19,16 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <FlowPage />,
+        element: <Navigate to="/flow/new" replace />,
       },
       {
         path: 'flow',
         element: <FlowPage />,
         children: [
+          {
+            index: true,
+            element: <Navigate to="/flow/new" replace />,
+          },
           {
             path: 'sop-library',
             element: <SOPLibraryPage />,
