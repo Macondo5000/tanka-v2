@@ -20,7 +20,7 @@ interface MembersModalProps {
 function ReadOnlySection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="text-[12px] font-bold text-gray-400 uppercase tracking-wide mb-2.5">{title}</h4>
+      <h4 className="text-[13px] font-semibold text-gray-400 uppercase tracking-wide mb-2.5">{title}</h4>
       {children}
     </div>
   );
@@ -43,7 +43,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
             )}
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{member.about}</p>
+            <p className="text-[15px] text-gray-600 font-medium leading-relaxed">{member.about}</p>
           </div>
         </div>
 
@@ -51,7 +51,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
         <ReadOnlySection title="Trait Profile">
           <div className="flex flex-wrap gap-1.5">
             {member.traits.map((t) => (
-              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[12px] font-semibold text-gray-600">
+              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[13px] font-semibold text-gray-600">
                 {t}
               </span>
             ))}
@@ -63,8 +63,8 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
           <div className="space-y-0">
             {member.responsibilities.map((text, idx) => (
               <div key={idx} className="flex gap-3 py-2 border-b border-gray-50 last:border-0">
-                <span className="text-[11px] font-bold text-gray-300 mt-0.5 w-4 shrink-0 text-right">{idx + 1}</span>
-                <p className="text-[13px] text-gray-600 font-medium leading-relaxed">{text}</p>
+                <span className="text-[12px] font-bold text-gray-300 mt-0.5 w-4 shrink-0 text-right">{idx + 1}</span>
+                <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{text}</p>
               </div>
             ))}
           </div>
@@ -76,7 +76,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
             {member.achievements.map((text, idx) => (
               <div key={idx} className="flex gap-3 py-2 border-b border-gray-50 last:border-0">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                <p className="text-[13px] text-gray-600 font-medium leading-relaxed">{text}</p>
+                <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{text}</p>
               </div>
             ))}
           </div>
@@ -87,21 +87,21 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
           <div className="space-y-2.5">
             <div className="flex items-center gap-3">
               <Mail className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-              <span className="text-[13px] font-medium text-black">{member.email}</span>
+              <span className="text-[14px] font-medium text-black">{member.email}</span>
             </div>
             <div className="flex items-center gap-3">
               <Briefcase className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-              <span className="text-[13px] font-medium text-black">{member.department}</span>
+              <span className="text-[14px] font-medium text-black">{member.department}</span>
             </div>
             <div className="flex items-center gap-3">
               <Users className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-              <span className="text-[13px] font-medium text-black">{member.mutualGroups} Mutual Group(s)</span>
+              <span className="text-[14px] font-medium text-black">{member.mutualGroups} Mutual Group(s)</span>
             </div>
             <div className="flex items-start gap-3">
               <Tag className="w-3.5 h-3.5 text-gray-400 shrink-0 mt-0.5" />
               <div className="flex flex-wrap gap-1.5">
                 {member.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
+                  <span key={tag} className="px-2 py-0.5 bg-[#E8F0FA] rounded-md text-[13px] font-medium text-gray-600">
                     {tag}
                   </span>
                 ))}
@@ -143,7 +143,7 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
                 <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-[2.5px] border-white" />
               )}
             </div>
-            <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${
+            <span className={`text-[12px] font-medium px-2.5 py-0.5 rounded-full ${
               member.isOnline ? 'bg-emerald-50 text-emerald-600' : 'bg-gray-100 text-gray-400'
             }`}>
               {member.isOnline ? 'Online' : 'Offline'}
@@ -160,7 +160,7 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
                 <div className="w-9 h-9 rounded-xl bg-[#E8F0FA] flex items-center justify-center">
                   <Icon className="w-4 h-4 text-gray-600" />
                 </div>
-                <span className="text-[11px] font-medium text-gray-500">{label}</span>
+                <span className="text-[12px] font-medium text-gray-500">{label}</span>
               </button>
             ))}
           </div>
@@ -173,8 +173,8 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
                 <Mail className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
-                <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Email</p>
-                <p className="text-[14px] font-medium text-black mt-0.5 truncate">{member.email}</p>
+                <p className="text-[12px] font-semibold text-gray-400 uppercase tracking-wide">Email</p>
+                <p className="text-[15px] font-medium text-black mt-0.5 truncate">{member.email}</p>
               </div>
             </div>
 
@@ -184,8 +184,8 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
                 <Users className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
-                <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Mutual Groups</p>
-                <p className="text-[14px] font-medium text-black mt-0.5">{member.mutualGroups} Group(s)</p>
+                <p className="text-[12px] font-semibold text-gray-400 uppercase tracking-wide">Mutual Groups</p>
+                <p className="text-[15px] font-medium text-black mt-0.5">{member.mutualGroups} Group(s)</p>
               </div>
             </div>
 
@@ -195,10 +195,10 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
                 <Tag className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
-                <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Tag</p>
+                <p className="text-[12px] font-semibold text-gray-400 uppercase tracking-wide">Tag</p>
                 <div className="flex flex-wrap gap-1.5 mt-1">
                   {member.tags.map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
+                    <span key={tag} className="px-2.5 py-1 bg-[#E8F0FA] rounded-md text-[13px] font-medium text-gray-600">
                       {tag}
                     </span>
                   ))}
@@ -212,14 +212,14 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
                 <Briefcase className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
-                <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Role</p>
-                <p className="text-[14px] font-medium text-black mt-0.5">{member.role}</p>
-                <p className="text-[12px] text-gray-400 font-medium mt-0.5">{member.department}</p>
+                <p className="text-[12px] font-semibold text-gray-400 uppercase tracking-wide">Role</p>
+                <p className="text-[15px] font-medium text-black mt-0.5">{member.role}</p>
+                <p className="text-[13px] text-gray-400 font-medium mt-0.5">{member.department}</p>
               </div>
             </div>
 
             {/* Add Information */}
-            <button className="flex items-center gap-2 text-[13px] font-medium text-gray-400 hover:text-gray-600 transition-colors pt-1">
+            <button className="flex items-center gap-2 text-[14px] font-medium text-gray-400 hover:text-gray-600 transition-colors pt-1">
               <Plus className="w-3.5 h-3.5" />
               Add Information
             </button>
@@ -230,13 +230,13 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
         <div className="px-6 py-4 border-t border-gray-100 flex items-center gap-2.5">
           <button
             onClick={() => setProfileOpen(true)}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#E8F0FA] hover:bg-[#D2E1F2] transition-colors text-[13px] font-semibold text-black"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#E8F0FA] hover:bg-[#D2E1F2] transition-colors text-[14px] font-semibold text-black"
           >
             <User className="w-3.5 h-3.5" />
             Profile
             <ChevronRight className="w-3.5 h-3.5 text-gray-400 ml-auto" />
           </button>
-          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#E8F0FA] hover:bg-[#D2E1F2] transition-colors text-[13px] font-semibold text-black">
+          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#E8F0FA] hover:bg-[#D2E1F2] transition-colors text-[14px] font-semibold text-black">
             <Forward className="w-3.5 h-3.5" />
             Forward
           </button>
@@ -308,7 +308,7 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name, role, or department..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#F2F7FF] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#F2F7FF] rounded-xl text-[14px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
             />
           </div>
         </div>
@@ -328,14 +328,14 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
                         isActive ? 'bg-[#DDE9F6] text-black' : 'text-gray-600 hover:bg-[#F2F7FF]'
                       }`}
                     >
-                      <span className={`text-[13px] font-semibold truncate ${isActive ? 'text-black' : ''}`}>
+                      <span className={`text-[14px] font-medium truncate ${isActive ? 'text-black' : ''}`}>
                         {department}
                       </span>
                       <div className="flex items-center gap-1.5 shrink-0">
                         {online > 0 && (
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                         )}
-                        <span className="text-[11px] font-medium text-gray-400">{total}</span>
+                        <span className="text-[12px] font-medium text-gray-400">{total}</span>
                       </div>
                     </button>
                   );
@@ -348,13 +348,13 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
           <div className="flex-1 min-w-0 flex flex-col">
             <div className="px-5 pt-4 pb-2 shrink-0">
               {isSearching ? (
-                <p className="text-[13px] text-gray-400 font-medium">
+                <p className="text-[14px] text-gray-400 font-medium">
                   {globalFiltered.length} result{globalFiltered.length !== 1 ? 's' : ''} found
                 </p>
               ) : (
                 <div>
-                  <h4 className="text-[15px] font-bold tracking-tight text-black">{activeDept}</h4>
-                  <p className="text-[12px] text-gray-400 font-medium mt-0.5">
+                  <h4 className="text-[15px] font-medium tracking-tight text-black">{activeDept}</h4>
+                  <p className="text-[13px] text-gray-400 font-medium mt-0.5">
                     {displayMembers.length} people · {displayMembers.filter((m) => m.isOnline).length} online
                   </p>
                 </div>
@@ -383,8 +383,8 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[14px] font-semibold text-black truncate">{m.name}</p>
-                      <p className="text-[12px] text-gray-400 font-medium truncate">
+                      <p className="text-[15px] font-medium text-black truncate">{m.name}</p>
+                      <p className="text-[13px] text-gray-400 font-medium truncate">
                         {m.role}{isSearching ? ` · ${m.department}` : ''}
                       </p>
                     </div>
@@ -399,7 +399,7 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
 
                 {displayMembers.length === 0 && (
                   <div className="text-center py-12">
-                    <p className="text-[14px] text-gray-300 font-medium">No members found</p>
+                    <p className="text-[15px] text-gray-300 font-medium">No members found</p>
                   </div>
                 )}
               </div>

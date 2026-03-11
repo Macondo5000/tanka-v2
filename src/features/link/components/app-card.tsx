@@ -18,25 +18,25 @@ export function AppCard({ app, index, onClick }: AppCardProps) {
       onClick={onClick}
       className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 bg-white cursor-pointer hover:bg-gray-50/50 active:scale-[0.98] transition-all"
     >
-      <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
+      <div className="w-11 h-11 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
         <img src={app.icon} alt={app.name} className="w-full h-full object-cover" />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
-          <h4 className="text-[13px] font-semibold text-black truncate">{app.name}</h4>
+          <h4 className="text-[14px] font-medium text-black truncate">{app.name}</h4>
           {app.isConnected && (
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
           )}
         </div>
-        <p className="text-[11px] text-gray-400 font-medium mt-0.5">{app.category}</p>
+        <p className="text-[12px] text-gray-400 font-medium mt-0.5">{app.category}</p>
       </div>
       {app.isConnected ? (
-        <span className="px-3 py-1 rounded-md text-[11px] font-semibold text-gray-500 bg-gray-100 shrink-0">
+        <span className="px-3.5 py-1.5 rounded-lg text-[13px] font-medium text-gray-500 bg-gray-100 shrink-0">
           View
         </span>
       ) : (
-        <span className="w-7 h-7 rounded-md border border-gray-200 bg-white flex items-center justify-center shrink-0">
-          <Link2 className="w-3.5 h-3.5 text-gray-400" />
+        <span className="w-8 h-8 rounded-lg border border-gray-200 bg-white flex items-center justify-center shrink-0">
+          <Link2 className="w-4 h-4 text-gray-400" />
         </span>
       )}
     </motion.div>

@@ -9,7 +9,7 @@ export function FlowPage() {
         <FlowSidebar />
       </div>
 
-      <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-[#F0F7FF] shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
+      <div className="flex-1 min-w-0 rounded-[10px] overflow-hidden bg-gradient-to-b from-[#F0F7FF] to-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
         <Outlet />
       </div>
     </div>

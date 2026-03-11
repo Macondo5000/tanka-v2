@@ -155,19 +155,19 @@ export function SOPLibraryPage() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#F0F7FF]">
+    <div className="h-full flex flex-col bg-gradient-to-b from-[#F0F7FF] to-white">
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 pt-6">
           {/* Header */}
-          <h2 className="text-[18px] font-bold tracking-tight text-black">SOP Library</h2>
-          <p className="text-[13px] text-gray-400 font-medium mt-0.5">Pre-built workflows to automate recurring processes.</p>
+          <h2 className="text-[18px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>SOP Library</h2>
+          <p className="text-[14px] text-gray-400 font-medium mt-0.5">Pre-built workflows to automate recurring processes.</p>
 
           {/* Tabs */}
           <div className="flex gap-0 mt-5 border-b border-gray-100">
             <button
               onClick={() => setActiveTab('enterprise')}
-              className={`flex items-center gap-2 px-4 pb-3 text-[14px] font-semibold transition-colors relative ${
+              className={`flex items-center gap-2 px-4 pb-3 text-[15px] font-medium transition-colors relative ${
                 activeTab === 'enterprise' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
@@ -177,7 +177,7 @@ export function SOPLibraryPage() {
             </button>
             <button
               onClick={() => setActiveTab('personal')}
-              className={`flex items-center gap-2 px-4 pb-3 text-[14px] font-semibold transition-colors relative ${
+              className={`flex items-center gap-2 px-4 pb-3 text-[15px] font-medium transition-colors relative ${
                 activeTab === 'personal' ? 'text-black' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
@@ -192,7 +192,7 @@ export function SOPLibraryPage() {
         <div className="max-w-[800px] mx-auto px-8 py-6 space-y-8">
           {Object.entries(grouped).map(([category, templates]) => (
             <section key={category}>
-              <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-3 block">
+              <span className="text-[12px] font-semibold uppercase tracking-widest text-gray-400 mb-3 block">
                 {category}
               </span>
               <div className="grid grid-cols-2 gap-3">
@@ -213,17 +213,17 @@ export function SOPLibraryPage() {
                         </div>
                         <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                           <Play className="w-3 h-3 text-gray-400" />
-                          <span className="text-[11px] font-semibold text-gray-400">Start New Flow</span>
+                          <span className="text-[12px] font-medium text-gray-400">Start New Flow</span>
                         </div>
                       </div>
-                      <h4 className="text-[14px] font-semibold text-black tracking-tight mb-1">
+                      <h4 className="text-[15px] font-medium text-black tracking-tight mb-1">
                         {sop.title}
                       </h4>
-                      <p className="text-[13px] text-gray-400 font-medium leading-relaxed line-clamp-2">
+                      <p className="text-[14px] text-gray-400 font-medium leading-relaxed line-clamp-2">
                         {sop.description}
                       </p>
                       <div className="flex items-center gap-3 mt-3">
-                        <span className="text-[11px] font-semibold text-gray-300">
+                        <span className="text-[12px] font-medium text-gray-300">
                           {sop.steps} steps
                         </span>
                         <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-black group-hover:translate-x-0.5 transition-all" />

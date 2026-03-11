@@ -44,7 +44,7 @@ function SectionCard({ title, children, action }: { title: string; children: Rea
   return (
     <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
       <div className="flex items-center justify-between px-6 pt-5 pb-3">
-        <h3 className="text-[14px] font-bold text-black tracking-tight">{title}</h3>
+        <h3 className="text-[15px] font-semibold text-black tracking-tight">{title}</h3>
         {action}
       </div>
       <div className="px-6 pb-5">
@@ -57,13 +57,13 @@ function SectionCard({ title, children, action }: { title: string; children: Rea
 function EditField({ label, value, onChange, placeholder }: { label: string; value: string; onChange: (v: string) => void; placeholder?: string }) {
   return (
     <div className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
-      <label className="w-28 shrink-0 text-[13px] font-semibold text-gray-400">{label}</label>
+      <label className="w-28 shrink-0 text-[14px] font-semibold text-gray-400">{label}</label>
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder || `Enter ${label.toLowerCase()}`}
-        className="flex-1 text-[14px] font-medium text-black placeholder:text-gray-300 bg-transparent outline-none border-none"
+        className="flex-1 text-[15px] font-medium text-black placeholder:text-gray-300 bg-transparent outline-none border-none"
       />
     </div>
   );
@@ -72,13 +72,13 @@ function EditField({ label, value, onChange, placeholder }: { label: string; val
 function EditTextarea({ label, value, onChange, placeholder }: { label: string; value: string; onChange: (v: string) => void; placeholder?: string }) {
   return (
     <div className="flex gap-4 py-3 border-b border-gray-50 last:border-0">
-      <label className="w-28 shrink-0 text-[13px] font-semibold text-gray-400 pt-0.5">{label}</label>
+      <label className="w-28 shrink-0 text-[14px] font-semibold text-gray-400 pt-0.5">{label}</label>
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder || `Enter ${label.toLowerCase()}`}
         rows={3}
-        className="flex-1 text-[14px] font-medium text-black placeholder:text-gray-300 bg-transparent outline-none border-none resize-none leading-relaxed"
+        className="flex-1 text-[15px] font-medium text-black placeholder:text-gray-300 bg-transparent outline-none border-none resize-none leading-relaxed"
       />
     </div>
   );
@@ -108,7 +108,7 @@ function ProfileEditModal({ open, onClose, profile, onSave }: { open: boolean; o
             <Camera className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
         </div>
-        <button className="text-[13px] font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">
+        <button className="text-[14px] font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">
           Set New Photo
         </button>
       </div>
@@ -128,13 +128,13 @@ function ProfileEditModal({ open, onClose, profile, onSave }: { open: boolean; o
       <div className="px-6 py-4 border-t border-gray-100 flex items-center justify-end gap-2.5">
         <button
           onClick={onClose}
-          className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#F2F7FF] transition-colors"
+          className="px-4 py-2.5 text-[15px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#F2F7FF] transition-colors"
         >
           Cancel
         </button>
         <button
           onClick={handleSave}
-          className="px-6 py-2.5 text-[14px] font-semibold text-white bg-black rounded-lg hover:bg-gray-800 transition-colors"
+          className="px-6 py-2.5 text-[15px] font-semibold text-white bg-black rounded-lg hover:bg-gray-800 transition-colors"
         >
           Save Changes
         </button>
@@ -167,7 +167,7 @@ export function ProfilePage() {
       <header className="h-11 px-6 bg-[#f4f4f4] flex items-center sticky top-0 z-20 shrink-0">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[13px] font-semibold text-gray-500 hover:text-black hover:bg-white transition-all"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[14px] font-semibold text-gray-500 hover:text-black hover:bg-white transition-all"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
@@ -186,12 +186,12 @@ export function ProfilePage() {
                   <img src="/koko.jpg" alt="avatar" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h1 className="text-[22px] font-bold text-black tracking-tight">
+                  <h1 className="text-[22px] font-semibold text-black tracking-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
                     {profile.firstName} {profile.lastName}
                   </h1>
-                  <p className="text-[13px] text-gray-400 font-medium mt-0.5">{profile.role}</p>
+                  <p className="text-[14px] text-gray-400 font-medium mt-0.5">{profile.role}</p>
                   {profile.about && (
-                    <p className="text-[12px] text-gray-400 font-medium mt-1 truncate">{profile.about}</p>
+                    <p className="text-[13px] text-gray-400 font-medium mt-1 truncate">{profile.about}</p>
                   )}
                 </div>
                 <button
@@ -209,13 +209,13 @@ export function ProfilePage() {
             <div className="space-y-3">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[12px] font-semibold text-gray-500">Overall Leverage Score</span>
+                  <span className="text-[13px] font-semibold text-gray-500">Overall Leverage Score</span>
                 </div>
                 <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#F2F7FF]">
                   <Loader2 className="w-5 h-5 text-emerald-500 animate-spin" />
                   <div>
-                    <p className="text-[13px] font-semibold text-black">Generating</p>
-                    <p className="text-[11px] text-gray-400 font-medium">AI is analyzing your work patterns...</p>
+                    <p className="text-[14px] font-semibold text-black">Generating</p>
+                    <p className="text-[12px] text-gray-400 font-medium">AI is analyzing your work patterns...</p>
                   </div>
                 </div>
               </div>
@@ -228,7 +228,7 @@ export function ProfilePage() {
               {TRAIT_TAGS.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[12px] font-semibold text-gray-600"
+                  className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[13px] font-semibold text-gray-600"
                 >
                   {tag}
                 </span>
@@ -248,15 +248,15 @@ export function ProfilePage() {
             <div className="space-y-0">
               {visibleResponsibilities.map((item, idx) => (
                 <div key={item.id} className="flex gap-3 py-2.5 border-b border-gray-50 last:border-0">
-                  <span className="text-[11px] font-bold text-gray-300 mt-0.5 w-5 shrink-0 text-right">{idx + 1}</span>
-                  <p className="text-[13px] text-gray-600 font-medium leading-relaxed">{item.text}</p>
+                  <span className="text-[12px] font-bold text-gray-300 mt-0.5 w-5 shrink-0 text-right">{idx + 1}</span>
+                  <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{item.text}</p>
                 </div>
               ))}
             </div>
             {CORE_RESPONSIBILITIES.length > 5 && (
               <button
                 onClick={() => setShowAllResponsibilities(!showAllResponsibilities)}
-                className="mt-3 flex items-center gap-1.5 text-[12px] font-semibold text-gray-400 hover:text-black transition-colors"
+                className="mt-3 flex items-center gap-1.5 text-[13px] font-semibold text-gray-400 hover:text-black transition-colors"
               >
                 {showAllResponsibilities ? (
                   <>Show less <ChevronUp className="w-3.5 h-3.5" /></>
@@ -280,7 +280,7 @@ export function ProfilePage() {
               {KEY_ACHIEVEMENTS.map((item) => (
                 <div key={item.id} className="flex gap-3 py-2.5 border-b border-gray-50 last:border-0">
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                  <p className="text-[13px] text-gray-600 font-medium leading-relaxed">{item.text}</p>
+                  <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{item.text}</p>
                 </div>
               ))}
             </div>

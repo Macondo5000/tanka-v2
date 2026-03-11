@@ -5,9 +5,10 @@ interface FloatingInputProps {
   onSend?: (message: string) => void;
   disabled?: boolean;
   inline?: boolean;
+  minHeight?: number;
 }
 
-export function FloatingInput({ placeholder = 'Type a message...', onSend, disabled, inline }: FloatingInputProps) {
+export function FloatingInput({ placeholder = 'Type a message...', onSend, disabled, inline, minHeight = 120 }: FloatingInputProps) {
   const [value, setValue] = useState('');
   const [focused, setFocused] = useState(false);
 
@@ -28,10 +29,10 @@ export function FloatingInput({ placeholder = 'Type a message...', onSend, disab
     <div className={inline ? '' : 'shrink-0 pb-4 pt-1'}>
       <div className={inline ? '' : 'max-w-[800px] mx-auto px-8'}>
         <div
-          className={`relative rounded-2xl border bg-white transition-all ${
+          className={`relative rounded-2xl bg-white transition-all ${
             focused
-              ? 'border-gray-400 ring-4 ring-black/[0.03]'
-              : 'border-[#d0d0d0]'
+              ? 'shadow-[0_0_0_1px_rgba(59,130,246,0.12),0_4px_16px_rgba(59,130,246,0.10),0_12px_40px_rgba(59,130,246,0.08),0_2px_4px_rgba(0,0,0,0.04)]'
+              : 'shadow-[0_2px_8px_rgba(59,130,246,0.08),0_8px_32px_rgba(59,130,246,0.06),0_1px_3px_rgba(0,0,0,0.04)]'
           }`}
         >
           <textarea
@@ -43,12 +44,12 @@ export function FloatingInput({ placeholder = 'Type a message...', onSend, disab
             placeholder={placeholder}
             disabled={disabled}
             rows={1}
-            className="w-full resize-none bg-transparent px-5 pt-4 pb-14 text-[14px] text-black placeholder:text-gray-300 font-medium tracking-tight outline-none"
-            style={{ minHeight: 56, maxHeight: 160 }}
+            className="w-full resize-none bg-transparent px-5 pt-4 pb-14 text-[15px] text-black placeholder:text-gray-400 placeholder:font-light font-normal outline-none"
+            style={{ minHeight, maxHeight: 200 }}
             onInput={(e) => {
               const t = e.currentTarget;
               t.style.height = 'auto';
-              t.style.height = Math.min(t.scrollHeight, 160) + 'px';
+              t.style.height = Math.min(t.scrollHeight, 200) + 'px';
             }}
           />
 

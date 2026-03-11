@@ -99,7 +99,7 @@ export function FlowDetailPage() {
   if (!isNew && !currentFlow) {
     return (
       <div className="h-full flex items-center justify-center bg-white">
-        <p className="text-[14px] text-gray-300 font-medium">Flow not found</p>
+        <p className="text-[15px] text-gray-300 font-medium">Flow not found</p>
       </div>
     );
   }
@@ -107,11 +107,11 @@ export function FlowDetailPage() {
   // New flow — empty state with centered greeting + input + suggestions
   if (isNew && messages.length === 0) {
     return (
-      <div className="h-full flex flex-col bg-white relative">
+      <div className="h-full flex flex-col bg-gradient-to-b from-[#F0F7FF]/60 to-white relative">
         <div className="absolute top-3 right-4 z-30">
           <UserMenu />
         </div>
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center pb-[12%]">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,12 +120,9 @@ export function FlowDetailPage() {
           >
             {/* Greeting */}
             <div className="text-center mb-6">
-              <h1 className="text-[28px] font-bold tracking-tight text-black">
-                {new Date().getHours() < 12 ? 'Good morning' : new Date().getHours() < 18 ? 'Good afternoon' : 'Good evening'}, Koko
+              <h1 className="text-[36px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
+                What's your agenda, Koko?
               </h1>
-              <p className="text-[14px] text-gray-400 font-normal mt-2">
-                What's on our agenda today?
-              </p>
             </div>
 
             {/* Input */}
@@ -133,6 +130,7 @@ export function FlowDetailPage() {
               onSend={handleSend}
               placeholder="Describe what you want to accomplish..."
               inline
+              minHeight={140}
             />
 
             {/* Suggestion cards */}
@@ -144,10 +142,10 @@ export function FlowDetailPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 + i * 0.06, ease: EASE_SMOOTH }}
                   onClick={() => handleSend(text)}
-                  className="px-4 py-3 rounded-xl bg-[#F0F7FF] border border-black/[0.06] text-left hover:bg-[#E8F0FA] active:scale-[0.98] transition-all"
+                  className="px-4 py-3 rounded-xl bg-white border border-[#E4ECF4] text-left hover:bg-[#F5F8FC] active:scale-[0.98] transition-all"
                 >
-                  <Icon className="w-4 h-4 text-gray-400 mb-2" />
-                  <span className="text-[13px] text-gray-500 font-medium leading-snug block">{text}</span>
+                  <Icon className="w-5 h-5 text-[#6B9ECE] mb-2" strokeWidth={1.8} />
+                  <span className="text-[14px] text-[#5A7A95] font-normal leading-snug block">{text}</span>
                 </motion.button>
               ))}
             </div>
@@ -169,7 +167,7 @@ export function FlowDetailPage() {
         <div className="px-8 py-3 shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 min-w-0">
-              <h2 className="text-[18px] font-bold tracking-tight text-black truncate">
+              <h2 className="text-[18px] font-medium tracking-tight text-black truncate" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
                 {currentFlow.title}
               </h2>
               <StatusBadge status={currentFlow.status} size="md" showDot />
@@ -183,7 +181,7 @@ export function FlowDetailPage() {
                   className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-gray-600 hover:bg-[#D2E1F2] transition-all"
                 >
                   <FolderOpen className="w-3.5 h-3.5" />
-                  <span className="text-[12px] font-semibold">{artifacts.length}</span>
+                  <span className="text-[13px] font-medium">{artifacts.length}</span>
                 </button>
               )}
 
@@ -195,7 +193,7 @@ export function FlowDetailPage() {
                 >
                   <ListChecks className="w-3.5 h-3.5" />
                   <div className="flex items-center gap-2">
-                    <span className="text-[12px] font-semibold">
+                    <span className="text-[13px] font-medium">
                       {completedCount}/{totalSteps}
                     </span>
                     {/* Mini progress bar */}
@@ -210,7 +208,7 @@ export function FlowDetailPage() {
               )}
             </div>
           </div>
-          <p className="text-[13px] text-gray-400 font-medium mt-0.5 truncate">
+          <p className="text-[14px] text-gray-400 font-normal mt-0.5 truncate">
             {activeStep ? `Step ${steps.indexOf(activeStep) + 1}: ${activeStep.label}` : currentFlow.description}
           </p>
         </div>

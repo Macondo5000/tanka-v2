@@ -53,7 +53,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
 
           {/* Title + description */}
           <div className="text-center mb-8">
-            <h2 className="text-[20px] font-bold text-black tracking-tight mb-2">
+            <h2 className="text-[20px] font-semibold text-black tracking-tight mb-2" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
               {app.name} × Tanka
             </h2>
             <p className="text-[14px] text-gray-400 leading-relaxed max-w-[480px] mx-auto">
@@ -66,7 +66,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
             {app.isConnected ? (
               <button
                 onClick={() => onToggleConnection(app.id)}
-                className="flex items-center gap-2 px-6 py-2.5 text-[14px] font-semibold text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                className="flex items-center gap-2 px-6 py-2.5 text-[14px] font-medium text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
               >
                 <Unlink className="w-4 h-4" />
                 Disconnect
@@ -74,7 +74,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
             ) : (
               <button
                 onClick={() => onToggleConnection(app.id)}
-                className="flex items-center gap-2 px-6 py-2.5 text-[14px] font-semibold text-white bg-black rounded-lg hover:bg-gray-800 transition-colors"
+                className="flex items-center gap-2 px-6 py-2.5 text-[14px] font-medium text-white bg-black rounded-lg hover:bg-gray-800 transition-colors"
               >
                 <Link2 className="w-4 h-4" />
                 Connect {app.name}
@@ -87,7 +87,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
             <div className="flex justify-center mb-8">
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 rounded-lg">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span className="text-[12px] font-semibold text-emerald-700">
+                <span className="text-[12px] font-medium text-emerald-700">
                   Connected{app.connectedAt ? ` since ${app.connectedAt}` : ''}
                 </span>
               </div>
@@ -97,7 +97,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
           {/* Features */}
           {app.features && app.features.length > 0 && (
             <div className="max-w-[480px] mx-auto">
-              <h4 className="text-[12px] font-bold uppercase tracking-widest text-gray-400 mb-3">What you get</h4>
+              <h4 className="text-[12px] font-semibold uppercase tracking-widest text-gray-400 mb-3">What you get</h4>
               <div className="space-y-2.5">
                 {app.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-2.5">

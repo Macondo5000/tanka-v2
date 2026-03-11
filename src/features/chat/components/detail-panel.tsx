@@ -24,7 +24,7 @@ export function DetailPanel({ channel }: DetailPanelProps) {
           <div className="p-5" style={{ width: DETAIL_PANEL_WIDTH }}>
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-[18px] font-bold tracking-tight">Details</h3>
+              <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>Details</h3>
               <button onClick={toggleDetailPanel} className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors">
                 <X className="w-4 h-4 text-gray-400" />
               </button>
@@ -33,14 +33,14 @@ export function DetailPanel({ channel }: DetailPanelProps) {
             {/* Channel info */}
             <div className="space-y-5">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400 block mb-2">About</span>
-                <p className="text-[14px] text-gray-600 font-medium leading-relaxed">
+                <span className="text-[12px] font-semibold uppercase tracking-widest text-gray-400 block mb-2">About</span>
+                <p className="text-[15px] text-gray-600 font-medium leading-relaxed">
                   {channel.description || 'No description'}
                 </p>
               </div>
 
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400 block mb-3">
+                <span className="text-[12px] font-semibold uppercase tracking-widest text-gray-400 block mb-3">
                   Members · {channel.members.length}
                 </span>
                 <div className="space-y-2">
@@ -53,9 +53,9 @@ export function DetailPanel({ channel }: DetailPanelProps) {
                         )}
                       </div>
                       <div>
-                        <span className="text-[14px] font-semibold text-black">{member.name}</span>
+                        <span className="text-[15px] font-medium text-black">{member.name}</span>
                         {member.role && (
-                          <span className="text-[12px] text-gray-400 font-medium block">{member.role}</span>
+                          <span className="text-[13px] text-gray-400 font-medium block">{member.role}</span>
                         )}
                       </div>
                     </div>

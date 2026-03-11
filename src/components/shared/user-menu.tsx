@@ -38,13 +38,13 @@ export function UserMenu() {
                 <img src="/koko.jpg" alt="avatar" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[15px] font-bold text-black tracking-tight">Koko Lv</p>
-                <p className="text-[12px] text-gray-400 font-medium truncate">ling.lv@tanka.ai</p>
+                <p className="text-[15px] font-semibold text-black tracking-tight">Koko Lv</p>
+                <p className="text-[13px] text-gray-400 font-medium truncate">ling.lv@tanka.ai</p>
               </div>
             </div>
             <button
               onClick={() => { setOpen(false); navigate('/profile'); }}
-              className="mt-3.5 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-[12px] font-semibold text-black hover:bg-[#F2F7FF] transition-colors"
+              className="mt-3.5 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-[13px] font-semibold text-black hover:bg-[#F2F7FF] transition-colors"
             >
               View Profile
               <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
@@ -56,7 +56,7 @@ export function UserMenu() {
           {/* Plan */}
           <div className="px-5 py-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Current Plan</span>
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-gray-400">Current Plan</span>
             </div>
             <div className="flex items-center justify-between p-3 rounded-xl bg-[#F2F7FF]">
               <div className="flex items-center gap-2.5">
@@ -64,11 +64,11 @@ export function UserMenu() {
                   <Zap className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="text-[13px] font-semibold text-black">Pro Plan</p>
-                  <p className="text-[11px] text-gray-400 font-medium">3 of 5 seats used</p>
+                  <p className="text-[14px] font-semibold text-black">Pro Plan</p>
+                  <p className="text-[12px] text-gray-400 font-medium">3 of 5 seats used</p>
                 </div>
               </div>
-              <button className="text-[11px] font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">
+              <button className="text-[12px] font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">
                 Upgrade
               </button>
             </div>
@@ -78,7 +78,7 @@ export function UserMenu() {
 
           {/* Billing */}
           <div className="py-1.5">
-            <button className="w-full flex items-center gap-3 px-5 py-2.5 text-left text-[13px] font-medium text-gray-600 hover:bg-[#F2F7FF] transition-colors">
+            <button className="w-full flex items-center gap-3 px-5 py-2.5 text-left text-[14px] font-medium text-gray-600 hover:bg-[#F2F7FF] transition-colors">
               <CreditCard className="w-4 h-4 text-gray-400" />
               Billing
             </button>
@@ -88,7 +88,7 @@ export function UserMenu() {
 
           {/* Sign out */}
           <div className="py-1.5">
-            <button className="w-full flex items-center gap-3 px-5 py-2.5 text-left text-[13px] font-medium text-red-500 hover:bg-red-50 transition-colors">
+            <button className="w-full flex items-center gap-3 px-5 py-2.5 text-left text-[14px] font-medium text-red-500 hover:bg-red-50 transition-colors">
               <LogOut className="w-4 h-4" />
               Sign out
             </button>

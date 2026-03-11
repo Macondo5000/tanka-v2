@@ -37,7 +37,7 @@ export function FlowHome() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#F0F7FF]">
+    <div className="h-full flex flex-col bg-gradient-to-b from-[#F0F7FF] to-white">
       <div className="flex-1 overflow-y-auto no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 py-8 space-y-10">
           {/* Greeting */}
@@ -46,7 +46,7 @@ export function FlowHome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ ease: EASE_SMOOTH, duration: 0.5 }}
           >
-            <h1 className="text-[28px] font-bold tracking-tight text-black">
+            <h1 className="text-[32px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
               {new Date().getHours() < 12 ? 'Good morning, Koko' : new Date().getHours() < 18 ? 'Good afternoon, Koko' : 'Good evening, Koko'}
             </h1>
           </motion.div>
@@ -66,16 +66,16 @@ export function FlowHome() {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <Sparkles className="w-3 h-3 text-gray-400" />
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-gray-400">
+                      <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-400">
                         AI Suggestion
                       </span>
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-400" />
                   </div>
-                  <h4 className="text-[14px] font-semibold text-black leading-tight tracking-tight pr-4 mb-2 truncate">
+                  <h4 className="text-[15px] font-medium text-black leading-tight tracking-tight pr-4 mb-2 truncate">
                     {item.title}
                   </h4>
-                  <p className="text-[11px] text-gray-500 leading-relaxed pr-2 line-clamp-2">
+                  <p className="text-[12px] text-gray-500 leading-relaxed pr-2 line-clamp-2">
                     {item.description}
                   </p>
                 </motion.div>
@@ -97,11 +97,11 @@ export function FlowHome() {
                   className="p-4 rounded-2xl border border-[#D4E3F5] hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.05)] active:scale-[0.99] transition-all cursor-pointer"
                 >
                   <div className="flex items-center justify-between">
-                    <h4 className="text-[14px] font-semibold text-black tracking-tight truncate pr-2">{flow.title}</h4>
+                    <h4 className="text-[15px] font-medium text-black tracking-tight truncate pr-2">{flow.title}</h4>
                     <StatusBadge status={flow.status} />
                   </div>
                   <div className="flex items-center gap-2 mt-1.5">
-                    <span className="text-[12px] text-gray-400 font-medium truncate">{flow.description}</span>
+                    <span className="text-[13px] text-gray-400 font-medium truncate">{flow.description}</span>
                     {flow.status === 'awaiting' && flow.collaborators && flow.collaborators.length > 0 && (
                       <AvatarStack users={flow.collaborators} max={2} size="sm" />
                     )}

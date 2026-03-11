@@ -35,34 +35,33 @@ export function ActionCard({ action, onConfirm, onDismiss }: ActionCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`border rounded-xl p-5 w-full relative overflow-hidden transition-all shadow-lg shadow-black/[0.03] ${
-        isExecuted ? 'bg-gray-50/80 border-gray-200' : 'bg-orange-50/50 border-orange-200'
+      className={`rounded-2xl p-5 w-full transition-all ${
+        isExecuted
+          ? 'bg-[#F8F9FA] border border-[#E8ECF0]'
+          : 'bg-white border border-[#E4ECF4] shadow-[0_2px_12px_rgba(59,130,246,0.06)]'
       }`}
     >
-      {/* Top accent bar */}
-      <div className={`absolute top-0 left-0 right-0 h-1.5 ${isExecuted ? 'bg-gray-300' : 'bg-orange-400'}`} />
-
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-            isExecuted ? 'bg-gray-100 border border-gray-200' : 'bg-white border border-gray-100'
+          <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
+            isExecuted ? 'bg-[#EDF0F3]' : 'bg-[#EBF3FF]'
           }`}>
-            <Icon className={`w-5 h-5 ${isExecuted ? 'text-gray-400' : 'text-orange-500'}`} strokeWidth={isExecuted ? 2.5 : 2} />
+            <Icon className={`w-4 h-4 ${isExecuted ? 'text-gray-400' : 'text-[#4B8AD0]'}`} strokeWidth={isExecuted ? 2.5 : 2} />
           </div>
           <div>
-            <span className={`text-[9px] font-bold uppercase tracking-[0.15em] block mb-0.5 ${
-              isExecuted ? 'text-gray-400' : 'text-orange-500'
+            <span className={`text-[11px] font-medium uppercase tracking-[0.12em] block mb-0.5 ${
+              isExecuted ? 'text-gray-400' : 'text-[#6B9ECE]'
             }`}>
               {isExecuted ? 'Executed' : 'Proposed Action'}
             </span>
-            <span className="text-[15px] font-bold text-black leading-none tracking-tight">
+            <span className="text-[15px] font-semibold text-black leading-tight tracking-tight">
               {action.label}
             </span>
           </div>
         </div>
-        <button className="p-2 text-black/20 hover:text-black transition-colors">
-          <Maximize2 className="w-4 h-4" />
+        <button className="p-1.5 text-gray-300 hover:text-gray-500 transition-colors rounded-md hover:bg-black/[0.03]">
+          <Maximize2 className="w-3.5 h-3.5" />
         </button>
       </div>
 
@@ -71,50 +70,50 @@ export function ActionCard({ action, onConfirm, onDismiss }: ActionCardProps) {
         {(action.type === 'nudge' || action.type === 'send_email') && action.recipient ? (
           <div className="space-y-3">
             <div className="flex flex-col gap-0.5">
-              <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Recipient</span>
-              <span className="text-[13px] font-medium text-black break-all">{action.recipient}</span>
+              <span className="text-[11px] font-medium text-gray-400 uppercase tracking-widest">Recipient</span>
+              <span className="text-[14px] font-normal text-black break-all">{action.recipient}</span>
             </div>
             {action.subject && (
               <div className="flex flex-col gap-0.5">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Subject</span>
-                <span className="text-[13px] font-medium text-black leading-snug">{action.subject}</span>
+                <span className="text-[11px] font-medium text-gray-400 uppercase tracking-widest">Subject</span>
+                <span className="text-[14px] font-normal text-black leading-snug">{action.subject}</span>
               </div>
             )}
             {action.body && (
-              <p className="text-[13px] text-gray-600 leading-relaxed font-medium whitespace-pre-line">{action.body}</p>
+              <p className="text-[14px] text-gray-500 leading-relaxed font-normal whitespace-pre-line">{action.body}</p>
             )}
           </div>
         ) : action.type === 'create_group' && action.members ? (
           <div className="space-y-3">
             {action.groupName && (
               <div className="flex flex-col gap-0.5">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Group Name</span>
-                <span className="text-[13px] font-semibold text-black">{action.groupName}</span>
+                <span className="text-[11px] font-medium text-gray-400 uppercase tracking-widest">Group Name</span>
+                <span className="text-[14px] font-medium text-black">{action.groupName}</span>
               </div>
             )}
             <div className="flex flex-col gap-1.5">
-              <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Members {action.members.length}</span>
+              <span className="text-[11px] font-medium text-gray-400 uppercase tracking-widest">Members {action.members.length}</span>
               <div className="flex items-center gap-2.5">
                 <AvatarStack users={action.members} size="md" />
-                <span className="text-[12px] font-medium text-gray-500">{action.members.map((m) => m.name).join('、')}</span>
+                <span className="text-[13px] font-normal text-gray-500">{action.members.map((m) => m.name).join('、')}</span>
               </div>
             </div>
             <div className="flex flex-col gap-0.5">
-              <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Opening Message</span>
-              <p className="text-[12px] text-gray-500 font-medium leading-relaxed">{action.description}</p>
+              <span className="text-[11px] font-medium text-gray-400 uppercase tracking-widest">Opening Message</span>
+              <p className="text-[12px] text-gray-500 font-normal leading-relaxed">{action.description}</p>
             </div>
           </div>
         ) : (
-          <p className="whitespace-pre-wrap text-[13px] text-gray-600 font-medium leading-relaxed line-clamp-4">
+          <p className="whitespace-pre-wrap text-[14px] text-gray-500 font-normal leading-relaxed line-clamp-4">
             {action.description}
           </p>
         )}
       </div>
 
       {/* Footer */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="flex items-center gap-2">
         {isExecuted ? (
-          <div className="col-span-2 py-2.5 rounded-xl text-[13px] font-semibold flex items-center justify-center gap-1.5 bg-gray-100 text-gray-400">
+          <div className="flex-1 py-2.5 rounded-xl text-[14px] font-medium flex items-center justify-center gap-1.5 bg-[#EDF0F3] text-gray-400">
             <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
             Executed
           </div>
@@ -123,7 +122,7 @@ export function ActionCard({ action, onConfirm, onDismiss }: ActionCardProps) {
             <button
               onClick={handleConfirm}
               disabled={confirming}
-              className="py-2.5 rounded-xl text-[13px] font-semibold transition-all active:scale-[0.97] text-white bg-orange-400 flex items-center justify-center gap-2 disabled:opacity-50"
+              className="flex-1 py-2.5 rounded-xl text-[14px] font-medium transition-all active:scale-[0.97] text-white bg-[#1E293B] hover:bg-[#334155] flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {confirming ? (
                 <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -131,7 +130,7 @@ export function ActionCard({ action, onConfirm, onDismiss }: ActionCardProps) {
             </button>
             <button
               onClick={() => onDismiss?.(action.id)}
-              className="py-2.5 rounded-xl text-[13px] font-semibold transition-all active:scale-[0.97] bg-gray-100 text-gray-600 hover:bg-gray-200"
+              className="flex-1 py-2.5 rounded-xl text-[14px] font-medium transition-all active:scale-[0.97] bg-[#F0F4F8] text-gray-500 hover:bg-[#E5EBF1] hover:text-gray-700"
             >
               Dismiss
             </button>

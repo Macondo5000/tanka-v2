@@ -33,13 +33,13 @@ export function ChannelHeader({ channel }: ChannelHeaderProps) {
           <img src={channel.avatar} alt={channel.name} className="w-10 h-10 rounded-full object-cover ring-1 ring-black/5" />
         ) : (
           <div className="w-10 h-10 rounded-full flex items-center justify-center ring-1 ring-black/5" style={{ backgroundColor: getAvatarColor(channel.name) }}>
-            <span className="text-[14px] font-bold text-black">
+            <span className="text-[14px] font-semibold text-black">
               {getAvatarLetter(channel.name)}
             </span>
           </div>
         )}
         <div className="flex items-center gap-2.5">
-          <h3 className="text-[18px] font-bold tracking-tight">{channel.name}</h3>
+          <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>{channel.name}</h3>
           {channel.type === 'dm' ? (
             dmPeer?.isOnline ? (
               <span className="flex items-center gap-1.5">

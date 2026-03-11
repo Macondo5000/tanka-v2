@@ -77,7 +77,7 @@ export function AiChatPanel() {
             <div className="px-4 h-[60px] flex items-center justify-between shrink-0 border-b border-gray-100">
               <div className="flex items-center gap-2.5">
                 <img src="/ai-assistant.png" alt="AI" className="w-6 h-6 rounded-full object-cover" />
-                <h3 className="text-[18px] font-bold tracking-tight">AI Assistant</h3>
+                <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>AI Assistant</h3>
               </div>
               <button
                 onClick={toggleAiPanel}

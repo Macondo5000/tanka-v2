@@ -18,7 +18,7 @@ import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 function ReadOnlySection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="text-[12px] font-bold text-gray-400 uppercase tracking-wide mb-2.5">{title}</h4>
+      <h4 className="text-[13px] font-medium text-gray-400 uppercase tracking-wide mb-2.5">{title}</h4>
       {children}
     </div>
   );
@@ -41,7 +41,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
             )}
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{member.about}</p>
+            <p className="text-[15px] text-gray-600 font-medium leading-relaxed">{member.about}</p>
           </div>
         </div>
 
@@ -49,7 +49,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
         <ReadOnlySection title="Trait Profile">
           <div className="flex flex-wrap gap-1.5">
             {member.traits.map((t) => (
-              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[12px] font-semibold text-gray-600">
+              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[13px] font-medium text-gray-600">
                 {t}
               </span>
             ))}
@@ -61,8 +61,8 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
           <div className="space-y-0">
             {member.responsibilities.map((text, idx) => (
               <div key={idx} className="flex gap-3 py-2 border-b border-gray-50 last:border-0">
-                <span className="text-[11px] font-bold text-gray-300 mt-0.5 w-4 shrink-0 text-right">{idx + 1}</span>
-                <p className="text-[13px] text-gray-600 font-medium leading-relaxed">{text}</p>
+                <span className="text-[12px] font-bold text-gray-300 mt-0.5 w-4 shrink-0 text-right">{idx + 1}</span>
+                <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{text}</p>
               </div>
             ))}
           </div>
@@ -74,7 +74,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
             {member.achievements.map((text, idx) => (
               <div key={idx} className="flex gap-3 py-2 border-b border-gray-50 last:border-0">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                <p className="text-[13px] text-gray-600 font-medium leading-relaxed">{text}</p>
+                <p className="text-[14px] text-gray-600 font-medium leading-relaxed">{text}</p>
               </div>
             ))}
           </div>
@@ -85,21 +85,21 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
           <div className="space-y-2.5">
             <div className="flex items-center gap-3">
               <Mail className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-              <span className="text-[13px] font-medium text-black">{member.email}</span>
+              <span className="text-[14px] font-medium text-black">{member.email}</span>
             </div>
             <div className="flex items-center gap-3">
               <Briefcase className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-              <span className="text-[13px] font-medium text-black">{member.department}</span>
+              <span className="text-[14px] font-medium text-black">{member.department}</span>
             </div>
             <div className="flex items-center gap-3">
               <Users className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-              <span className="text-[13px] font-medium text-black">{member.mutualGroups} Mutual Group(s)</span>
+              <span className="text-[14px] font-medium text-black">{member.mutualGroups} Mutual Group(s)</span>
             </div>
             <div className="flex items-start gap-3">
               <Tag className="w-3.5 h-3.5 text-gray-400 shrink-0 mt-0.5" />
               <div className="flex flex-wrap gap-1.5">
                 {member.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
+                  <span key={tag} className="px-2 py-0.5 bg-[#E8F0FA] rounded-md text-[13px] font-medium text-gray-600">
                     {tag}
                   </span>
                 ))}
@@ -147,7 +147,7 @@ function ForwardModal({ member, onClose }: { member: OrgMember; onClose: () => v
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search chats..."
-              className="w-full pl-9 pr-3 py-2.5 bg-[#F2F7FF] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
+              className="w-full pl-9 pr-3 py-2.5 bg-[#F2F7FF] rounded-xl text-[14px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
             />
           </div>
         </div>
@@ -180,15 +180,15 @@ function ForwardModal({ member, onClose }: { member: OrgMember; onClose: () => v
                     <img src={ch.avatar} alt={ch.name} className="w-9 h-9 rounded-full object-cover ring-1 ring-black/5 shrink-0" />
                   ) : (
                     <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: getAvatarColor(ch.name) }}>
-                      <span className="text-[13px] font-bold text-black">
+                      <span className="text-[14px] font-semibold text-black">
                         {getAvatarLetter(ch.name)}
                       </span>
                     </div>
                   )}
 
                   <div className="flex-1 min-w-0 text-left">
-                    <p className="text-[13px] font-semibold text-black truncate">{ch.name}</p>
-                    <p className="text-[11px] text-gray-400 font-medium truncate">
+                    <p className="text-[14px] font-medium text-black truncate">{ch.name}</p>
+                    <p className="text-[12px] text-gray-400 font-medium truncate">
                       {ch.type === 'channel' ? `${ch.members.length} members` : ch.members.find(m => m.id !== 'me')?.name || 'Direct message'}
                     </p>
                   </div>
@@ -210,7 +210,7 @@ function ForwardModal({ member, onClose }: { member: OrgMember; onClose: () => v
           <button
             disabled={selected.size === 0}
             onClick={onClose}
-            className={`w-full py-2.5 rounded-xl text-[13px] font-semibold transition-all ${
+            className={`w-full py-2.5 rounded-xl text-[14px] font-semibold transition-all ${
               selected.size > 0
                 ? 'bg-black text-white hover:bg-gray-800'
                 : 'bg-gray-100 text-gray-300 cursor-not-allowed'
@@ -260,9 +260,9 @@ function MemberCard({ member }: { member: OrgMember }) {
               <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-[2.5px] border-white" />
             )}
           </div>
-          <h3 className="text-[18px] font-bold tracking-tight text-black">{member.name}</h3>
-          <p className="text-[13px] text-gray-400 font-medium mt-0.5">{member.role}</p>
-          <span className={`text-[11px] font-semibold mt-1.5 px-2.5 py-0.5 rounded-full ${
+          <h3 className="text-[18px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>{member.name}</h3>
+          <p className="text-[14px] text-gray-400 font-medium mt-0.5">{member.role}</p>
+          <span className={`text-[12px] font-medium mt-1.5 px-2.5 py-0.5 rounded-full ${
             member.isOnline ? 'bg-emerald-50 text-emerald-600' : 'bg-gray-100 text-gray-400'
           }`}>
             {member.isOnline ? 'Online' : 'Offline'}
@@ -279,7 +279,7 @@ function MemberCard({ member }: { member: OrgMember }) {
               <div className="w-11 h-11 rounded-xl bg-[#E8F0FA] flex items-center justify-center">
                 <Icon className="w-[18px] h-[18px] text-gray-600" />
               </div>
-              <span className="text-[12px] font-medium text-gray-500">{label}</span>
+              <span className="text-[13px] font-medium text-gray-500">{label}</span>
             </button>
           ))}
           <button
@@ -289,7 +289,7 @@ function MemberCard({ member }: { member: OrgMember }) {
             <div className="w-11 h-11 rounded-xl bg-[#E8F0FA] flex items-center justify-center">
               <User className="w-[18px] h-[18px] text-gray-600" />
             </div>
-            <span className="text-[12px] font-medium text-gray-500">Profile</span>
+            <span className="text-[13px] font-medium text-gray-500">Profile</span>
           </button>
         </div>
 
@@ -300,8 +300,8 @@ function MemberCard({ member }: { member: OrgMember }) {
               <Mail className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Email</p>
-              <p className="text-[13px] font-medium text-black mt-0.5 truncate">{member.email}</p>
+              <p className="text-[12px] font-medium text-gray-400 uppercase tracking-wide">Email</p>
+              <p className="text-[14px] font-medium text-black mt-0.5 truncate">{member.email}</p>
             </div>
           </div>
 
@@ -310,8 +310,8 @@ function MemberCard({ member }: { member: OrgMember }) {
               <Users className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Mutual Groups</p>
-              <p className="text-[13px] font-medium text-black mt-0.5">{member.mutualGroups} Group(s)</p>
+              <p className="text-[12px] font-medium text-gray-400 uppercase tracking-wide">Mutual Groups</p>
+              <p className="text-[14px] font-medium text-black mt-0.5">{member.mutualGroups} Group(s)</p>
             </div>
           </div>
 
@@ -320,10 +320,10 @@ function MemberCard({ member }: { member: OrgMember }) {
               <Tag className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Tag</p>
+              <p className="text-[12px] font-medium text-gray-400 uppercase tracking-wide">Tag</p>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {member.tags.map((tag) => (
-                  <span key={tag} className="px-2.5 py-1 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
+                  <span key={tag} className="px-2.5 py-1 bg-[#E8F0FA] rounded-md text-[13px] font-medium text-gray-600">
                     {tag}
                   </span>
                 ))}
@@ -336,13 +336,13 @@ function MemberCard({ member }: { member: OrgMember }) {
               <Briefcase className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Role</p>
-              <p className="text-[13px] font-medium text-black mt-0.5">{member.role}</p>
-              <p className="text-[12px] text-gray-400 font-medium mt-0.5">{member.department}</p>
+              <p className="text-[12px] font-medium text-gray-400 uppercase tracking-wide">Role</p>
+              <p className="text-[14px] font-medium text-black mt-0.5">{member.role}</p>
+              <p className="text-[13px] text-gray-400 font-medium mt-0.5">{member.department}</p>
             </div>
           </div>
 
-          <button className="flex items-center gap-2 text-[13px] font-medium text-gray-400 hover:text-gray-600 transition-colors pt-1">
+          <button className="flex items-center gap-2 text-[14px] font-medium text-gray-400 hover:text-gray-600 transition-colors pt-1">
             <Plus className="w-3.5 h-3.5" />
             Add Information
           </button>
@@ -402,7 +402,7 @@ export function MembersPage() {
   return (
     <div className="h-full flex gap-2">
       {/* ── Left column: departments ── */}
-      <div className="shrink-0 bg-[#F0F7FF] rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex flex-col" style={{ width: SIDEBAR_WIDTH }}>
+      <div className="shrink-0 bg-gradient-to-b from-[#F0F7FF] to-white rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex flex-col" style={{ width: SIDEBAR_WIDTH }}>
         <div className="px-4 pt-4 pb-2 shrink-0">
           <div className="flex items-center gap-2 mb-3">
             <button
@@ -411,9 +411,9 @@ export function MembersPage() {
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
-            <h2 className="text-[16px] font-bold tracking-tight">Members</h2>
+            <h2 className="text-[16px] font-medium tracking-tight">Members</h2>
           </div>
-          <p className="text-[12px] text-gray-400 font-medium px-0.5">
+          <p className="text-[13px] text-gray-400 font-medium px-0.5">
             {ORG_MEMBERS.length} people · {onlineCount} online
           </p>
         </div>
@@ -430,14 +430,14 @@ export function MembersPage() {
                     isActive ? 'bg-[#DDE9F6] text-black' : 'text-gray-600 hover:bg-[#E8F0FA]'
                   }`}
                 >
-                  <span className={`text-[13px] font-semibold truncate ${isActive ? 'text-black' : ''}`}>
+                  <span className={`text-[14px] font-medium truncate ${isActive ? 'text-black' : ''}`}>
                     {department}
                   </span>
                   <div className="flex items-center gap-1.5 shrink-0">
                     {online > 0 && (
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     )}
-                    <span className="text-[11px] font-medium text-gray-400">{total}</span>
+                    <span className="text-[12px] font-medium text-gray-400">{total}</span>
                   </div>
                 </button>
               );
@@ -456,17 +456,17 @@ export function MembersPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name, role, or department..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#F2F7FF] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#F2F7FF] rounded-xl text-[14px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
             />
           </div>
           {isSearching ? (
-            <p className="text-[13px] text-gray-400 font-medium">
+            <p className="text-[14px] text-gray-400 font-medium">
               {globalFiltered.length} result{globalFiltered.length !== 1 ? 's' : ''} found
             </p>
           ) : (
             <div>
-              <h4 className="text-[15px] font-bold tracking-tight text-black">{activeDept}</h4>
-              <p className="text-[12px] text-gray-400 font-medium mt-0.5">
+              <h4 className="text-[15px] font-medium tracking-tight text-black">{activeDept}</h4>
+              <p className="text-[13px] text-gray-400 font-medium mt-0.5">
                 {displayMembers.length} people · {displayMembers.filter((m) => m.isOnline).length} online
               </p>
             </div>
@@ -495,8 +495,8 @@ export function MembersPage() {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[14px] font-semibold text-black truncate">{m.name}</p>
-                    <p className="text-[12px] text-gray-400 font-medium truncate">
+                    <p className="text-[15px] font-medium text-black truncate">{m.name}</p>
+                    <p className="text-[13px] text-gray-400 font-medium truncate">
                       {m.role}{isSearching ? ` · ${m.department}` : ''}
                     </p>
                   </div>
@@ -512,7 +512,7 @@ export function MembersPage() {
 
             {displayMembers.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-[14px] text-gray-300 font-medium">No members found</p>
+                <p className="text-[15px] text-gray-300 font-medium">No members found</p>
               </div>
             )}
           </div>
@@ -527,7 +527,7 @@ export function MembersPage() {
           <div className="h-full flex items-center justify-center">
             <div className="text-center">
               <User className="w-10 h-10 text-gray-200 mx-auto mb-3" />
-              <p className="text-[14px] text-gray-300 font-medium">Select a member</p>
+              <p className="text-[15px] text-gray-300 font-medium">Select a member</p>
             </div>
           </div>
         )}

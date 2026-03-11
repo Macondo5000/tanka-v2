@@ -28,18 +28,18 @@ function ActionList({ actions }: { actions: StepAction[] }) {
                 <Circle className="w-3 h-3 text-orange-400 fill-orange-400 animate-pulse" />
               </div>
             )}
-            <span className={`text-[12px] font-medium flex-1 min-w-0 truncate ${
+            <span className={`text-[13px] font-medium flex-1 min-w-0 truncate ${
               isExecuted ? 'text-gray-400' : 'text-gray-700'
             }`}>
               {action.label}
             </span>
             {action.time && (
-              <span className="text-[10px] text-gray-300 font-medium shrink-0">
+              <span className="text-[11px] text-gray-300 font-medium shrink-0">
                 {action.time}
               </span>
             )}
             {!isExecuted && !action.time && (
-              <span className="text-[10px] text-orange-400 font-semibold shrink-0">
+              <span className="text-[11px] text-orange-400 font-semibold shrink-0">
                 In progress
               </span>
             )}
@@ -57,13 +57,13 @@ export function WorkplanTimeline({ steps, title }: WorkplanTimelineProps) {
     <div className="space-y-0 relative">
       {title && (
         <div className="mb-4">
-          <h3 className="text-[16px] font-bold text-[#0d0d0d] leading-tight">{title}</h3>
+          <h3 className="text-[16px] font-semibold text-[#0d0d0d] leading-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>{title}</h3>
           <div className="flex items-center gap-2 mt-1.5">
             <div className="flex items-center gap-1 px-2 py-0.5 bg-emerald-50 rounded-full">
               <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[9px] font-bold text-emerald-600 uppercase tracking-widest">In Progress</span>
+              <span className="text-[10px] font-semibold text-emerald-600 uppercase tracking-widest">In Progress</span>
             </div>
-            <span className="text-[11px] text-gray-400 font-medium">
+            <span className="text-[12px] text-gray-400 font-medium">
               Step {activeIdx + 1} · {steps.filter((s) => s.status === 'pending').length} remaining
             </span>
           </div>
@@ -90,27 +90,27 @@ export function WorkplanTimeline({ steps, title }: WorkplanTimelineProps) {
 
           <div className="flex-1 min-w-0">
             <div className="flex flex-col mb-2">
-              <span className={`text-[12px] font-bold uppercase tracking-[0.2em] mb-0.5 ${
+              <span className={`text-[13px] font-semibold uppercase tracking-[0.2em] mb-0.5 ${
                 step.status === 'active' ? 'text-black' :
                 step.status === 'completed' ? 'text-gray-400' : 'text-gray-300'
               }`}>
                 Step {idx + 1}
               </span>
-              <h4 className={`text-[15px] font-bold tracking-tight leading-snug ${
+              <h4 className={`text-[15px] font-semibold tracking-tight leading-snug ${
                 step.status === 'active' ? 'text-[#0d0d0d]' : 'text-black'
               }`}>
                 {step.label}
               </h4>
             </div>
 
-            <p className={`text-[13px] leading-relaxed mb-2 ${
+            <p className={`text-[14px] leading-relaxed mb-2 ${
               step.status === 'active' ? 'text-[#5d5d5d]' : 'text-gray-500'
             }`}>
               {step.description}
             </p>
 
             {step.meta && step.status !== 'completed' && (
-              <p className="text-[11px] font-medium text-gray-400 mb-2">{step.meta}</p>
+              <p className="text-[12px] font-medium text-gray-400 mb-2">{step.meta}</p>
             )}
 
             {/* Render actions list if available, otherwise fall back to single action card */}
@@ -126,7 +126,7 @@ export function WorkplanTimeline({ steps, title }: WorkplanTimelineProps) {
             ) : null}
 
             {step.time && step.status === 'completed' && !step.actionLabel && !(step.actions && step.actions.length > 0) && (
-              <div className="text-[10px] font-bold text-gray-300 mt-2 uppercase tracking-widest">
+              <div className="text-[11px] font-semibold text-gray-300 mt-2 uppercase tracking-widest">
                 Completed at {step.time}
               </div>
             )}

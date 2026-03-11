@@ -169,7 +169,7 @@ export function OrgRail() {
           {menuOpen && (
             <div className="absolute left-[calc(100%+8px)] top-0 w-[200px] bg-white rounded-xl border border-gray-100 shadow-lg py-1.5 z-50">
               <div className="px-3 py-1.5">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Organization</span>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400">Organization</span>
               </div>
               <button
                 onClick={() => { setMenuOpen(false); setCreateOrgOpen(true); setNewOrgName(''); }}
@@ -179,8 +179,8 @@ export function OrgRail() {
                   <Building2 className="w-3.5 h-3.5 text-gray-500" />
                 </div>
                 <div className="text-left">
-                  <p className="text-[13px] font-medium text-black">Create New</p>
-                  <p className="text-[10px] text-gray-400">Start a new organization</p>
+                  <p className="text-[14px] font-medium text-black">Create New</p>
+                  <p className="text-[11px] text-gray-400">Start a new organization</p>
                 </div>
               </button>
               <button
@@ -191,8 +191,8 @@ export function OrgRail() {
                   <UserPlus className="w-3.5 h-3.5 text-gray-500" />
                 </div>
                 <div className="text-left">
-                  <p className="text-[13px] font-medium text-black">Join Existing</p>
-                  <p className="text-[10px] text-gray-400">Join with an invite code</p>
+                  <p className="text-[14px] font-medium text-black">Join Existing</p>
+                  <p className="text-[11px] text-gray-400">Join with an invite code</p>
                 </div>
               </button>
             </div>
@@ -219,7 +219,7 @@ export function OrgRail() {
           {settingsOpen && (
             <div className="absolute left-[calc(100%+8px)] bottom-0 w-[200px] bg-white rounded-xl border border-gray-100 shadow-lg py-1.5 z-50">
               <div className="px-3 py-1.5">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Settings</span>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400">Settings</span>
               </div>
               {SETTINGS_ITEMS.map(({ key, icon: Icon, label }) => (
                 <button
@@ -228,7 +228,7 @@ export function OrgRail() {
                   className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-[#F2F7FF] transition-colors"
                 >
                   <Icon className="w-4 h-4 text-gray-400 shrink-0" />
-                  <span className="text-[13px] font-medium text-gray-700">{label}</span>
+                  <span className="text-[14px] font-medium text-gray-700">{label}</span>
                 </button>
               ))}
             </div>
@@ -249,8 +249,8 @@ export function OrgRail() {
           {AI_SETTINGS.map(({ key, label, desc }) => (
             <div key={key} className="flex items-start gap-4 py-3.5 border-b border-gray-50 last:border-0">
               <div className="flex-1 min-w-0">
-                <p className="text-[14px] font-semibold text-black">{label}</p>
-                <p className="text-[13px] text-gray-400 font-medium mt-0.5 leading-relaxed">{desc}</p>
+                <p className="text-[15px] font-semibold text-black">{label}</p>
+                <p className="text-[14px] text-gray-400 font-medium mt-0.5 leading-relaxed">{desc}</p>
               </div>
               <div className="pt-0.5">
                 <Toggle
@@ -262,7 +262,7 @@ export function OrgRail() {
           ))}
         </div>
         <div className="px-6 py-4 border-t border-gray-100">
-          <p className="text-[12px] text-gray-400 font-medium leading-relaxed">
+          <p className="text-[13px] text-gray-400 font-medium leading-relaxed">
             Turning off all options will disable AI services. Read <span className="underline cursor-pointer text-gray-500">Privacy Policy</span> for more information.
           </p>
         </div>

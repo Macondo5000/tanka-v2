@@ -10,7 +10,7 @@ export function LinkSidebar() {
   const unlinkedCount = apps.filter((a) => !a.isConnected).length;
 
   return (
-    <div className="h-full bg-[#F0F7FF] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
+    <div className="h-full bg-gradient-to-b from-[#F0F7FF] to-white flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
       {/* Module tabs */}
       <div className="px-3 pt-3 pb-1 shrink-0">
         <SidebarTabs />
@@ -23,7 +23,7 @@ export function LinkSidebar() {
           <input
             type="text"
             placeholder="Search..."
-            className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[13px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
+            className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[14px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
           />
         </div>
       </div>
@@ -37,8 +37,8 @@ export function LinkSidebar() {
           }`}
         >
           <Link2 className="w-4 h-4 text-gray-500 shrink-0" />
-          <span className={`text-[13px] font-semibold flex-1 ${linkFilter === 'linked' ? 'text-black' : ''}`}>Linked</span>
-          <span className="text-[11px] font-medium text-gray-400">{linkedCount}</span>
+          <span className={`text-[14px] font-medium flex-1 ${linkFilter === 'linked' ? 'text-black' : ''}`}>Linked</span>
+          <span className="text-[12px] font-medium text-gray-400">{linkedCount}</span>
         </button>
 
         <button
@@ -48,8 +48,8 @@ export function LinkSidebar() {
           }`}
         >
           <Unlink className="w-4 h-4 text-gray-500 shrink-0" />
-          <span className={`text-[13px] font-semibold flex-1 ${linkFilter === 'unlinked' ? 'text-black' : ''}`}>Unlinked</span>
-          <span className="text-[11px] font-medium text-gray-400">{unlinkedCount}</span>
+          <span className={`text-[14px] font-medium flex-1 ${linkFilter === 'unlinked' ? 'text-black' : ''}`}>Unlinked</span>
+          <span className="text-[12px] font-medium text-gray-400">{unlinkedCount}</span>
         </button>
       </div>
     </div>

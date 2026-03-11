@@ -15,7 +15,7 @@ export function FlowSidebar() {
   const isAssetsActive = location.pathname === '/flow/assets';
 
   return (
-    <div className="h-full bg-[#F0F7FF] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
+    <div className="h-full bg-gradient-to-b from-[#F0F7FF] to-white flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
       {/* Module tabs */}
       <div className="px-3 pt-3 pb-1 shrink-0">
         <SidebarTabs />
@@ -28,7 +28,7 @@ export function FlowSidebar() {
           <input
             type="text"
             placeholder="Search..."
-            className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[13px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
+            className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[14px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
           />
         </div>
       </div>
@@ -44,7 +44,7 @@ export function FlowSidebar() {
             }`}
           >
             <Plus className="w-4 h-4 text-gray-500 shrink-0" />
-            <span className={`text-[13px] font-semibold ${isNewFlowActive ? 'text-black' : ''}`}>New Flow</span>
+            <span className={`text-[14px] font-medium ${isNewFlowActive ? 'text-black' : ''}`}>New Flow</span>
           </button>
 
           <button
@@ -54,7 +54,7 @@ export function FlowSidebar() {
             }`}
           >
             <BookOpen className="w-4 h-4 text-gray-500 shrink-0" />
-            <span className={`text-[13px] font-semibold ${isSOPActive ? 'text-black' : ''}`}>SOP Library</span>
+            <span className={`text-[14px] font-medium ${isSOPActive ? 'text-black' : ''}`}>SOP Library</span>
           </button>
 
           <button
@@ -64,7 +64,7 @@ export function FlowSidebar() {
             }`}
           >
             <CalendarCheck className="w-4 h-4 text-gray-500 shrink-0" />
-            <span className={`text-[13px] font-semibold ${isFollowUpActive ? 'text-black' : ''}`}>Follow-up</span>
+            <span className={`text-[14px] font-medium ${isFollowUpActive ? 'text-black' : ''}`}>Follow-up</span>
           </button>
 
           <button
@@ -74,13 +74,13 @@ export function FlowSidebar() {
             }`}
           >
             <FolderOpen className="w-4 h-4 text-gray-500 shrink-0" />
-            <span className={`text-[13px] font-semibold ${isAssetsActive ? 'text-black' : ''}`}>Assets</span>
+            <span className={`text-[14px] font-medium ${isAssetsActive ? 'text-black' : ''}`}>Assets</span>
           </button>
         </div>
 
         {/* Recent flows */}
         <div>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 px-2 mb-1 block">Recent</span>
+          <span className="text-[11px] font-semibold uppercase tracking-widest text-gray-400 px-2 mb-1 block">Recent</span>
           <div className="space-y-0.5">
             {flows.map((flow) => {
               const isActive = flow.id === flowId;
@@ -93,7 +93,7 @@ export function FlowSidebar() {
                     isActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
                   }`}
                 >
-                  <span className={`text-[13px] font-normal truncate ${isActive ? 'font-medium text-black' : ''}`}>
+                  <span className={`text-[14px] font-normal truncate ${isActive ? 'font-medium text-black' : ''}`}>
                     {flow.title}
                   </span>
                 </button>

@@ -23,7 +23,7 @@ export function TopNav() {
   }, []);
 
   return (
-    <header className="h-11 px-4 bg-[#E6F2FE] flex items-center justify-between sticky top-0 z-20 shrink-0">
+    <header className="h-11 px-4 bg-transparent flex items-center justify-between sticky top-0 z-20 shrink-0">
       {/* Left: Toggle (only when collapsed) + Org tag */}
       <div className="flex items-center gap-1.5">
         {orgRailCollapsed && (
@@ -37,7 +37,7 @@ export function TopNav() {
         )}
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/[0.05] select-none max-w-full min-w-0">
           <Building2 className="w-3.5 h-3.5 text-gray-500 shrink-0" strokeWidth={2} />
-          <span className="text-[13px] font-bold text-black tracking-tight truncate">{activeOrg.name}</span>
+          <span className="text-[13px] font-semibold text-black tracking-tight truncate">{activeOrg.name}</span>
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export function TopNav() {
                   <img src="/koko.jpg" alt="avatar" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[15px] font-bold text-black tracking-tight">Koko Lv</p>
+                  <p className="text-[15px] font-semibold text-black tracking-tight">Koko Lv</p>
                   <p className="text-[12px] text-gray-400 font-medium truncate">ling.lv@tanka.ai</p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export function TopNav() {
             {/* Plan */}
             <div className="px-5 py-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Current Plan</span>
+                <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-400">Current Plan</span>
               </div>
               <div className="flex items-center justify-between p-3 rounded-xl bg-[#F2F7FF]">
                 <div className="flex items-center gap-2.5">

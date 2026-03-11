@@ -43,10 +43,10 @@ export function LinkPage() {
           <div className="h-full overflow-y-auto no-scrollbar">
             <div className="max-w-[800px] mx-auto px-8 pt-6">
               {/* Header */}
-              <h2 className="text-[18px] font-bold tracking-tight text-black">
+              <h2 className="text-[22px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
                 {linkFilter === 'linked' ? 'Linked' : 'Unlinked'} Apps
               </h2>
-              <p className="text-[13px] text-gray-400 font-medium mt-0.5">
+              <p className="text-[14px] text-gray-400 font-medium mt-0.5">
                 {linkFilter === 'linked'
                   ? `${linkedCount} app${linkedCount !== 1 ? 's' : ''} connected to your workspace.`
                   : `${unlinkedCount} app${unlinkedCount !== 1 ? 's' : ''} available to connect.`}
@@ -58,10 +58,10 @@ export function LinkPage() {
               <div className="flex flex-wrap gap-2 mb-6">
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className={`px-3 py-1.5 rounded-lg text-[12px] font-semibold transition-colors ${
+                  className={`px-3.5 py-2 rounded-xl text-[14px] font-normal transition-colors ${
                     selectedCategory === null
                       ? 'bg-black text-white'
-                      : 'bg-[#E8F0FA] text-gray-500 hover:bg-[#D2E1F2]'
+                      : 'bg-[#E8F0FA] text-gray-700 hover:bg-[#D2E1F2]'
                   }`}
                 >
                   All
@@ -70,10 +70,10 @@ export function LinkPage() {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-3 py-1.5 rounded-lg text-[12px] font-semibold transition-colors ${
+                    className={`px-3.5 py-2 rounded-xl text-[14px] font-normal transition-colors ${
                       selectedCategory === cat
                         ? 'bg-black text-white'
-                        : 'bg-[#E8F0FA] text-gray-500 hover:bg-[#D2E1F2]'
+                        : 'bg-[#E8F0FA] text-gray-700 hover:bg-[#D2E1F2]'
                     }`}
                   >
                     {cat}
@@ -89,7 +89,7 @@ export function LinkPage() {
                     const catApps = filteredApps.filter((a) => a.category === cat);
                     return (
                       <div key={cat}>
-                        <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-3 block">
+                        <span className="text-[13px] font-semibold uppercase tracking-widest text-gray-400 mb-3 block">
                           {cat}
                         </span>
                         <div className="grid grid-cols-2 gap-3">

@@ -30,7 +30,7 @@ export function ChannelSidebar() {
   };
 
   return (
-      <div className="h-full bg-[#F0F7FF] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
+      <div className="h-full bg-gradient-to-b from-[#F0F7FF] to-white flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
         {/* Module tabs */}
         <div className="px-3 pt-3 pb-1 shrink-0">
           <SidebarTabs />
@@ -43,7 +43,7 @@ export function ChannelSidebar() {
             <input
               type="text"
               placeholder="Search..."
-              className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[13px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
+              className="w-full pl-9 pr-3 py-1.5 bg-transparent border border-black/[0.06] rounded-lg text-[14px] font-medium placeholder:text-gray-300 outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-gray-200/60 transition-all"
             />
           </div>
         </div>
@@ -59,7 +59,7 @@ export function ChannelSidebar() {
                 className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-800 hover:bg-[#E8F0FA] transition-all"
               >
                 <Icon className="w-4 h-4 text-gray-500 shrink-0" />
-                <span className="text-[13px] font-semibold">{tool.label}</span>
+                <span className="text-[14px] font-medium">{tool.label}</span>
               </button>
             );
           })}
@@ -68,7 +68,7 @@ export function ChannelSidebar() {
         {/* Channel list — mixed sort by time */}
         <div className="flex-1 overflow-y-auto px-2 py-2 no-scrollbar">
           <div className="flex items-center justify-between px-2.5 mb-1">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Channels</span>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-gray-400">Channels</span>
             <button className="w-5 h-5 flex items-center justify-center rounded-md hover:bg-[#DDE9F6] transition-colors text-gray-400 hover:text-black">
               <Plus className="w-3.5 h-3.5" />
             </button>
@@ -99,7 +99,7 @@ export function ChannelSidebar() {
                       <img src={ch.avatar} alt={ch.name} className="w-10 h-10 rounded-full object-cover ring-1 ring-black/5" />
                     ) : (
                       <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: getAvatarColor(ch.name) }}>
-                        <span className="text-[14px] font-bold text-black">
+                        <span className="text-[14px] font-semibold text-black">
                           {getAvatarLetter(ch.name)}
                         </span>
                       </div>
@@ -111,21 +111,21 @@ export function ChannelSidebar() {
                 )}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <span className={`text-[13px] font-semibold truncate ${activeChannelId === ch.id ? 'text-black' : ''}`}>
+                    <span className={`text-[14px] font-medium truncate ${activeChannelId === ch.id ? 'text-black' : ''}`}>
                       {ch.name}
                     </span>
                     {ch.lastMessageTime && (
-                      <span className="text-[10px] text-gray-300 font-medium shrink-0">{ch.lastMessageTime}</span>
+                      <span className="text-[11px] text-gray-300 font-medium shrink-0">{ch.lastMessageTime}</span>
                     )}
                   </div>
                   <div className="flex items-center justify-between mt-0.5">
                     {ch.lastMessage ? (
-                      <p className="text-[11px] text-gray-400 truncate">{ch.lastMessage}</p>
+                      <p className="text-[12px] text-gray-400 truncate">{ch.lastMessage}</p>
                     ) : (
                       <span />
                     )}
                     {ch.unreadCount > 0 && (
-                      <span className={`w-5 h-5 text-[10px] font-bold rounded-full flex items-center justify-center shrink-0 ml-1.5 ${
+                      <span className={`w-5 h-5 text-[11px] font-semibold rounded-full flex items-center justify-center shrink-0 ml-1.5 ${
                         ch.isMuted
                           ? 'bg-gray-200 text-black'
                           : 'bg-[#dcfce7] text-black'
