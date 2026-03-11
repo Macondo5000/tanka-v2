@@ -47,7 +47,7 @@ export function FlowHome() {
             transition={{ ease: EASE_SMOOTH, duration: 0.5 }}
           >
             <h1 className="text-[32px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
-              {new Date().getHours() < 12 ? 'Good morning, Koko' : new Date().getHours() < 18 ? 'Good afternoon, Koko' : 'Good evening, Koko'}
+              What's your agenda, Koko?
             </h1>
           </motion.div>
 
@@ -65,12 +65,12 @@ export function FlowHome() {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <Sparkles className="w-3 h-3 text-gray-400" />
-                      <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-400">
+                      <Sparkles className="w-3 h-3 text-gray-600" />
+                      <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-600">
                         AI Suggestion
                       </span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                    <ArrowRight className="w-4 h-4 text-gray-600" />
                   </div>
                   <h4 className="text-[15px] font-medium text-black leading-tight tracking-tight pr-4 mb-2 truncate">
                     {item.title}

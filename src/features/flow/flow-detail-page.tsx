@@ -18,7 +18,7 @@ const EMPTY_MESSAGES: ChatMessage[] = [];
 const FLOW_SUGGESTIONS = [
   { text: 'Create a landing page', icon: Globe },
   { text: "Plan next week's tasks", icon: CalendarDays },
-  { text: 'Weekly summary', icon: FileText },
+  { text: 'Summarize this week\'s progress', icon: FileText },
   { text: 'Kick off a new project', icon: Rocket },
 ];
 
@@ -144,7 +144,7 @@ export function FlowDetailPage() {
                   onClick={() => handleSend(text)}
                   className="px-4 py-3 rounded-xl bg-white border border-[#E4ECF4] text-left hover:bg-[#F5F8FC] active:scale-[0.98] transition-all"
                 >
-                  <Icon className="w-5 h-5 text-[#6B9ECE] mb-2" strokeWidth={1.8} />
+                  <Icon className="w-5 h-5 text-[#4A7FAD] mb-2" strokeWidth={1.8} />
                   <span className="text-[14px] text-[#5A7A95] font-normal leading-snug block">{text}</span>
                 </motion.button>
               ))}
