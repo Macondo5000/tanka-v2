@@ -28,7 +28,7 @@ export function FlowSidebar() {
           <button
             onClick={() => navigate('/flow/new')}
             className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-              isNewFlowActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
+              isNewFlowActive ? 'bg-[#DDE9F6] border-transparent text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
             <Plus className="w-4 h-4 shrink-0" />
@@ -38,7 +38,7 @@ export function FlowSidebar() {
           <button
             onClick={() => navigate('/flow/sop-library')}
             className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-              isSOPActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
+              isSOPActive ? 'bg-[#DDE9F6] border-transparent text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
             <BookOpen className="w-4 h-4 shrink-0" />
@@ -48,7 +48,7 @@ export function FlowSidebar() {
           <button
             onClick={() => navigate('/flow/follow-up')}
             className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-              isFollowUpActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
+              isFollowUpActive ? 'bg-[#DDE9F6] border-transparent text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
             <CalendarCheck className="w-4 h-4 shrink-0" />
@@ -58,7 +58,7 @@ export function FlowSidebar() {
           <button
             onClick={() => navigate('/flow/assets')}
             className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-              isAssetsActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
+              isAssetsActive ? 'bg-[#DDE9F6] border-transparent text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
             }`}
           >
             <FolderOpen className="w-4 h-4 shrink-0" />
@@ -78,7 +78,7 @@ export function FlowSidebar() {
                   key={flow.id}
                   onClick={() => navigate(`/flow/${flow.id}`)}
                   className={`w-full px-2.5 py-1.5 rounded-lg text-left transition-all truncate border ${
-                    isActive ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
+                    isActive ? 'bg-[#DDE9F6] border-transparent text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
                   }`}
                 >
                   <span className={`text-[14px] font-normal truncate ${isActive ? 'font-medium text-black' : ''}`}>

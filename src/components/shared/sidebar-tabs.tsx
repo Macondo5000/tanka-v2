@@ -32,7 +32,7 @@ export function SidebarTabs() {
           <button
             key={item.key}
             onClick={() => navigate(item.path)}
-            className={`relative flex-1 flex items-center justify-center gap-1.5 py-[5px] rounded-[7px] text-[14px] font-medium tracking-tight transition-all ${
+            className={`relative flex-1 flex items-center justify-center gap-1.5 py-[7px] rounded-[7px] text-[14px] font-medium tracking-tight transition-all ${
               isActive
                 ? 'bg-white text-black shadow-[0_1px_2px_rgba(0,0,0,0.05)]'
                 : 'text-gray-600 hover:text-gray-800'
