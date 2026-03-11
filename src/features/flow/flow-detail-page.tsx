@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import { motion } from 'motion/react';
 import { ListChecks, FolderOpen, Globe, CalendarDays, FileText, Rocket } from 'lucide-react';
+import { UserMenu } from '@/components/shared/user-menu';
 import { useFlowStore } from '@/store/flow-store';
 import { useChatStore } from '@/store/chat-store';
 import { StatusBadge } from '@/components/shared/status-badge';
@@ -106,7 +107,10 @@ export function FlowDetailPage() {
   // New flow — empty state with centered greeting + input + suggestions
   if (isNew && messages.length === 0) {
     return (
-      <div className="h-full flex flex-col bg-white">
+      <div className="h-full flex flex-col bg-white relative">
+        <div className="absolute top-3 right-4 z-30">
+          <UserMenu />
+        </div>
         <div className="flex-1 flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -154,7 +158,12 @@ export function FlowDetailPage() {
   }
 
   return (
-    <div className="h-full flex flex-col bg-white">
+    <div className="h-full flex flex-col bg-white relative">
+      {/* User menu — top right */}
+      <div className="absolute top-3 right-4 z-30">
+        <UserMenu />
+      </div>
+
       {/* Header — only show for existing flows */}
       {!isNew && currentFlow && (
         <div className="px-8 py-3 shrink-0">
@@ -166,7 +175,7 @@ export function FlowDetailPage() {
               <StatusBadge status={currentFlow.status} size="md" showDot />
             </div>
 
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 mr-12">
               {/* Artifacts button */}
               {artifacts.length > 0 && (
                 <button
