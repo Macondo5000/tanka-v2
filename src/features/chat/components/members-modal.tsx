@@ -51,7 +51,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
         <ReadOnlySection title="Trait Profile">
           <div className="flex flex-wrap gap-1.5">
             {member.traits.map((t) => (
-              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#f0f0f0] text-[12px] font-semibold text-gray-600">
+              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[12px] font-semibold text-gray-600">
                 {t}
               </span>
             ))}
@@ -101,7 +101,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
               <Tag className="w-3.5 h-3.5 text-gray-400 shrink-0 mt-0.5" />
               <div className="flex flex-wrap gap-1.5">
                 {member.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 bg-[#f0f0f0] rounded-md text-[12px] font-medium text-gray-600">
+                  <span key={tag} className="px-2 py-0.5 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
                     {tag}
                   </span>
                 ))}
@@ -155,9 +155,9 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
             {CARD_ACTIONS.map(({ key, icon: Icon, label }) => (
               <button
                 key={key}
-                className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-[#f5f5f5] transition-all"
+                className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-[#F2F7FF] transition-all"
               >
-                <div className="w-9 h-9 rounded-xl bg-[#f0f0f0] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-[#E8F0FA] flex items-center justify-center">
                   <Icon className="w-4 h-4 text-gray-600" />
                 </div>
                 <span className="text-[11px] font-medium text-gray-500">{label}</span>
@@ -169,7 +169,7 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
           <div className="space-y-4 pt-5">
             {/* Email */}
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
                 <Mail className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
@@ -180,7 +180,7 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
 
             {/* Mutual Groups */}
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
                 <Users className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
@@ -191,14 +191,14 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
 
             {/* Tags */}
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
                 <Tag className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
                 <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Tag</p>
                 <div className="flex flex-wrap gap-1.5 mt-1">
                   {member.tags.map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 bg-[#f0f0f0] rounded-md text-[12px] font-medium text-gray-600">
+                    <span key={tag} className="px-2.5 py-1 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
                       {tag}
                     </span>
                   ))}
@@ -208,7 +208,7 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
 
             {/* Role / Department */}
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
                 <Briefcase className="w-3.5 h-3.5 text-gray-400" />
               </div>
               <div className="min-w-0">
@@ -230,13 +230,13 @@ function MemberCardModal({ member, onClose }: { member: OrgMember; onClose: () =
         <div className="px-6 py-4 border-t border-gray-100 flex items-center gap-2.5">
           <button
             onClick={() => setProfileOpen(true)}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#f0f0f0] hover:bg-[#e4e4e4] transition-colors text-[13px] font-semibold text-black"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#E8F0FA] hover:bg-[#D2E1F2] transition-colors text-[13px] font-semibold text-black"
           >
             <User className="w-3.5 h-3.5" />
             Profile
             <ChevronRight className="w-3.5 h-3.5 text-gray-400 ml-auto" />
           </button>
-          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#f0f0f0] hover:bg-[#e4e4e4] transition-colors text-[13px] font-semibold text-black">
+          <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#E8F0FA] hover:bg-[#D2E1F2] transition-colors text-[13px] font-semibold text-black">
             <Forward className="w-3.5 h-3.5" />
             Forward
           </button>
@@ -308,7 +308,7 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name, role, or department..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#f5f5f5] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#F2F7FF] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
             />
           </div>
         </div>
@@ -325,7 +325,7 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
                       key={department}
                       onClick={() => setActiveDept(department)}
                       className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-all ${
-                        isActive ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f5f5f5]'
+                        isActive ? 'bg-[#DDE9F6] text-black' : 'text-gray-600 hover:bg-[#F2F7FF]'
                       }`}
                     >
                       <span className={`text-[13px] font-semibold truncate ${isActive ? 'text-black' : ''}`}>
@@ -370,7 +370,7 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.02, ease: EASE_SMOOTH }}
                     onClick={() => setSelectedMember(m)}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#f5f5f5] transition-all group cursor-pointer"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F2F7FF] transition-all group cursor-pointer"
                   >
                     <div className="relative shrink-0">
                       <img
@@ -390,7 +390,7 @@ export function MembersModal({ open, onClose }: MembersModalProps) {
                     </div>
                     <button
                       onClick={(e) => e.stopPropagation()}
-                      className="w-7 h-7 rounded-lg bg-transparent group-hover:bg-[#e4e4e4] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all shrink-0"
+                      className="w-7 h-7 rounded-lg bg-transparent group-hover:bg-[#D2E1F2] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all shrink-0"
                     >
                       <MessageSquare className="w-3.5 h-3.5 text-gray-500" />
                     </button>

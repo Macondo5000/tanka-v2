@@ -61,7 +61,7 @@ export function LinkPage() {
                   className={`px-3 py-1.5 rounded-lg text-[12px] font-semibold transition-colors ${
                     selectedCategory === null
                       ? 'bg-black text-white'
-                      : 'bg-[#f0f0f0] text-gray-500 hover:bg-[#e4e4e4]'
+                      : 'bg-[#E8F0FA] text-gray-500 hover:bg-[#D2E1F2]'
                   }`}
                 >
                   All
@@ -73,7 +73,7 @@ export function LinkPage() {
                     className={`px-3 py-1.5 rounded-lg text-[12px] font-semibold transition-colors ${
                       selectedCategory === cat
                         ? 'bg-black text-white'
-                        : 'bg-[#f0f0f0] text-gray-500 hover:bg-[#e4e4e4]'
+                        : 'bg-[#E8F0FA] text-gray-500 hover:bg-[#D2E1F2]'
                     }`}
                   >
                     {cat}

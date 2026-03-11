@@ -128,7 +128,7 @@ function ProfileEditModal({ open, onClose, profile, onSave }: { open: boolean; o
       <div className="px-6 py-4 border-t border-gray-100 flex items-center justify-end gap-2.5">
         <button
           onClick={onClose}
-          className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#f5f5f5] transition-colors"
+          className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#F2F7FF] transition-colors"
         >
           Cancel
         </button>
@@ -196,7 +196,7 @@ export function ProfilePage() {
                 </div>
                 <button
                   onClick={() => setEditOpen(true)}
-                  className="w-8 h-8 rounded-lg bg-[#f0f0f0] flex items-center justify-center hover:bg-[#e4e4e4] transition-colors shrink-0"
+                  className="w-8 h-8 rounded-lg bg-[#E8F0FA] flex items-center justify-center hover:bg-[#D2E1F2] transition-colors shrink-0"
                 >
                   <Pencil className="w-3.5 h-3.5 text-gray-500" />
                 </button>
@@ -211,7 +211,7 @@ export function ProfilePage() {
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[12px] font-semibold text-gray-500">Overall Leverage Score</span>
                 </div>
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#f5f5f5]">
+                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#F2F7FF]">
                   <Loader2 className="w-5 h-5 text-emerald-500 animate-spin" />
                   <div>
                     <p className="text-[13px] font-semibold text-black">Generating</p>
@@ -228,7 +228,7 @@ export function ProfilePage() {
               {TRAIT_TAGS.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-lg bg-[#f0f0f0] text-[12px] font-semibold text-gray-600"
+                  className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[12px] font-semibold text-gray-600"
                 >
                   {tag}
                 </span>
@@ -240,7 +240,7 @@ export function ProfilePage() {
           <SectionCard
             title="Core Responsibilities"
             action={
-              <button className="w-6 h-6 rounded-md bg-[#f0f0f0] flex items-center justify-center hover:bg-[#e4e4e4] transition-colors">
+              <button className="w-6 h-6 rounded-md bg-[#E8F0FA] flex items-center justify-center hover:bg-[#D2E1F2] transition-colors">
                 <Plus className="w-3.5 h-3.5 text-gray-500" />
               </button>
             }
@@ -271,7 +271,7 @@ export function ProfilePage() {
           <SectionCard
             title="Key Achievements"
             action={
-              <button className="w-6 h-6 rounded-md bg-[#f0f0f0] flex items-center justify-center hover:bg-[#e4e4e4] transition-colors">
+              <button className="w-6 h-6 rounded-md bg-[#E8F0FA] flex items-center justify-center hover:bg-[#D2E1F2] transition-colors">
                 <Plus className="w-3.5 h-3.5 text-gray-500" />
               </button>
             }

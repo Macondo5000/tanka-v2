@@ -30,7 +30,7 @@ export function ChannelSidebar() {
   };
 
   return (
-      <div className="h-full bg-[#FBFBF9] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
+      <div className="h-full bg-[#F0F7FF] flex flex-col shrink-0" style={{ width: SIDEBAR_WIDTH }}>
         {/* Module tabs */}
         <div className="px-3 pt-3 pb-1 shrink-0">
           <SidebarTabs />
@@ -56,7 +56,7 @@ export function ChannelSidebar() {
               <button
                 key={tool.key}
                 onClick={() => handleToolClick(tool.key)}
-                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-800 hover:bg-[#f0f0f0] transition-all"
+                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left text-gray-800 hover:bg-[#E8F0FA] transition-all"
               >
                 <Icon className="w-4 h-4 text-gray-500 shrink-0" />
                 <span className="text-[13px] font-semibold">{tool.label}</span>
@@ -69,7 +69,7 @@ export function ChannelSidebar() {
         <div className="flex-1 overflow-y-auto px-2 py-2 no-scrollbar">
           <div className="flex items-center justify-between px-2.5 mb-1">
             <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Channels</span>
-            <button className="w-5 h-5 flex items-center justify-center rounded-md hover:bg-[#ebebeb] transition-colors text-gray-400 hover:text-black">
+            <button className="w-5 h-5 flex items-center justify-center rounded-md hover:bg-[#DDE9F6] transition-colors text-gray-400 hover:text-black">
               <Plus className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -79,7 +79,7 @@ export function ChannelSidebar() {
                 key={ch.id}
                 onClick={() => handleSelect(ch.id)}
                 className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition-all border ${
-                  activeChannelId === ch.id ? 'bg-white border-[#E9EAE7] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#f0f0f0]'
+                  activeChannelId === ch.id ? 'bg-white border-[#D4E3F5] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-black' : 'border-transparent text-gray-800 hover:bg-[#E8F0FA]'
                 }`}
               >
                 {/* Icon: channel → hash, dm → avatar */}

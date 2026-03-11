@@ -37,7 +37,7 @@ export function FlowHome() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#FBFBF9]">
+    <div className="h-full flex flex-col bg-[#F0F7FF]">
       <div className="flex-1 overflow-y-auto no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 py-8 space-y-10">
           {/* Greeting */}
@@ -61,7 +61,7 @@ export function FlowHome() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, ease: EASE_SMOOTH }}
-                  className="relative rounded-2xl overflow-hidden border border-[#E9EAE7] flex flex-col px-5 py-4 cursor-pointer hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.05)] active:scale-[0.98] transition-all group"
+                  className="relative rounded-2xl overflow-hidden border border-[#D4E3F5] flex flex-col px-5 py-4 cursor-pointer hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.05)] active:scale-[0.98] transition-all group"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -94,7 +94,7 @@ export function FlowHome() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, ease: EASE_SMOOTH }}
                   onClick={() => navigate(`/flow/${flow.id}`)}
-                  className="p-4 rounded-2xl border border-[#E9EAE7] hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.05)] active:scale-[0.99] transition-all cursor-pointer"
+                  className="p-4 rounded-2xl border border-[#D4E3F5] hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_20px_rgba(0,0,0,0.05)] active:scale-[0.99] transition-all cursor-pointer"
                 >
                   <div className="flex items-center justify-between">
                     <h4 className="text-[14px] font-semibold text-black tracking-tight truncate pr-2">{flow.title}</h4>

@@ -144,7 +144,7 @@ export function FlowDetailPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 + i * 0.06, ease: EASE_SMOOTH }}
                   onClick={() => handleSend(text)}
-                  className="px-4 py-3 rounded-xl bg-[#FBFBF9] border border-black/[0.06] text-left hover:bg-[#f0f0f0] active:scale-[0.98] transition-all"
+                  className="px-4 py-3 rounded-xl bg-[#F0F7FF] border border-black/[0.06] text-left hover:bg-[#E8F0FA] active:scale-[0.98] transition-all"
                 >
                   <Icon className="w-4 h-4 text-gray-400 mb-2" />
                   <span className="text-[13px] text-gray-500 font-medium leading-snug block">{text}</span>
@@ -180,7 +180,7 @@ export function FlowDetailPage() {
               {artifacts.length > 0 && (
                 <button
                   onClick={() => setArtifactsOpen(true)}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#f0f0f0] text-gray-600 hover:bg-[#e4e4e4] transition-all"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-gray-600 hover:bg-[#D2E1F2] transition-all"
                 >
                   <FolderOpen className="w-3.5 h-3.5" />
                   <span className="text-[12px] font-semibold">{artifacts.length}</span>
@@ -191,7 +191,7 @@ export function FlowDetailPage() {
               {totalSteps > 0 && (
                 <button
                   onClick={() => setTimelineOpen(true)}
-                  className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#f0f0f0] text-gray-600 hover:bg-[#e4e4e4] transition-all"
+                  className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-gray-600 hover:bg-[#D2E1F2] transition-all"
                 >
                   <ListChecks className="w-3.5 h-3.5" />
                   <div className="flex items-center gap-2">

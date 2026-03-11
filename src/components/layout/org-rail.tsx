@@ -159,7 +159,7 @@ export function OrgRail() {
             onClick={() => setMenuOpen(!menuOpen)}
             className={`w-[26px] h-[26px] rounded-md border-[1.5px] border-dashed flex items-center justify-center transition-colors ${
               menuOpen
-                ? 'border-gray-500 text-gray-600 bg-[#e8e8e8]'
+                ? 'border-gray-500 text-gray-600 bg-[#D8E6F4]'
                 : 'border-gray-400 text-gray-500 hover:border-gray-500 hover:text-gray-600'
             }`}
           >
@@ -173,9 +173,9 @@ export function OrgRail() {
               </div>
               <button
                 onClick={() => { setMenuOpen(false); setCreateOrgOpen(true); setNewOrgName(''); }}
-                className="w-full flex items-center gap-2.5 px-3 py-2.5 hover:bg-[#f5f5f5] transition-colors"
+                className="w-full flex items-center gap-2.5 px-3 py-2.5 hover:bg-[#F2F7FF] transition-colors"
               >
-                <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
+                <div className="w-6 h-6 rounded-md bg-[#D2E1F2] flex items-center justify-center shrink-0">
                   <Building2 className="w-3.5 h-3.5 text-gray-500" />
                 </div>
                 <div className="text-left">
@@ -185,9 +185,9 @@ export function OrgRail() {
               </button>
               <button
                 onClick={() => { setMenuOpen(false); setJoinOrgOpen(true); setInviteLink(''); setConfirmJoinOrg(null); setJoinTab('invite'); }}
-                className="w-full flex items-center gap-2.5 px-3 py-2.5 hover:bg-[#f5f5f5] transition-colors"
+                className="w-full flex items-center gap-2.5 px-3 py-2.5 hover:bg-[#F2F7FF] transition-colors"
               >
-                <div className="w-6 h-6 rounded-md bg-[#e4e4e4] flex items-center justify-center shrink-0">
+                <div className="w-6 h-6 rounded-md bg-[#D2E1F2] flex items-center justify-center shrink-0">
                   <UserPlus className="w-3.5 h-3.5 text-gray-500" />
                 </div>
                 <div className="text-left">
@@ -209,8 +209,8 @@ export function OrgRail() {
             onClick={() => setSettingsOpen(!settingsOpen)}
             className={`w-[26px] h-[26px] rounded-md flex items-center justify-center transition-colors ${
               settingsOpen
-                ? 'bg-[#e4e4e4] text-gray-700'
-                : 'text-gray-600 hover:bg-[#e4e4e4] hover:text-gray-700'
+                ? 'bg-[#D2E1F2] text-gray-700'
+                : 'text-gray-600 hover:bg-[#D2E1F2] hover:text-gray-700'
             }`}
           >
             <Settings className="w-3.5 h-3.5" />
@@ -225,7 +225,7 @@ export function OrgRail() {
                 <button
                   key={key}
                   onClick={() => handleSettingsClick(key)}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-[#f5f5f5] transition-colors"
+                  className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-[#F2F7FF] transition-colors"
                 >
                   <Icon className="w-4 h-4 text-gray-400 shrink-0" />
                   <span className="text-[13px] font-medium text-gray-700">{label}</span>
@@ -280,7 +280,7 @@ export function OrgRail() {
           {/* Avatar upload */}
           <div className="flex flex-col items-center mb-6">
             <div className="relative group">
-              <div className="w-20 h-20 rounded-2xl bg-[#f0f0f0] flex items-center justify-center overflow-hidden">
+              <div className="w-20 h-20 rounded-2xl bg-[#E8F0FA] flex items-center justify-center overflow-hidden">
                 {newOrgName ? (
                   <span className="text-[28px] font-bold text-gray-400">{newOrgName.charAt(0).toUpperCase()}</span>
                 ) : (
@@ -304,7 +304,7 @@ export function OrgRail() {
               value={newOrgName}
               onChange={(e) => setNewOrgName(e.target.value)}
               placeholder="e.g. Acme Inc."
-              className="w-full px-4 py-2.5 text-[14px] font-medium text-black placeholder:text-gray-300 bg-[#f5f5f5] rounded-xl outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
+              className="w-full px-4 py-2.5 text-[14px] font-medium text-black placeholder:text-gray-300 bg-[#F2F7FF] rounded-xl outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
               autoFocus
             />
           </div>
@@ -314,7 +314,7 @@ export function OrgRail() {
         <div className="px-6 py-4 border-t border-gray-100 flex items-center justify-end gap-2.5">
           <button
             onClick={() => setCreateOrgOpen(false)}
-            className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#f5f5f5] transition-colors"
+            className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#F2F7FF] transition-colors"
           >
             Cancel
           </button>
@@ -367,7 +367,7 @@ export function OrgRail() {
           <div className="px-6 py-6">
             <p className="text-[14px] text-gray-400 font-medium mb-4">Paste an invitation link from your teammate to join their organization.</p>
             <div className="flex items-center gap-2.5">
-              <div className="flex-1 flex items-center gap-2.5 px-4 py-3 bg-[#f5f5f5] rounded-xl border border-transparent focus-within:border-gray-200 focus-within:bg-white transition-all">
+              <div className="flex-1 flex items-center gap-2.5 px-4 py-3 bg-[#F2F7FF] rounded-xl border border-transparent focus-within:border-gray-200 focus-within:bg-white transition-all">
                 <Link2 className="w-4 h-4 text-gray-300 shrink-0" />
                 <input
                   type="text"
@@ -399,7 +399,7 @@ export function OrgRail() {
               <button
                 key={org.id}
                 onClick={() => setConfirmJoinOrg(org)}
-                className="w-full flex items-center gap-3.5 p-3.5 rounded-xl border border-gray-100 hover:border-gray-200 hover:bg-[#fafafa] transition-all group"
+                className="w-full flex items-center gap-3.5 p-3.5 rounded-xl border border-gray-100 hover:border-gray-200 hover:bg-[#F5F9FF] transition-all group"
               >
                 <div className={`w-11 h-11 rounded-lg ${org.bg} flex items-center justify-center shrink-0`}>
                   <span className="text-[13px] font-bold text-white">{org.initial}</span>
@@ -464,7 +464,7 @@ export function OrgRail() {
             <div className="px-6 py-4 border-t border-gray-100 flex items-center justify-end gap-2.5">
               <button
                 onClick={() => setConfirmJoinOrg(null)}
-                className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#f5f5f5] transition-colors"
+                className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#F2F7FF] transition-colors"
               >
                 Cancel
               </button>

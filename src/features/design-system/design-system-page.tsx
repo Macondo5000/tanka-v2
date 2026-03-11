@@ -92,7 +92,7 @@ function Showcase({ label, children, inline }: { label?: string; children: React
   return (
     <div className="mb-4">
       {label && <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-3">{label}</p>}
-      <div className={`p-5 rounded-xl border border-gray-100 bg-[#fafafa] ${inline ? 'flex flex-wrap items-center gap-3' : ''}`}>
+      <div className={`p-5 rounded-xl border border-gray-100 bg-[#F5F9FF] ${inline ? 'flex flex-wrap items-center gap-3' : ''}`}>
         {children}
       </div>
     </div>
@@ -158,11 +158,11 @@ export function DesignSystemPage() {
             <Showcase label="System Neutrals">
               <div className="grid grid-cols-4 gap-4">
                 <ColorSwatch color="#f4f4f4" name="Background" value="#f4f4f4" />
-                <ColorSwatch color="#fafafa" name="Sidebar / Card BG" value="#fafafa" />
-                <ColorSwatch color="#f5f5f5" name="Card Fill" value="#f5f5f5" />
-                <ColorSwatch color="#f0f0f0" name="Hover / Tag" value="#f0f0f0" />
-                <ColorSwatch color="#ebebeb" name="Selected" value="#ebebeb" />
-                <ColorSwatch color="#e4e4e4" name="Icon BG" value="#e4e4e4" />
+                <ColorSwatch color="#F5F9FF" name="Sidebar / Card BG" value="#F5F9FF" />
+                <ColorSwatch color="#F2F7FF" name="Card Fill" value="#F2F7FF" />
+                <ColorSwatch color="#E8F0FA" name="Hover / Tag" value="#E8F0FA" />
+                <ColorSwatch color="#DDE9F6" name="Selected" value="#DDE9F6" />
+                <ColorSwatch color="#D2E1F2" name="Icon BG" value="#D2E1F2" />
                 <ColorSwatch color="#d5d5d5" name="Icon Hover" value="#d5d5d5" />
                 <ColorSwatch color="#888888" name="Secondary Text" value="#888888" />
                 <ColorSwatch color="#5d5d5d" name="Body Text" value="#5d5d5d" />

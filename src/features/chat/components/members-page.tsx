@@ -49,7 +49,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
         <ReadOnlySection title="Trait Profile">
           <div className="flex flex-wrap gap-1.5">
             {member.traits.map((t) => (
-              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#f0f0f0] text-[12px] font-semibold text-gray-600">
+              <span key={t} className="px-3 py-1.5 rounded-lg bg-[#E8F0FA] text-[12px] font-semibold text-gray-600">
                 {t}
               </span>
             ))}
@@ -99,7 +99,7 @@ function MemberProfileModal({ member, onClose }: { member: OrgMember; onClose: (
               <Tag className="w-3.5 h-3.5 text-gray-400 shrink-0 mt-0.5" />
               <div className="flex flex-wrap gap-1.5">
                 {member.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 bg-[#f0f0f0] rounded-md text-[12px] font-medium text-gray-600">
+                  <span key={tag} className="px-2 py-0.5 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
                     {tag}
                   </span>
                 ))}
@@ -147,7 +147,7 @@ function ForwardModal({ member, onClose }: { member: OrgMember; onClose: () => v
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search chats..."
-              className="w-full pl-9 pr-3 py-2.5 bg-[#f5f5f5] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
+              className="w-full pl-9 pr-3 py-2.5 bg-[#F2F7FF] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
             />
           </div>
         </div>
@@ -162,7 +162,7 @@ function ForwardModal({ member, onClose }: { member: OrgMember; onClose: () => v
                   key={ch.id}
                   onClick={() => toggle(ch.id)}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
-                    isSelected ? 'bg-[#f0f0f0]' : 'hover:bg-[#f5f5f5]'
+                    isSelected ? 'bg-[#E8F0FA]' : 'hover:bg-[#F2F7FF]'
                   }`}
                 >
                   {/* Avatar */}
@@ -243,7 +243,7 @@ function MemberCard({ member }: { member: OrgMember }) {
       <div className="h-full flex flex-col overflow-y-auto no-scrollbar">
         {/* Forward — top-right toolbar */}
         <div className="flex justify-end px-4 pt-3 shrink-0">
-          <button onClick={() => setForwardOpen(true)} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-[#f0f0f0] transition-colors text-gray-400 hover:text-gray-600" title="Forward Card">
+          <button onClick={() => setForwardOpen(true)} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-[#E8F0FA] transition-colors text-gray-400 hover:text-gray-600" title="Forward Card">
             <Forward className="w-4 h-4" />
           </button>
         </div>
@@ -274,9 +274,9 @@ function MemberCard({ member }: { member: OrgMember }) {
           {CARD_ACTIONS.map(({ key, icon: Icon, label }) => (
             <button
               key={key}
-              className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-[#f5f5f5] transition-all"
+              className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-[#F2F7FF] transition-all"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#f0f0f0] flex items-center justify-center">
+              <div className="w-11 h-11 rounded-xl bg-[#E8F0FA] flex items-center justify-center">
                 <Icon className="w-[18px] h-[18px] text-gray-600" />
               </div>
               <span className="text-[12px] font-medium text-gray-500">{label}</span>
@@ -284,9 +284,9 @@ function MemberCard({ member }: { member: OrgMember }) {
           ))}
           <button
             onClick={() => setProfileOpen(true)}
-            className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-[#f5f5f5] transition-all"
+            className="flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-[#F2F7FF] transition-all"
           >
-            <div className="w-11 h-11 rounded-xl bg-[#f0f0f0] flex items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-[#E8F0FA] flex items-center justify-center">
               <User className="w-[18px] h-[18px] text-gray-600" />
             </div>
             <span className="text-[12px] font-medium text-gray-500">Profile</span>
@@ -296,7 +296,7 @@ function MemberCard({ member }: { member: OrgMember }) {
         {/* Info sections */}
         <div className="space-y-4 px-5 pt-5 flex-1">
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
               <Mail className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
@@ -306,7 +306,7 @@ function MemberCard({ member }: { member: OrgMember }) {
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
               <Users className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
@@ -316,14 +316,14 @@ function MemberCard({ member }: { member: OrgMember }) {
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
               <Tag className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
               <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">Tag</p>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {member.tags.map((tag) => (
-                  <span key={tag} className="px-2.5 py-1 bg-[#f0f0f0] rounded-md text-[12px] font-medium text-gray-600">
+                  <span key={tag} className="px-2.5 py-1 bg-[#E8F0FA] rounded-md text-[12px] font-medium text-gray-600">
                     {tag}
                   </span>
                 ))}
@@ -332,7 +332,7 @@ function MemberCard({ member }: { member: OrgMember }) {
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#f5f5f5] flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-8 h-8 rounded-lg bg-[#F2F7FF] flex items-center justify-center shrink-0 mt-0.5">
               <Briefcase className="w-3.5 h-3.5 text-gray-400" />
             </div>
             <div className="min-w-0">
@@ -402,12 +402,12 @@ export function MembersPage() {
   return (
     <div className="h-full flex gap-2">
       {/* ── Left column: departments ── */}
-      <div className="shrink-0 bg-[#FBFBF9] rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex flex-col" style={{ width: SIDEBAR_WIDTH }}>
+      <div className="shrink-0 bg-[#F0F7FF] rounded-[10px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] flex flex-col" style={{ width: SIDEBAR_WIDTH }}>
         <div className="px-4 pt-4 pb-2 shrink-0">
           <div className="flex items-center gap-2 mb-3">
             <button
               onClick={() => navigate('/chat')}
-              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#ebebeb] transition-colors text-black shrink-0"
+              className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#DDE9F6] transition-colors text-black shrink-0"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
@@ -427,7 +427,7 @@ export function MembersPage() {
                   key={department}
                   onClick={() => { setActiveDept(department); setSearch(''); }}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-all ${
-                    isActive ? 'bg-[#ebebeb] text-black' : 'text-gray-600 hover:bg-[#f0f0f0]'
+                    isActive ? 'bg-[#DDE9F6] text-black' : 'text-gray-600 hover:bg-[#E8F0FA]'
                   }`}
                 >
                   <span className={`text-[13px] font-semibold truncate ${isActive ? 'text-black' : ''}`}>
@@ -456,7 +456,7 @@ export function MembersPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name, role, or department..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#f5f5f5] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#F2F7FF] rounded-xl text-[13px] font-medium text-black placeholder:text-gray-300 outline-none border border-transparent focus:border-gray-200 focus:bg-white transition-all"
             />
           </div>
           {isSearching ? (
@@ -485,7 +485,7 @@ export function MembersPage() {
                   transition={{ delay: index * 0.02, ease: EASE_SMOOTH }}
                   onClick={() => setSelectedMember(m)}
                   className={`flex items-center gap-3 px-3 py-1.5 rounded-xl transition-all group cursor-pointer ${
-                    isActive ? 'bg-[#ebebeb]' : 'hover:bg-[#f5f5f5]'
+                    isActive ? 'bg-[#DDE9F6]' : 'hover:bg-[#F2F7FF]'
                   }`}
                 >
                   <div className="relative shrink-0">
@@ -502,7 +502,7 @@ export function MembersPage() {
                   </div>
                   <button
                     onClick={(e) => e.stopPropagation()}
-                    className="w-7 h-7 rounded-lg bg-transparent group-hover:bg-[#e4e4e4] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all shrink-0"
+                    className="w-7 h-7 rounded-lg bg-transparent group-hover:bg-[#D2E1F2] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all shrink-0"
                   >
                     <MessageSquare className="w-3.5 h-3.5 text-gray-500" />
                   </button>

@@ -33,7 +33,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
               {/* Connection line */}
               <div className="flex items-center gap-1.5">
                 <div className="w-8 h-px bg-gray-200" />
-                <div className="w-6 h-6 rounded-full bg-[#ebebeb] flex items-center justify-center">
+                <div className="w-6 h-6 rounded-full bg-[#DDE9F6] flex items-center justify-center">
                   <Link2 className="w-3 h-3 text-gray-400" />
                 </div>
                 <div className="w-8 h-px bg-gray-200" />
@@ -101,7 +101,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
               <div className="space-y-2.5">
                 {app.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-2.5">
-                    <div className="w-5 h-5 rounded-md bg-[#f0f0f0] flex items-center justify-center shrink-0">
+                    <div className="w-5 h-5 rounded-md bg-[#E8F0FA] flex items-center justify-center shrink-0">
                       <Check className="w-3 h-3 text-gray-400" />
                     </div>
                     <span className="text-[14px] text-gray-600 font-medium">{feature}</span>

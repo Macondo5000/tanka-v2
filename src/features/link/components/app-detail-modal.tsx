@@ -65,7 +65,7 @@ export function AppDetailModal({ app, onClose, onToggleConnection }: AppDetailMo
           <div className="px-6 py-4 border-t border-gray-100 flex justify-end gap-2.5">
             <button
               onClick={onClose}
-              className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#f5f5f5] transition-colors"
+              className="px-4 py-2.5 text-[14px] font-semibold text-gray-500 rounded-lg border border-gray-200 hover:bg-[#F2F7FF] transition-colors"
             >
               Cancel
             </button>

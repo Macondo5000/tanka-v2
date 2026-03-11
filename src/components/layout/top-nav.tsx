@@ -23,7 +23,7 @@ export function TopNav() {
   }, []);
 
   return (
-    <header className="h-11 px-4 bg-[#EFF0EB] flex items-center justify-between sticky top-0 z-20 shrink-0">
+    <header className="h-11 px-4 bg-[#E6F2FE] flex items-center justify-between sticky top-0 z-20 shrink-0">
       {/* Left: Toggle (only when collapsed) + Org tag */}
       <div className="flex items-center gap-1.5">
         {orgRailCollapsed && (
@@ -68,7 +68,7 @@ export function TopNav() {
               </div>
               <button
                 onClick={() => { setUserMenuOpen(false); navigate('/profile'); }}
-                className="mt-3.5 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-[12px] font-semibold text-black hover:bg-[#f5f5f5] transition-colors"
+                className="mt-3.5 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 text-[12px] font-semibold text-black hover:bg-[#F2F7FF] transition-colors"
               >
                 View Profile
                 <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
@@ -82,7 +82,7 @@ export function TopNav() {
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Current Plan</span>
               </div>
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#f5f5f5]">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-[#F2F7FF]">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
                     <Zap className="w-4 h-4 text-white" />
@@ -107,7 +107,7 @@ export function TopNav() {
               ].map(({ icon: Icon, label }) => (
                 <button
                   key={label}
-                  className="w-full flex items-center gap-3 px-5 py-2.5 text-left text-[13px] font-medium text-gray-600 hover:bg-[#f5f5f5] transition-colors"
+                  className="w-full flex items-center gap-3 px-5 py-2.5 text-left text-[13px] font-medium text-gray-600 hover:bg-[#F2F7FF] transition-colors"
                 >
                   <Icon className="w-4 h-4 text-gray-400" />
                   {label}

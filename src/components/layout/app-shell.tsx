@@ -20,7 +20,7 @@ export function AppShell() {
   }, [location.pathname, setActiveModule]);
 
   return (
-    <div className="h-screen flex flex-col bg-[#EFF0EB] overflow-hidden">
+    <div className="h-screen flex flex-col bg-[#E6F2FE] overflow-hidden">
       {/* Version update banner — full width top */}
       {showBanner && (
         <div className="shrink-0 px-2 pt-2">

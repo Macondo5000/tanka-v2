@@ -53,7 +53,7 @@ export function FlowArtifactsModal({ open, onClose, artifacts, steps, flowTitle 
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.03, duration: 0.2 }}
-                  className="flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-[#f5f5f5] transition-colors cursor-pointer group"
+                  className="flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-[#F2F7FF] transition-colors cursor-pointer group"
                 >
                   {/* Icon */}
                   <div className={`w-9 h-9 rounded-lg ${config.bg} flex items-center justify-center shrink-0`}>
@@ -89,11 +89,11 @@ export function FlowArtifactsModal({ open, onClose, artifacts, steps, flowTitle 
                   {/* Action */}
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0 pt-1">
                     {artifact.type === 'website' ? (
-                      <div className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#ebebeb] transition-colors">
+                      <div className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#DDE9F6] transition-colors">
                         <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
                       </div>
                     ) : (
-                      <div className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#ebebeb] transition-colors">
+                      <div className="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-[#DDE9F6] transition-colors">
                         <Download className="w-3.5 h-3.5 text-gray-400" />
                       </div>
                     )}
