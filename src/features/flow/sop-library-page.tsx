@@ -160,7 +160,7 @@ export function SOPLibraryPage() {
       <div className="flex-1 overflow-y-auto no-scrollbar">
         <div className="max-w-[800px] mx-auto px-8 pt-6">
           {/* Header */}
-          <h2 className="text-[22px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>SOP Library</h2>
+          <h2 className="text-[22px] font-medium tracking-tight text-black" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>SOP Library</h2>
           <p className="text-[14px] text-gray-400 font-normal mt-0.5">Pre-built workflows to automate recurring processes.</p>
 
           {/* Tabs — tag style */}

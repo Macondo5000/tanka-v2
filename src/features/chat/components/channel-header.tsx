@@ -39,7 +39,7 @@ export function ChannelHeader({ channel }: ChannelHeaderProps) {
           </div>
         )}
         <div className="flex items-center gap-2.5">
-          <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>{channel.name}</h3>
+          <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{channel.name}</h3>
           {channel.type === 'dm' ? (
             dmPeer?.isOnline ? (
               <span className="flex items-center gap-1.5">

@@ -1,4 +1,4 @@
-import { Plus, Sparkles, StickyNote, Users, BarChart3, Swords } from 'lucide-react';
+import { Plus, Sparkles, Users, Swords } from 'lucide-react';
 import { useChatStore } from '@/store/chat-store';
 import { useNavigate } from 'react-router';
 import { SIDEBAR_WIDTH } from '@/lib/constants';
@@ -6,9 +6,7 @@ import { getAvatarColor, getAvatarLetter } from '@/lib/avatar';
 import { SidebarTabs } from '@/components/shared/sidebar-tabs';
 
 const CHAT_TOOLS = [
-  { key: 'memo', label: 'Memo', icon: StickyNote },
   { key: 'members', label: 'Members', icon: Users },
-  { key: 'vote', label: 'Vote', icon: BarChart3 },
   { key: 'arena', label: 'Arena', icon: Swords },
 ];
 

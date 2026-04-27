@@ -1,11 +1,13 @@
 import { Outlet, useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronsRight } from 'lucide-react';
+import { ChevronsRight, X } from 'lucide-react';
 import { OrgRail } from './org-rail';
 import { useAppStore } from '@/store/app-store';
 import { useUIStore } from '@/store/ui-store';
 import { SPRING } from '@/lib/constants';
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function AppShell() {
   const location = useLocation();
@@ -21,31 +23,45 @@ export function AppShell() {
 
   return (
     <div className="h-screen flex flex-col bg-gradient-to-b from-[#E6F2FE] via-[#EFF6FF] to-white overflow-hidden">
-      {/* Version update banner — full width top */}
-      {showBanner && (
-        <div className="shrink-0 px-2 pt-2">
-          <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-[#D7F5FE] border border-[#7DD3FC]">
-            <p className="text-[13px] text-black">
-              <span className="font-semibold">Tanka v2.4 is available</span>
-              <span className="font-normal ml-1.5">— Includes AI Side Whisper, Smart Vote, and performance improvements.</span>
-            </p>
-            <div className="flex items-center gap-2 shrink-0 ml-4">
-              <button
-                onClick={() => setShowBanner(false)}
-                className="px-3 py-1.5 rounded-lg text-[12px] font-semibold text-gray-500 hover:text-black hover:bg-black/5 transition-colors"
-              >
-                Skip
-              </button>
-              <button
-                onClick={() => setShowBanner(false)}
-                className="px-4 py-1.5 rounded-lg bg-black text-white text-[12px] font-semibold hover:bg-gray-800 transition-colors"
-              >
-                Update
-              </button>
+      {/* Version update banner — refined */}
+      <AnimatePresence>
+        {showBanner && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22, ease }}
+            className="shrink-0 overflow-hidden"
+          >
+            <div className="flex items-center justify-between px-4 py-2 bg-white/70 backdrop-blur-sm border-b border-black/[0.06]">
+              <p className="text-[12.5px] text-gray-600">
+                <span className="font-semibold text-gray-800">Tanka v2.4 is available</span>
+                <span className="ml-1.5 text-gray-500">— AI Side Whisper, Smart Vote, and performance improvements.</span>
+              </p>
+              <div className="flex items-center gap-1.5 shrink-0 ml-4">
+                <button
+                  onClick={() => setShowBanner(false)}
+                  className="px-3 py-1 rounded-md text-[12px] font-medium text-gray-500 hover:bg-gray-100 transition-colors"
+                >
+                  Later
+                </button>
+                <button
+                  onClick={() => setShowBanner(false)}
+                  className="px-3 py-1 rounded-md bg-gray-900 text-white text-[12px] font-medium hover:bg-black transition-colors"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => setShowBanner(false)}
+                  className="ml-1 w-6 h-6 flex items-center justify-center rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="flex-1 flex min-h-0">
         {/* Left: Org Rail — collapsible */}
@@ -76,10 +92,21 @@ export function AppShell() {
           </div>
         )}
 
-        {/* Content */}
+        {/* Content with route transition */}
         <div className="flex-1 flex flex-col min-w-0 py-2">
           <main className="flex-1 overflow-hidden px-3 pb-3 pt-1">
-            <Outlet />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={location.pathname}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.18, ease }}
+                className="h-full"
+              >
+                <Outlet />
+              </motion.div>
+            </AnimatePresence>
           </main>
         </div>
       </div>

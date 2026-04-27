@@ -53,7 +53,7 @@ export function LinkDetail({ app, onBack, onToggleConnection }: LinkDetailProps)
 
           {/* Title + description */}
           <div className="text-center mb-8">
-            <h2 className="text-[20px] font-semibold text-black tracking-tight mb-2" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
+            <h2 className="text-[20px] font-semibold text-black tracking-tight mb-2" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
               {app.name} × Tanka
             </h2>
             <p className="text-[14px] text-gray-400 leading-relaxed max-w-[480px] mx-auto">

@@ -1,5 +1,8 @@
 import { createBrowserRouter, Navigate } from 'react-router';
 import { AppShell } from '@/components/layout/app-shell';
+import { RequireAuth } from '@/components/layout/require-auth';
+import { LoginPage } from '@/features/auth/login-page';
+import { RegisterPage } from '@/features/auth/register-page';
 import { ChatPage } from '@/features/chat/chat-page';
 import { FlowPage } from '@/features/flow/flow-page';
 import { FlowBoardPage } from '@/features/flow/flow-board-page';
@@ -14,57 +17,70 @@ import { ProfilePage } from '@/features/profile/profile-page';
 
 export const router = createBrowserRouter([
   {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
+  },
+  {
     path: '/',
-    element: <AppShell />,
+    element: <RequireAuth />,
     children: [
       {
-        index: true,
-        element: <Navigate to="/flow/new" replace />,
-      },
-      {
-        path: 'flow',
-        element: <FlowPage />,
+        element: <AppShell />,
         children: [
           {
             index: true,
             element: <Navigate to="/flow/new" replace />,
           },
           {
-            path: 'sop-library',
-            element: <SOPLibraryPage />,
+            path: 'flow',
+            element: <FlowPage />,
+            children: [
+              {
+                index: true,
+                element: <Navigate to="/flow/new" replace />,
+              },
+              {
+                path: 'sop-library',
+                element: <SOPLibraryPage />,
+              },
+              {
+                path: 'follow-up',
+                element: <FollowUpPage />,
+              },
+              {
+                path: 'assets',
+                element: <AssetsPage />,
+              },
+              {
+                path: ':flowId',
+                element: <FlowDetailPage />,
+              },
+            ],
           },
           {
-            path: 'follow-up',
-            element: <FollowUpPage />,
+            path: 'flow/board',
+            element: <FlowBoardPage />,
           },
           {
-            path: 'assets',
-            element: <AssetsPage />,
+            path: 'chat',
+            element: <ChatPage />,
+            children: [
+              { path: ':channelId', element: null },
+            ],
           },
           {
-            path: ':flowId',
-            element: <FlowDetailPage />,
+            path: 'chat/members',
+            element: <MembersPage />,
+          },
+          {
+            path: 'link',
+            element: <LinkPage />,
           },
         ],
-      },
-      {
-        path: 'flow/board',
-        element: <FlowBoardPage />,
-      },
-      {
-        path: 'chat',
-        element: <ChatPage />,
-        children: [
-          { path: ':channelId', element: null },
-        ],
-      },
-      {
-        path: 'chat/members',
-        element: <MembersPage />,
-      },
-      {
-        path: 'link',
-        element: <LinkPage />,
       },
     ],
   },

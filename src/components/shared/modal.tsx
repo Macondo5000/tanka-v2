@@ -56,7 +56,7 @@ export function Modal({ open, onClose, size = 'md', title, subtitle, children }:
               <div className="px-6 pt-5 pb-4 shrink-0 border-b border-gray-100">
                 <div className="flex items-center justify-between">
                   <div className="min-w-0">
-                    <h3 className="text-[18px] font-semibold tracking-tight text-black truncate" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>{title}</h3>
+                    <h3 className="text-[18px] font-semibold tracking-tight text-black truncate" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{title}</h3>
                     {subtitle && (
                       <p className="text-[14px] text-gray-400 font-medium mt-0.5 truncate">{subtitle}</p>
                     )}

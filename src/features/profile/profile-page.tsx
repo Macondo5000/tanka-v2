@@ -186,7 +186,7 @@ export function ProfilePage() {
                   <img src="/koko.jpg" alt="avatar" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h1 className="text-[22px] font-semibold text-black tracking-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
+                  <h1 className="text-[22px] font-semibold text-black tracking-tight" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
                     {profile.firstName} {profile.lastName}
                   </h1>
                   <p className="text-[14px] text-gray-400 font-medium mt-0.5">{profile.role}</p>

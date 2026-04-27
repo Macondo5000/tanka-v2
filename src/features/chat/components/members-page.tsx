@@ -260,7 +260,7 @@ function MemberCard({ member }: { member: OrgMember }) {
               <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-[2.5px] border-white" />
             )}
           </div>
-          <h3 className="text-[18px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>{member.name}</h3>
+          <h3 className="text-[18px] font-medium tracking-tight text-black" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{member.name}</h3>
           <p className="text-[14px] text-gray-400 font-medium mt-0.5">{member.role}</p>
           <span className={`text-[12px] font-medium mt-1.5 px-2.5 py-0.5 rounded-full ${
             member.isOnline ? 'bg-emerald-50 text-emerald-600' : 'bg-gray-100 text-gray-400'

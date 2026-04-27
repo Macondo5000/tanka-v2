@@ -24,7 +24,7 @@ export function DetailPanel({ channel }: DetailPanelProps) {
           <div className="p-5" style={{ width: DETAIL_PANEL_WIDTH }}>
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>Details</h3>
+              <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>Details</h3>
               <button onClick={toggleDetailPanel} className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors">
                 <X className="w-4 h-4 text-gray-400" />
               </button>

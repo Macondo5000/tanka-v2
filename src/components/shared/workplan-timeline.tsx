@@ -57,7 +57,7 @@ export function WorkplanTimeline({ steps, title }: WorkplanTimelineProps) {
     <div className="space-y-0 relative">
       {title && (
         <div className="mb-4">
-          <h3 className="text-[16px] font-semibold text-[#0d0d0d] leading-tight" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>{title}</h3>
+          <h3 className="text-[16px] font-semibold text-[#0d0d0d] leading-tight" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>{title}</h3>
           <div className="flex items-center gap-2 mt-1.5">
             <div className="flex items-center gap-1 px-2 py-0.5 bg-emerald-50 rounded-full">
               <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />

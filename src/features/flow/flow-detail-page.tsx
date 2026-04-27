@@ -120,7 +120,7 @@ export function FlowDetailPage() {
           >
             {/* Greeting */}
             <div className="text-center mb-6">
-              <h1 className="text-[36px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
+              <h1 className="text-[36px] font-medium tracking-tight text-black" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
                 What's your agenda, Koko?
               </h1>
             </div>
@@ -167,7 +167,7 @@ export function FlowDetailPage() {
         <div className="px-8 py-3 shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 min-w-0">
-              <h2 className="text-[18px] font-medium tracking-tight text-black truncate" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
+              <h2 className="text-[18px] font-medium tracking-tight text-black truncate" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
                 {currentFlow.title}
               </h2>
               <StatusBadge status={currentFlow.status} size="md" showDot />

@@ -50,7 +50,7 @@ export function LinkPage() {
           <div className="h-full overflow-y-auto no-scrollbar">
             <div className="max-w-[800px] mx-auto px-8 pt-6">
               {/* Header */}
-              <h2 className="text-[22px] font-medium tracking-tight text-black" style={{ fontFamily: "'Roboto Serif', Georgia, serif" }}>
+              <h2 className="text-[22px] font-medium tracking-tight text-black" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
                 {linkFilter === 'linked' ? 'Linked' : 'Unlinked'} Apps
               </h2>
               <p className="text-[14px] text-gray-400 font-medium mt-0.5">
